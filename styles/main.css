@@ -113,10 +113,49 @@
 		.slide .active{ opacity: 1 }
 	/*Contenido Principal*/
 	/*Pie de Pagina*/
+		#footer{
+			padding: 1rem;
+			color: #eee;
+			background: #448 linear-gradient(#224, #448);
+		}
 	/*Formulario de Contacto*/
+		#contact{ 
+			display: grid;
+			margin: auto;
+		}
+		#contact label{
+			height: 0;
+			margin-top: .5rem;
+			padding-left: .5rem;
+			overflow: hidden;
+		}
+		#contact label::after{
+			content: ' *';
+			color: tomato;
+		}
+		#contact input,
+		#contact textarea{
+			width: 100%;
+			outline: none;
+			border-radius: .5rem;
+			border: .2rem solid transparent;
+			padding: .5rem 1rem;
+			font-size: 1rem;
+		}
+		#contact textarea{
+			min-height: 8rem;
+		}
+		#contact .btn{
+			margin: .5rem 0 .2rem auto;
+			padding: .5rem 1rem;
+		}
 	/*Redes Sociales*/
 /*Pantallas sm Smartphones*/
-
+	@media screen and (min-width: 576px){
+	/*Formulario de Contacto*/
+		#contact{ max-width: 540px }
+		#contact label{ height: auto }
+	}
 /*Pantallas md Tablets*/
 	@media screen and (min-width: 768px){
 	/*Barra de Navegacion*/
@@ -129,6 +168,8 @@
 			height: auto;
 			font-size: 1.5rem;
 		}
+	/*Formulario de contacto*/
+		#contact{ max-width: 768px }
 	}
 /*Pantallas lg Desktop*/
 	@media screen and (min-width: 992px){
