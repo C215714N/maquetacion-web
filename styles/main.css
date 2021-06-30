@@ -31,11 +31,14 @@
 		.opacity{ opacity: .7 }
 	/*Barra de Navegacion*/
 		nav{
+			position: sticky;
+			top: 0;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			flex-wrap: wrap;
 			background: #448 linear-gradient(#448, #224);
+			z-index: 2;
 		}
 		nav a{
 			display: block;
@@ -81,4 +84,17 @@
 		}
 	}
 /*Pantallas lg Desktop*/
-/*Pantallas xl HD Desktop*/
+	@media screen and (min-width: 992px){
+	/*Barra de Navegacion*/
+		.menu a{ align-items: center }
+		nav span{ 
+			display: block;
+			font-size: 1rem;
+		}
+	}
+/*Pantallas xl HD Desktop*/	
+	@media screen and (min-width: 1200px){
+	/*Barra de Navegacion*/
+		nav{ justify-content: space-around }
+	}
+
