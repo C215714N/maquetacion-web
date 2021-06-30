@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Maquetación CSS3</title>
+	<link rel="icon" href="assets/icon/cr.png">
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+	<!--Barra de navegacion-->
+	<nav>
+		<a class="logo" href="">css</a>
+		<button class="btn">&equiv;</button>
+		<ul class="menu">
+			<li>
+				<a class="icon-home" href="#" title="Inicio"><span>inicio</span></a>
+			</li>
+			<li>
+				<a class="icon-about" href="about.html" title="Acerca"><span>acerca</span></a>
+			</li>
+			<li>
+				<a class="icon-gallery" href="gallery.html" title="Galeria"><span>galeria</span></a>
+			</li>
+			<li>
+				<a class="icon-contact" href="#contact" title="Contacto"><span>contacto</span></a>
+			</li>
+		</ul>
+		<a class="icon-back" href=""></a>
+	</nav>
+	<!--Cabecera-->
+	<header id="header">
+		<div class="header">
+			<h1>Cristian Racedo</h1>
+			<p>
+				<strong>Presenta: </strong>
+				Maquetacion Web
+			</p>
+		</div>
+		<!--Galeria de Imagenes-->
+		<ul class="slide">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<button class="icon-prev"></button>
+		<button class="icon-next"></button>
+	</header>
+	<!--Contenido Principal-->
+	<main>
+		
+	</main>
+	<!--Pie de Pagina-->
+	<footer id="footer">
+		<!--Formulario de Contacto-->
+		<form id="contact" action="" method="POST">
+			<h2>Informacion de Contacto</h2>
+			<label for="contactName">Nombre</label>
+			<input 
+				id="contactName" 
+				name="contactName"
+				type="text" 
+				maxlength="50" 
+				pattern="[A-Z a-z]{3,50}"
+				title="Ingrese su nombre completo, sin numeros ni simbolos" 
+				placeholder="Nombre(*): Cristian Racedo" 
+				required />
+			<div class="valid">
+				
+			</div>
+			<label for="contactEmail">Correo</label>
+			<input 
+				id="contactEmail" 
+				name="contactEmail"
+				type="email"
+				minlength="8" 
+				title="Ingrese su correo respetando el formato usuario@servidor" 
+				placeholder="Correo(*):cristiandracedo@hotmail.com" 
+				required />
+			<div class="valid">
+				
+			</div>
+			<label for="contactPhone">Telefono</label>
+			<input 
+				id="contactPhone" 
+				name="contactPhone"
+				type="tel" 
+				pattern="[\(]\d{3,6}[\)]\d{3,6}[\-]\d{3,6}" 
+				title="Ingrese su numero respetando el formato (5411)5659-1548" 
+				placeholder="Telefono(*): (5411)5659-1548" 
+				required/>
+			<div class="valid">
+				
+			</div>
+			<label for="contactConsult">Consulta</label>
+			<textarea 
+				id="contactConsult"
+				name="contactConsult"  
+				minlength="10" 
+				maxlength="200"
+				title="Realice una consulta en base al tema seleccionado" 
+				required></textarea>
+			<button class="btn">enviar</button>
+		</form>
+		<!--Redes Sociales-->
+		<div class="social">
+			<a class="facebook" href="https://facebook.com" target="_blank"></a>
+			<a class="twitter" href="https://twitter.com" target="_blank"></a>
+			<a class="instagram" href="https://instagram.com" target="_blank"></a>
+			<a class="linkedin" href="https://linkedin.com" target="_blank"></a>
+			<a class="youtube" href="https://youtube.com" target="_blank"></a>
+			<a class="github" href="https://github.com/c215714n/EducacionIT/tree/maquetacion-WEB" target="_blank"></a>
+		</div>
+		<p class="copy">
+			Todos los derechos reservados | 
+			<a href="">Cristian Racedo</a>
+			&amp; Compañia
+		</p>
+	</footer>
+	<script src="scripts/main.js"></script>
+</body>
+</html>
