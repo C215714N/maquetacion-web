@@ -1,4 +1,6 @@
 /*Pantallas xs Mobile Firt*/
+	/*Reglas Generales*/
+		@import url('icomoon.css');
 	/*Formato General*/
 		*{ 
 			box-sizing: border-box;
@@ -46,8 +48,10 @@
 			height: 0;
 			padding: 0;
 			overflow: hidden;
+			list-style: none;
 		}
 		.menu.active{ height: auto; }
+		.menu span{ padding: .5rem }
 		.menu a:hover{ background-color: rgba(68,68,168,.5) }
 		.icon-back{
 			position: fixed;
@@ -64,7 +68,17 @@
 /*Pantallas sm Smartphones*/
 
 /*Pantallas md Tablets*/
-
+	@media screen and (min-width: 768px){
+	/*Barra de Navegacion*/
+		nav .btn,
+		nav span{ display: none }
+		.menu,
+		.menu a{
+			display: flex;
+			width: auto;
+			height: auto;
+			font-size: 1.5rem;
+		}
+	}
 /*Pantallas lg Desktop*/
-
 /*Pantallas xl HD Desktop*/
