@@ -1,0 +1,70 @@
+/*Pantallas xs Mobile Firt*/
+	/*Formato General*/
+		*{ 
+			box-sizing: border-box;
+			font-family: 'Raleway', 'century gothic', 'segoe ui', sans-serif;
+		}
+		body,
+		h1,
+		h2,
+		h3,
+		.menu{ margin: 0 }
+		.logo{
+			font-size: 1.5rem;
+			font-weight: bolder;
+		}
+		.btn{
+			margin: .5rem;
+			border-radius: .25rem;
+			border: .1rem solid #eee;
+			color: #eee;
+			background-color: transparent;
+			font-size: 1.2rem;
+		}
+		.btn:hover{ 
+			color: #448;
+			background-color: #eee;
+		}
+		.opacity{ opacity: .3 }
+		.opacity{ opacity: .7 }
+	/*Barra de Navegacion*/
+		nav{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			background: #448 linear-gradient(#448, #224);
+		}
+		nav a{
+			display: block;
+			padding: .5rem;
+			color: #eee;
+			text-decoration: none;
+		}
+		.menu{ 
+			width: 100%;
+			height: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		.menu.active{ height: auto; }
+		.menu a:hover{ background-color: rgba(68,68,168,.5) }
+		.icon-back{
+			position: fixed;
+			right: .5rem;
+			bottom: .5rem;
+			background-color: #333;
+		}
+	/*Cabecera*/
+	/*Galeria de Imagenes*/
+	/*Contenido Principal*/
+	/*Pie de Pagina*/
+	/*Formulario de Contacto*/
+	/*Redes Sociales*/
+/*Pantallas sm Smartphones*/
+
+/*Pantallas md Tablets*/
+
+/*Pantallas lg Desktop*/
+
+/*Pantallas xl HD Desktop*/
