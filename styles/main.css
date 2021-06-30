@@ -28,7 +28,7 @@
 			background-color: #eee;
 		}
 		.opacity{ opacity: .3 }
-		.opacity{ opacity: .7 }
+		.opacity:hover;{ opacity: .7 }
 	/*Barra de Navegacion*/
 		nav{
 			position: sticky;
@@ -60,6 +60,7 @@
 			position: fixed;
 			right: .5rem;
 			bottom: .5rem;
+			border-radius: 1rem;
 			background-color: #333;
 		}
 	/*Cabecera*/
