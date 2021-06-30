@@ -10,7 +10,9 @@
 		h1,
 		h2,
 		h3,
-		.menu{ margin: 0 }
+		.menu,
+		.slide,
+		.header *{ margin: 0 }
 		.logo{
 			font-size: 1.5rem;
 			font-weight: bolder;
@@ -27,6 +29,7 @@
 			color: #448;
 			background-color: #eee;
 		}
+		button{ cursor: pointer }
 		.opacity{ opacity: .3 }
 		.opacity:hover;{ opacity: .7 }
 	/*Barra de Navegacion*/
@@ -64,7 +67,50 @@
 			background-color: #333;
 		}
 	/*Cabecera*/
+		#header{
+			position: relative;
+			display: grid;
+			justify-content: center;
+			align-content: center;
+			height: 100vh;
+			min-height: 300px;
+			max-height: 600px;
+			padding: 1rem;
+			color: #eee;
+			text-align: center;
+			text-shadow: 0 0 .5rem #333;
+			font-size: calc(2vw + .8rem);
+		}
+		#header button{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			outline: none;
+			border: none;
+			color: #eee;
+			background-color: transparent;
+			font-size: calc(2vw + .8rem);
+		}
+		#header .icon-prev{ left: 0 }
+		#header .icon-next{ right: 0 }
 	/*Galeria de Imagenes*/
+		.slide li{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			z-index: -1;
+		}
+		.slide li:nth-child(1){ background-image: linear-gradient(#124,#36c) }
+		.slide li:nth-child(2){ background-image: linear-gradient(#142,#3c6) }
+		.slide li:nth-child(3){ background-image: linear-gradient(#412,#c36) }
+		.slide li:nth-child(4){ background-image: linear-gradient(#421,#c63) }
+		.slide .active{ opacity: 1 }
 	/*Contenido Principal*/
 	/*Pie de Pagina*/
 	/*Formulario de Contacto*/
