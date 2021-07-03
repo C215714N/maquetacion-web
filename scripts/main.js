@@ -24,3 +24,8 @@
 						i > 0 ?	newItem = itemList[i - 1] : newItem = itemList[itemList.length -1]
 		}	}	} newItem.classList.add('active')
 	}
+/*Mapa de Contacto*/
+	map = document.querySelector('#footer iframe')
+	sizeBtn = document.querySelector('#footer .btn.opacity')
+
+	sizeBtn.onclick = () => map.classList.toggle('active') ? sizeBtn.classList.replace('icon-max', 'icon-min') : sizeBtn.classList.replace('icon-min', 'icon-max')
