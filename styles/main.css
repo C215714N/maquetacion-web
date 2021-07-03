@@ -171,17 +171,29 @@
 			width: 100%;
 			outline: none;
 			border-radius: .5rem;
-			border: .2rem solid transparent;
+			border: .1rem solid transparent;
 			padding: .5rem 1rem;
 			font-size: 1rem;
 		}
-		#contact textarea{
-			min-height: 8rem;
-		}
+		#contact textarea{ min-height: 8rem }
 		#contact .btn{
 			margin: .5rem 0 .2rem auto;
 			padding: .5rem 1rem;
 		}
+		#contact .valid{
+			display: none;
+			margin: -.25rem 0;
+			padding: .5rem;
+			color: #eee;
+			background-color: #333;
+		}
+		/*Validacion de campos*/
+			#contact :focus{ border-color: #333 }
+			#contact :focus + .valid{ display: block }
+			#contact :focus:valid{ border-color: #3c6 }
+			#contact :focus:valid + .valid{ background: #3c6 }
+			#contact :focus:not(:placeholder-shown):invalid{ border-color: #c33 }
+			#contact :focus:not(:placeholder-shown):invalid + .valid{ background: #c33 }
 	/*Redes Sociales*/
 		.social{
 			display: flex;
