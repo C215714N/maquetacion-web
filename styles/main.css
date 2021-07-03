@@ -24,14 +24,24 @@
 			color: #eee;
 			background-color: transparent;
 			font-size: 1.2rem;
+			text-transform: uppercase;
 		}
 		.btn:hover{ 
 			color: #448;
 			background-color: #eee;
 		}
+		.slide li,
+		#footer iframe{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
 		button{ cursor: pointer }
 		.opacity{ opacity: .3 }
-		.opacity:hover;{ opacity: .7 }
+		.opacity:hover{ opacity: .7 }
 	/*Barra de Navegacion*/
 		nav{
 			position: sticky;
@@ -95,16 +105,10 @@
 		#header .icon-next{ right: 0 }
 	/*Galeria de Imagenes*/
 		.slide li{
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
 			opacity: 0;
 			background-size: cover;
 			background-position: center;
 			background-attachment: fixed;
-			z-index: -1;
 		}
 		.slide li:nth-child(1){ background-image: linear-gradient(#124,#36c) }
 		.slide li:nth-child(2){ background-image: linear-gradient(#142,#3c6) }
@@ -114,14 +118,43 @@
 	/*Contenido Principal*/
 	/*Pie de Pagina*/
 		#footer{
-			padding: 1rem;
-			color: #eee;
-			background: #448 linear-gradient(#224, #448);
+			position: relative;
+			padding: 2.5rem 1rem 0;
 		}
+		#footer iframe{
+			border: 0;
+			opacity: .5;
+		}
+		.copy{
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			margin: 1rem -1rem 0;
+			padding: .5rem 1.5rem;
+			text-align: center;
+			color: #eee;
+			background: #448 linear-gradient(#448, #224);
+		}
+		.copy a{
+			position: relative;
+			margin: .1rem;
+			border-radius: .25rem;
+			padding: .2rem .4rem;
+			text-decoration: none;
+			font-weight: bold;
+			color: #448;
+			background-color: #eee;
+		}
+		.copy a:hover{ bottom: .1rem }
 	/*Formulario de Contacto*/
 		#contact{ 
 			display: grid;
-			margin: auto;
+			margin: 2rem auto;
+			border-radius: .25rem;
+			padding: 1.5rem;
+			color: #eee;
+			background: #448A linear-gradient(#224A, #448A);
 		}
 		#contact label{
 			height: 0;
@@ -150,6 +183,30 @@
 			padding: .5rem 1rem;
 		}
 	/*Redes Sociales*/
+		.social{
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		.social a{
+			width: calc(2vw + 1.2rem);
+			height: calc(2vw + 1.2rem);
+			margin: .25rem;
+			border-radius: .5rem;
+			background-color: #eee;
+			background-size: calc(1vw + .8rem);
+			background-position: center;
+			background-repeat: no-repeat;
+			opacity: .5;
+		}
+		.social a:hover{ opacity: 1 }
+		.facebook	{ background-image: url('../assets/icon/facebook.svg')	}
+		.github		{ background-image: url('../assets/icon/github.svg')	}
+		.instagram	{ background-image: url('../assets/icon/instagram.svg')	}
+		.linkedin	{ background-image: url('../assets/icon/linkedin.svg') 	}
+		.twitter	{ background-image: url('../assets/icon/twitter.svg')	}
+		.whatsapp	{ background-image: url('../assets/icon/whatsapp.svg') 	}
+		.youtube	{ background-image: url('../assets/icon/youtube.svg')	}
 /*Pantallas sm Smartphones*/
 	@media screen and (min-width: 576px){
 	/*Formulario de Contacto*/
