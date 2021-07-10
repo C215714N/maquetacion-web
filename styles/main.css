@@ -1,5 +1,6 @@
 /*Pantallas xs Mobile Firt*/
 	/*Reglas Generales*/
+		@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 		@import url('icomoon.css');
 	/*Formato General*/
 		*{ 
@@ -10,13 +11,12 @@
 		h1,
 		h2,
 		h3,
+		h4,
+		h5,
 		.menu,
 		.slide,
-		.header *{ margin: 0 }
-		.logo{
-			font-size: 1.5rem;
-			font-weight: bolder;
-		}
+		.header * { margin: 0 }
+		.logo{ font:bolder 1.5rem 'Raleway','Century Gothic', sans-serif}
 		.btn{
 			margin: .5rem;
 			border-radius: .25rem;
@@ -31,13 +31,15 @@
 			background-color: #eee;
 		}
 		.slide li,
+		.bg-content .description,
+		.bg-content video,
 		#footer iframe{
-			width: 100%;
-			height: 100%;
 			position: absolute;
 			top: 0;
 			left: 0;
 			z-index: -1;
+			width: 100%;
+			height: 100%;
 		}
 		button{ cursor: pointer }
 		.opacity{ opacity: .3 }
@@ -66,7 +68,7 @@
 			overflow: hidden;
 			list-style: none;
 		}
-		.menu.active{ height: auto; }
+		.menu.active{ height: auto }
 		.menu span{ padding: .5rem }
 		.menu a:hover{ background-color: rgba(68,68,168,.5) }
 		.icon-back{
@@ -85,7 +87,7 @@
 			height: 100vh;
 			min-height: 300px;
 			max-height: 600px;
-			padding: 1rem;
+			padding: .5rem;
 			color: #eee;
 			text-align: center;
 			text-shadow: 0 0 .5rem #333;
@@ -116,6 +118,38 @@
 		.slide li:nth-child(4){ background-image: linear-gradient(#421,#c63) }
 		.slide .active{ opacity: 1 }
 	/*Contenido Principal*/
+		main{ padding: .5rem }
+		main section{
+			margin: 1rem auto;
+			border-radius: .25rem;
+			padding: 1rem;
+			box-shadow: 0 0 .5rem #333;
+		}
+		/*Video de Fondo*/
+			.bg-content{
+				position: relative;
+				padding-top: 55%;
+				overflow: hidden;
+			}
+			.bg-content .btn{
+				position: absolute;
+				padding: .5rem 1rem;
+				bottom: 1rem;
+				right: .5rem;
+			}
+			.bg-content .description{
+				max-width: 0;
+				margin: 0;
+				background-color: rgba(204,204,204,.5);
+				overflow: auto;
+				text-shadow: 0 0 .5rem #eee;
+			}
+			.bg-content:hover .description{
+				width: 50%;
+				max-width: 15rem;
+				padding: 1rem;
+				z-index: 1;
+			}
 	/*Pie de Pagina*/
 		#footer{
 			position: relative;
@@ -125,14 +159,13 @@
 		#footer .btn.opacity{
 			top: .5rem;
 			right: .5rem;
-			z-index: 3;
 			padding: .5rem;
 			color: #eee;
 			border-color: #333;
 			background-color: #333;
 		}
 		#footer .icon-max{ position: absolute }
-		#footer .icon-min{ position: fixed }
+		#footer .icon-min{ position: fixed; z-index: 3; }
 		#footer iframe{
 			border: 0;
 			opacity: .5;
@@ -150,6 +183,7 @@
 			margin: 1rem -1rem 0;
 			padding: .5rem 1.5rem;
 			text-align: center;
+			line-height: 1.5rem;
 			color: #eee;
 			background: #448 linear-gradient(#448, #224);
 		}
@@ -163,7 +197,7 @@
 			color: #448;
 			background-color: #eee;
 		}
-		.copy a:hover{ bottom: .1rem }
+		.copy a:hover{ bottom: .25rem }
 	/*Formulario de Contacto*/
 		#contact{ 
 			display: grid;
@@ -181,7 +215,8 @@
 		}
 		#contact label::after{
 			content: ' *';
-			color: tomato;
+			color: gold;
+			font-family: sans-serif;
 		}
 		#contact input,
 		#contact textarea{
@@ -218,32 +253,37 @@
 			flex-wrap: wrap;
 		}
 		.social a{
-			width: calc(2vw + 1.2rem);
-			height: calc(2vw + 1.2rem);
+			width: 2rem;
+			height: 2rem;
 			margin: .25rem;
 			border-radius: .5rem;
 			background-color: #eee;
-			background-size: calc(1vw + .8rem);
+			background-size: 1.5rem;
 			background-position: center;
 			background-repeat: no-repeat;
 			opacity: .5;
 		}
 		.social a:hover{ opacity: 1 }
-		.facebook	{ background-image: url('../assets/icon/facebook.svg')	}
-		.github		{ background-image: url('../assets/icon/github.svg')	}
-		.instagram	{ background-image: url('../assets/icon/instagram.svg')	}
-		.linkedin	{ background-image: url('../assets/icon/linkedin.svg') 	}
-		.twitter	{ background-image: url('../assets/icon/twitter.svg')	}
-		.whatsapp	{ background-image: url('../assets/icon/whatsapp.svg') 	}
-		.youtube	{ background-image: url('../assets/icon/youtube.svg')	}
+		.facebook	{ background-image: url('../assets/icon/facebook.svg' ) }
+		.github		{ background-image: url('../assets/icon/github.svg'	  ) }
+		.instagram	{ background-image: url('../assets/icon/instagram.svg') }
+		.linkedin	{ background-image: url('../assets/icon/linkedin.svg' ) }
+		.twitter	{ background-image: url('../assets/icon/twitter.svg'  ) }
+		.whatsapp	{ background-image: url('../assets/icon/whatsapp.svg' ) }
+		.youtube	{ background-image: url('../assets/icon/youtube.svg'  ) }
 /*Pantallas sm Smartphones*/
 	@media screen and (min-width: 576px){
-	/*Formulario de Contacto*/
+	/*Formato General*/
+		main section,
 		#contact{ max-width: 540px }
+	/*Formulario de Contacto*/
 		#contact label{ height: auto }
 	}
 /*Pantallas md Tablets*/
 	@media screen and (min-width: 768px){
+	/*Formato General*/
+		main section,
+		#contact{ max-width: 720px }
 	/*Barra de Navegacion*/
 		nav .btn,
 		nav span{ display: none }
@@ -254,11 +294,11 @@
 			height: auto;
 			font-size: 1.5rem;
 		}
-	/*Formulario de contacto*/
-		#contact{ max-width: 768px }
 	}
 /*Pantallas lg Desktop*/
 	@media screen and (min-width: 992px){
+	/*Formato General*/
+		main section{ max-width: 960px }
 	/*Barra de Navegacion*/
 		.menu a{ align-items: center }
 		nav span{ 
@@ -268,7 +308,8 @@
 	}
 /*Pantallas xl HD Desktop*/	
 	@media screen and (min-width: 1200px){
+	/*Formato General*/
+		main section{ max-width: 1140px }
 	/*Barra de Navegacion*/
 		nav{ justify-content: space-around }
 	}
-
