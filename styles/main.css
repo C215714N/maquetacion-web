@@ -5,6 +5,7 @@
 	/*Formato General*/
 		*{ 
 			box-sizing: border-box;
+			scroll-behavior: smooth;
 			font-family: 'Raleway', 'century gothic', 'segoe ui', sans-serif;
 		}
 		body,
@@ -14,6 +15,7 @@
 		h4,
 		h5,
 		.menu,
+		.sidebar,
 		.slide,
 		.header * { margin: 0 }
 		.logo{ font:bolder 1.5rem 'Raleway','Century Gothic', sans-serif}
@@ -75,8 +77,9 @@
 			position: fixed;
 			right: .5rem;
 			bottom: .5rem;
-			border-radius: 1rem;
+			border-radius: 50%;
 			background-color: #333;
+			font-size: 1.5rem;
 		}
 	/*Cabecera*/
 		#header{
@@ -118,13 +121,137 @@
 		.slide li:nth-child(4){ background-image: linear-gradient(#421,#c63) }
 		.slide .active{ opacity: 1 }
 	/*Contenido Principal*/
-		main{ padding: .5rem }
-		main section{
-			margin: 1rem auto;
-			border-radius: .25rem;
-			padding: 1rem;
-			box-shadow: 0 0 .5rem #333;
-		}
+		/*Secciones*/
+			main{ padding: .5rem }
+			main section, 
+			main aside{
+				margin: .25rem auto;
+				border-radius: .25rem;
+				padding: 1rem;
+				box-shadow: 0 0 .5rem #333;
+			}
+			main aside{ display: none }
+			main .header{ 
+				position: relative;
+				padding: .25rem 0;
+				text-align: center;
+				font-size: 2rem;
+			}
+			main .header::before{
+				content: '';
+				position: absolute;
+				left: 2.5%;
+				bottom: 0;
+				width: 95%;
+				height: .5px;
+				background-color: #ccc;
+				box-shadow: 0 0 .25rem #333;
+			}
+		/*Area de Ejemplos*/
+			.example{
+				counter-reset: item;
+			}
+			.example h4{
+				position: relative;
+				cursor: pointer;
+				border-bottom: .1rem solid #999;
+				padding: .5rem;
+				color: #333;
+			}
+			.example h4:before{
+				counter-increment: item;
+				content:  counter(item);
+				margin: .25rem;
+				padding: .25rem;
+				line-height: 1rem;
+				font-size: 2.5rem;
+			}
+			.example > div{ 
+				height: 0; 
+				overflow: hidden; 
+			}
+			.example > .active{ height: auto }
+		/*Barra Lateral*/
+			/*Aspecto Visual*/
+				.sidebar a{
+					color: #eee;
+					text-decoration: none;
+				}
+				.sidebar ul li::before{ padding: .5rem }
+				.sidebar span{ 
+					font-weight: bold; 
+					margin-left: -.5rem; 
+				}
+			/*Contadores*/
+				.sidebar{ counter-reset: first }
+				.sidebar ul{ counter-reset: second }
+				.sidebar ul ul{ counter-reset: third }
+			/*Incrementos*/
+				.sidebar li { counter-increment: first }
+				.sidebar li li{ counter-increment: second }
+				.sidebar li li li{ counter-increment: third }
+			/*Aplicacion*/
+				.sidebar strong::before,
+				.sidebar ul li::before{
+					content: 
+						counter(first)	'.' 
+						counter(second)	'.' 
+						counter(third)	' -';
+					font-weight: bold;
+					padding: .2rem;
+				}
+		/*Flexbox*/
+			.flex{
+				display: flex;
+				flex-wrap: wrap;
+				margin: .5rem;
+				background-color: #ccc;
+			}
+			.flex div{
+				margin: .25rem;
+				border-radius: .25rem;
+				border: .2rem solid #eee;
+				padding: 1rem;
+				color: #eee;
+				background: #448 linear-gradient(#36c, #448);
+			}
+			/*Justify-Content*/
+				.justify-end	 { justify-content: flex-end 	  }
+				.justify-center	 { justify-content: center 		  }
+				.justify-around	 { justify-content: space-around  }
+				.justify-between { justify-content: space-between }
+				.justify-evenly	 { justify-content: space-evenly  }
+			/*Align-Items*/
+				.active[class*="align"]{ min-height: 10rem }
+				.align-start 	 { align-items: flex-start }
+				.align-end	 	 { align-items: flex-end   }
+				.align-center	 { align-items: center 	   }
+				.align-baseline	 { align-items: baseline   }
+				.f1{ font-size: .5rem; }
+				.f2{ font-size: 1rem; }
+				.f3{ font-size: 1.5rem; }
+				.f4{ font-size: 2rem; }
+				.f5{ font-size: 3rem; }
+			/*Flex-Direction*/
+				.active.row {
+					border-top: .2rem dashed limegreen;
+					border-left: .2rem dashed tomato;
+				}
+				.active.column {
+					flex-direction: column;
+					border-top: .2rem dashed tomato;
+					border-left: .2rem dashed limegreen;
+				} 
+				.active.row-reverse {
+					flex-direction: row-reverse;
+					border-top: .2rem dashed limegreen;
+					border-right: .2rem dashed tomato;
+				}
+				.active.column-reverse {
+					flex-direction: column-reverse;
+					border-bottom: .2rem dashed tomato;
+					border-left: .2rem dashed limegreen;
+				}
 		/*Video de Fondo*/
 			.bg-content{
 				position: relative;
@@ -226,6 +353,7 @@
 			border: .1rem solid transparent;
 			padding: .5rem 1rem;
 			font-size: 1rem;
+			resize: none;
 		}
 		#contact textarea{ min-height: 8rem }
 		#contact .btn{
@@ -241,7 +369,11 @@
 		}
 		/*Validacion de campos*/
 			#contact :focus{ border-color: #333 }
-			#contact :focus + .valid{ display: block }
+			#contact input:focus{ border-radius: .25rem .25rem 0 0 }
+			#contact :focus + .valid{ 
+				display: block; 
+				border-radius: 0 0 .25rem .25rem; 
+			}
 			#contact :focus:valid{ border-color: #3c6 }
 			#contact :focus:valid + .valid{ background: #3c6 }
 			#contact :focus:not(:placeholder-shown):invalid{ border-color: #c33 }
@@ -305,11 +437,61 @@
 			display: block;
 			font-size: 1rem;
 		}
+	/*Contenido Principal*/
+		.example{
+			max-width: 720px;
+			margin: auto;
+		}
 	}
 /*Pantallas xl HD Desktop*/	
 	@media screen and (min-width: 1200px){
 	/*Formato General*/
-		main section{ max-width: 1140px }
+		main{ max-width: 1140px }
+		main aside,
+		.searchbar{
+			display: block;
+		}
 	/*Barra de Navegacion*/
 		nav{ justify-content: space-around }
+	/*Contenido Principal*/
+		main { 
+			display: grid;
+			margin: .5rem auto;
+			justify-content: center;
+			grid-template-columns: auto auto;
+			grid-template-areas: 
+				'flexbox	aside'
+				'css-grid	aside'
+				'bootstrap	aside';
+			gap: 1.25rem;
+		}
+		#flexbox   { grid-area: flexbox   }
+		#css-grid  { grid-area: css-grid  }
+		#bootstrap { grid-area: bootstrap }
+		main aside { grid-area: aside  	  }
+		main section{ padding: 3rem 2rem  }
+		/*Barra lateral*/
+			.sidebar{
+				position: sticky;
+				top: 4rem;
+				padding: 0;
+			}
+			.sidebar,
+			.sidebar ul{
+				list-style: none;
+				padding: 0;
+			}
+			.sidebar strong{
+				display: block;
+				margin: .5rem 0 .25rem;
+				border-radius: .25rem;
+				padding: .25rem;
+				color: #eee;
+				background-color: #448;
+			}
+	}
+/*Pantallas xxl HD Desktop*/
+	@media screen and (min-width: 1400px){
+	/*Formato General*/
+			main{ max-width: 1320px }
 	}

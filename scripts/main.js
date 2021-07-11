@@ -44,3 +44,8 @@
 			vid.pause()
 			btn.innerHTML = 'PLAY'
 	}	}
+/*Exponer Ejemplos*/
+	titles = document.querySelectorAll('.example h4')
+	example = document.querySelectorAll('.flex, .grid')
+
+	titles.forEach((t,i) => t.onclick = () => example[i].classList.toggle('active') )

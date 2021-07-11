@@ -56,6 +56,235 @@
 	</header>
 	<!--Contenido Principal-->
 	<main>
+		<aside>
+			<h2>Tabla de Contenidos</h2>
+			<ul class="sidebar">
+				<li>
+					<strong><a href="#flexbox">Flexbox</a></strong>
+					<ul>
+						<li>
+							<span>Justify-Content</span>
+							<ul>
+								<li>Flex-Start</li>
+								<li>Flex-End</li>
+								<li>Center</li>
+								<li>Space-Around</li>
+								<li>Space-Between</li>
+								<li>Space-Evenly</li>
+							</ul>
+						</li>
+						<li>
+							<span>Align-Items</span>
+							<ul>
+								<li>Stretch</li>
+								<li>Flex-Start</li>
+								<li>Flex-End</li>
+								<li>Center</li>
+								<li>Baseline</li>
+							</ul>
+						</li>
+						<li>
+							<span>Flex-Direction</span>
+							<ul>
+								<li>row</li>
+								<li>column</li>
+								<li>row-reverse</li>
+								<li>column-reverse</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<strong><a href="#css-grid">CSS Grid</a></strong>
+					<ul>
+						<li>align-content</li>
+						<li>grid-template-columns</li>
+						<li>grid-template-areas</li>
+					</ul>
+				</li>
+				<li>
+					<strong><a href="#bootstrap">BootStrap</a></strong>
+					<ul>
+						<li>Colors</li>
+						<li>Buttons</li>
+						<li>Grid System</li>
+					</ul>
+				</li>
+			</ul>
+		</aside>
+		<section id="flexbox">
+			<header class="header">
+				<h2>Flexbox</h2>
+			</header>	
+			<p>
+				El Módulo de Caja Flexible fue diseñado como un modelo unidimensional de layout, y como un método que pueda ayudar a distribuir el espacio entre los ítems de una interfaz y mejorar las capacidades de alineación. Para crear un contenedor flex, establecemos la propiedad <strong>display</strong> del contenedor  como <em>flex o inline-flex</em>. Tan pronto como hacemos esto, los hijos directos de este se vuelven ítems flex. 
+			</p>
+			<article>
+				<header>
+					<h3>justify-content</h3>
+				</header>
+				<p>
+					Esta propiedad es usada para alinear los ítems en el eje principal, cuyo flex-direction define la dirección del flujo. El valor inicial es <em>flex-start</em> que alineará los ítems al inicio del margen del contenedor.
+				</p>
+				<div class="example">
+					<h4>Flex-Start</h4>
+					<div class="flex justify-start">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Flex-End</h4>
+					<div class="flex justify-end">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Center</h4>
+					<div class="flex justify-center">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Space-Around</h4>
+					<div class="flex justify-around">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Space-Between</h4>
+					<div class="flex justify-between">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Space-Evenly</h4>
+					<div class="flex justify-evenly">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+				</div>
+			</article>
+			<article>
+				<header>
+					<h3>align-items</h3>
+				</header>
+				<p>
+					Esta propiedad alineará los ítems sobre el eje cruzado. El valor inicial es stretch razón por la cual los ítems se ajustan por defecto a la altura del más alto, para llenar el contenedor flex.
+				</p>
+				<div class="example">
+					<h4>Stretch</h4>
+					<div class="flex align-stretch">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Flex-Start</h4>
+					<div class="flex align-start">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Flex-End</h4>
+					<div class="flex align-end">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Center</h4>
+					<div class="flex align-center">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Baseline</h4>
+					<div class="flex align-baseline">
+						<div class="f1"> item 1</div>
+						<div class="f2"> item 2</div>
+						<div class="f3"> item 3</div>
+						<div class="f4"> item 4</div>
+						<div class="f5"> item 5</div>
+						<div> item 6</div>
+					</div>
+				</div>
+			</article>
+			<article>
+				<header>
+					<h3>flex-direction</h3>
+				</header>
+				<p>
+					Esta propiedad permite cambiar la dirección de los ítems. Colocando el valor <em>row-reverse</em> se mantendrá el despliegue a lo largo de la fila, sin embargo el inicio y final quedarán al revés del original.
+				</p>
+				<div class="example">
+					<h4>Row</h4>
+					<div class="flex row">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Column</h4>
+					<div class="flex column">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Row-Reverse</h4>
+					<div class="flex row-reverse">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+					<h4>Column-Reverse</h4>
+					<div class="flex column-reverse">
+						<div> item 1</div>
+						<div> item 2</div>
+						<div> item 3</div>
+						<div> item 4</div>
+						<div> item 5</div>
+						<div> item 6</div>
+					</div>
+				</div>
+			</article>
+		</section>
 	</main>
 	<section class="bg-content">
 		<video loop>
