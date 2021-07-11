@@ -44,7 +44,7 @@
 			vid.pause()
 			btn.innerHTML = 'PLAY'
 	}	}
-/*Exponer Ejemplos*/
+/*Mostrar Ejemplos*/
 	titles = document.querySelectorAll('.example h4')
 	example = document.querySelectorAll('.flex, .grid')
 
