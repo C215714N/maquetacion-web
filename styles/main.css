@@ -36,6 +36,7 @@
 		.slide li,
 		.bg-content video,
 		.bg-content .description,
+		.bg-content .container,
 		#footer iframe{
 			position: absolute;
 			top: 0;
@@ -47,6 +48,10 @@
 		button{ cursor: pointer }
 		.opacity{ opacity: .3 }
 		.opacity:hover{ opacity: .7 }
+		.container{ 
+			position: relative;
+			margin:auto;
+		}
 	/*Barra de Navegacion*/
 		nav{
 			position: sticky;
@@ -95,7 +100,7 @@
 			color: #eee;
 			text-align: center;
 			text-shadow: 0 0 .5rem #333;
-			font-size: calc(2vw + .8rem);
+			font-size: min(calc(2vw + .8rem), 4rem);
 		}
 		#header button.opacity{
 			position: absolute;
@@ -103,9 +108,10 @@
 			bottom: 0;
 			outline: none;
 			border: none;
+			padding: min(2vw, 5rem);
 			color: #eee;
 			background-color: transparent;
-			font-size: calc(2vw + .8rem);
+			font-size: min(calc(2vw + .8rem), 3rem);
 		}
 		#header .icon-prev{ left: 0 }
 		#header .icon-next{ right: 0 }
@@ -175,7 +181,7 @@
 				position: relative;
 				padding: .25rem 0;
 				text-align: center;
-				font-size: calc(2vw + .5rem);
+				font-size: min(calc(2vw + .5rem), 3rem);
 			}
 			main .header::after{
 				content: '';
@@ -187,10 +193,34 @@
 				background-color: #ccc;
 				box-shadow: 0 0 .25rem #333;
 			}
+		/*Barra Lateral*/
+			/*Aspecto Visual*/
+				.sidebar a{
+					color: #eee;
+					text-decoration: none;
+				}
+				.sidebar span{ font-weight: bold }
+				.sidebar ul li::before{ padding: .5rem }
+			/*Contadores*/
+				.sidebar{ counter-reset: first }
+				.sidebar ul{ counter-reset: second }
+				.sidebar ul ul{ counter-reset: third }
+			/*Incrementos*/
+				.sidebar li { counter-increment: first }
+				.sidebar li li{ counter-increment: second }
+				.sidebar li li li{ counter-increment: third }
+			/*Implementacion*/
+				.sidebar strong::before,
+				.sidebar ul li::before{
+					content: 
+						counter(first)	'.' 
+						counter(second)	'.' 
+						counter(third)	' -';
+					font-weight: bold;
+					padding: .2rem;
+				}
 		/*Area de Ejemplos*/
-			.example{
-				counter-reset: item;
-			}
+			.example{ counter-reset: item }
 			.example h4{
 				position: relative;
 				cursor: pointer;
@@ -210,44 +240,12 @@
 				height: 0; 
 				overflow: hidden; 
 			}
-			.example > .active{ height: auto }
-		/*Barra Lateral*/
-			/*Aspecto Visual*/
-				.sidebar a{
-					color: #eee;
-					text-decoration: none;
-				}
-				.sidebar span{ 
-					font-weight: bold; 
-					margin-left: -.25rem; 
-				}
-				.sidebar ul li::before{ padding: .5rem }
-			/*Contadores*/
-				.sidebar{ counter-reset: first }
-				.sidebar ul{ counter-reset: second }
-				.sidebar ul ul{ counter-reset: third }
-			/*Incrementos*/
-				.sidebar li { counter-increment: first }
-				.sidebar li li{ counter-increment: second }
-				.sidebar li li li{ counter-increment: third }
-			/*Aplicacion*/
-				.sidebar strong::before,
-				.sidebar ul li::before{
-					content: 
-						counter(first)	'.' 
-						counter(second)	'.' 
-						counter(third)	' -';
-					font-weight: bold;
-					padding: .2rem;
-				}
-		/*Flexbox*/
-			.flex{
-				display: flex;
-				flex-wrap: wrap;
+			.example .active{ height: auto }
+			.example div{
 				margin: .5rem;
 				background-color: #ccc;
 			}
-			.flex div{
+			.example div div{
 				margin: .25rem;
 				border-radius: .25rem;
 				border: .2rem solid #eee;
@@ -255,23 +253,26 @@
 				color: #eee;
 				background: #448 linear-gradient(#36c, #448);
 			}
+			.flex{ display: flex }
+			.grid{ display: grid; grid-template-columns: auto auto auto }
 			/*Justify-Content*/
-				.justify-end	 { justify-content: flex-end 	  }
-				.justify-center	 { justify-content: center 		  }
-				.justify-around	 { justify-content: space-around  }
-				.justify-between { justify-content: space-between }
-				.justify-evenly	 { justify-content: space-evenly  }
-			/*Align-Items*/
-				.active[class*="align"]{ min-height: 10rem }
-				.align-start 	 { align-items: flex-start }
-				.align-end	 	 { align-items: flex-end   }
-				.align-center	 { align-items: center 	   }
-				.align-baseline	 { align-items: baseline   }
-				.f1{ font-size: .5rem; }
-				.f2{ font-size: 1rem; }
-				.f3{ font-size: 1.5rem; }
-				.f4{ font-size: 2rem; }
-				.f5{ font-size: 3rem; }
+				.jutify-stretch { justify-content: stretch 		 }
+				.justify-start 	{ justify-content: flex-start 	 }
+				.justify-end	{ justify-content: flex-end 	 }
+				.justify-center	{ justify-content: center 		 }
+				.justify-around	{ justify-content: space-around  }
+				.justify-between{ justify-content: space-between }
+				.justify-evenly	{ justify-content: space-evenly  }
+			/*Align-Items | Align-Content*/
+				.active[class*="align"]{ min-height: 15rem }
+				.align-stretch	{ align-items: stretch;    align-content: stretch    }
+				.align-start 	{ align-items: flex-start; align-content: flex-start }
+				.align-end	 	{ align-items: flex-end;   align-content: flex-end   }
+				.align-center	{ align-items: center; 	   align-content: center 	 }
+				.align-baseline	{ align-items: baseline }
+				.align-around	{ align-content: space-around  }
+				.align-between 	{ align-content: space-between }
+				.align-evenly	{ align-content: space-evenly  }
 			/*Flex-Direction*/
 				.active.row {
 					border-top: .2rem dashed limegreen;
@@ -292,11 +293,49 @@
 					border-bottom: .2rem dashed tomato;
 					border-left: .2rem dashed limegreen;
 				}
+			/*Grid-Template-Columns*/
+				.template-column :first-child  { grid-column: 1 / 3  } 
+				.template-column :nth-child(3n + 3){ grid-column: span 2 }
+				.template-column :first-child::after,
+				.template-column :nth-child(3n + 3)::after{ content: ' - column: span 2' }
+			/*Grid-Template-Rows*/
+				.template-row :first-child  { grid-row: 1 / 4 }
+				.template-row :nth-child(4n - 2){ grid-row: span 2 }
+				.template-row :first-child::after{ content: ' - row: span 3'; }
+				.template-row :nth-child(4n - 2)::after{ content: ' - row: span 2'; }
+			/*Grid-Template-Areas*/
+				.template-area{
+					grid-template-areas: 
+						'header 	header 		header'
+						'article 	article 	aside'
+						'section 	main 		aside'
+						'footer 	footer 		footer'
+				}
+				.template-area :first-child  	 { grid-area: header  }
+				.template-area :nth-child(2) 	 { grid-area: article }
+				.template-area :nth-last-child(2){ grid-area: aside	  }
+				.template-area :last-child		 { grid-area: footer  }
+				.template-area :first-child::after 	 	{ content: ' - header'  }
+				.template-area :nth-child(2)::after 	{ content: ' - article' }
+				.template-area :nth-last-child(2)::after{ content: ' - aside'	}
+				.template-area :last-child::after	 	{ content: ' - footer'  }
+			/*Tamaños de Fuente*/
+				.f1{ font-size: .5rem  }
+				.f2{ font-size: 1rem   }
+				.f3{ font-size: 1.5rem }
+				.f4{ font-size: 2rem   }
+				.f5{ font-size: 3rem   }
 		/*Video de Fondo*/
 			.bg-content{
 				position: relative;
-				padding-top: 55%;
-				overflow: hidden;
+				display: grid;
+				justify-content: center;
+				padding-top: min(55%, 726px);
+			}
+			.bg-content .container{
+				right: 0;
+				bottom: 0;
+				margin: auto;
 			}
 			.bg-content .btn{
 				position: absolute;
@@ -308,7 +347,7 @@
 				max-width: 0;
 				margin: 0;
 				background-color: rgba(204,204,204,.5);
-				overflow-y: auto;
+				overflow: auto;
 				text-shadow: 0 0 .5rem #eee;
 			}
 			.bg-content:hover .description{
@@ -317,6 +356,7 @@
 				padding: 1rem;
 				z-index: 1;
 			}
+			.bg-content video{ background-color: black }
 	/*Pie de Pagina*/
 		#footer{
 			position: relative;
@@ -502,8 +542,7 @@
 			grid-template-columns: auto auto;
 			grid-template-areas: 
 				'flexbox	aside'
-				'css-grid	aside'
-				'bootstrap	aside';
+				'css-grid	aside';
 			gap: 1.25rem;
 		}
 		#flexbox   { grid-area: flexbox   }
@@ -515,6 +554,7 @@
 			.sidebar{
 				position: sticky;
 				top: 4rem;
+				bottom: 0;
 				padding: 0;
 			}
 			.sidebar,
@@ -534,6 +574,8 @@
 /*Pantallas xxl HD Desktop*/
 	@media screen and (min-width: 1400px){
 	/*Formato General*/
-			main, 
-			section{ max-width: 1320px }
+		main, 
+		main section,
+		.container,
+		.header	{ max-width: 1320px }
 	}
