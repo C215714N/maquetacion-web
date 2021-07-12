@@ -43,6 +43,21 @@
 				<strong>Presenta: </strong>
 				Maquetacion Web
 			</p>
+			<form id="pageSearch" class="searchbar">
+				<label for="pageText">Realice una Busqueda</label>
+				<input 
+					id="pageText" 
+					name="pageText"  
+					type="search"
+					minlength="3" 
+					maxlength="50" 
+					title="Escriba un texto para realizar una Busqueda" 
+					placeholder="Buscar..." 
+					required />
+				<button type="submit" class="btn icon-success"></button>
+			</form>
+			<button class="icon-prev opacity"></button>
+			<button class="icon-next opacity"></button>
 		</div>
 		<!--Galeria de Imagenes-->
 		<ul class="slide">
@@ -51,40 +66,48 @@
 			<li></li>
 			<li></li>
 		</ul>
-		<button class="icon-prev opacity"></button>
-		<button class="icon-next opacity"></button>
 	</header>
 	<!--Contenido Principal-->
 	<main>
 		<aside>
 			<h2>Tabla de Contenidos</h2>
+			<form action="" id="sideSearch" class="searchbar">
+				<label>Realice una Busqueda</label>
+				<input 
+					id="sideText" 
+					name="sideText" 
+					type="search"
+					minlength="3" 
+					maxlength="50" 
+					title="Escriba un texto para realizar una Busqueda" 
+					placeholder="Buscar..." 
+					required />
+				<button type="submit" class="btn icon-success"></button>
+			</form>
 			<ul class="sidebar">
 				<li>
 					<strong><a href="#flexbox">Flexbox</a></strong>
 					<ul>
-						<li>
-							<span>Justify-Content</span>
+						<li><span>justify-content</span>
 							<ul>
-								<li>Flex-Start</li>
-								<li>Flex-End</li>
-								<li>Center</li>
-								<li>Space-Around</li>
-								<li>Space-Between</li>
-								<li>Space-Evenly</li>
+								<li>flex-start</li>
+								<li>flex-end</li>
+								<li>center</li>
+								<li>space-around</li>
+								<li>space-between</li>
+								<li>space-evenly</li>
 							</ul>
 						</li>
-						<li>
-							<span>Align-Items</span>
+						<li><span>align-items</span>
 							<ul>
-								<li>Stretch</li>
-								<li>Flex-Start</li>
-								<li>Flex-End</li>
-								<li>Center</li>
-								<li>Baseline</li>
+								<li>stretch</li>
+								<li>flex-start</li>
+								<li>flex-end</li>
+								<li>center</li>
+								<li>baseline</li>
 							</ul>
 						</li>
-						<li>
-							<span>Flex-Direction</span>
+						<li><span>flex-direction</span>
 							<ul>
 								<li>row</li>
 								<li>column</li>
@@ -97,17 +120,34 @@
 				<li>
 					<strong><a href="#css-grid">CSS Grid</a></strong>
 					<ul>
-						<li>align-content</li>
-						<li>grid-template-columns</li>
-						<li>grid-template-areas</li>
-					</ul>
-				</li>
-				<li>
-					<strong><a href="#bootstrap">BootStrap</a></strong>
-					<ul>
-						<li>Colors</li>
-						<li>Buttons</li>
-						<li>Grid System</li>
+						<li><span>justify-content</span>
+							<ul>
+								<li>stretch</li>
+								<li>flex-start</li>
+								<li>flex-end</li>
+								<li>Center</li>
+								<li>space-around</li>
+								<li>space-between</li>
+								<li>space-evenly</li>
+							</ul>
+						</li>
+						<li><span>align-content</span>
+							<ul>
+								<li>stretch</li>
+								<li>flex-start</li>
+								<li>flex-end</li>
+								<li>Center</li>
+								<li>space-around</li>
+								<li>space-between</li>
+								<li>space-evenly</li>
+							</ul>
+						</li>
+						<li><span>grid-template-areas</span>
+							<ul>
+								<li>grid-column</li>
+								<li>grid-row</li>
+							</ul>
+						</li>
 					</ul>
 				</li>
 			</ul>
@@ -285,18 +325,212 @@
 				</div>
 			</article>
 		</section>
+		<section id="css-grid">
+			<header class="header">
+				<h2>CSS Grid</h2>
+			</header>
+				<p>
+					CSS Grid layout contiene funciones de diseño dirigidas a los desarrolladores de aplicaciones web. El CSS grid se puede utilizar para lograr muchos diseños diferentes. También se destaca por permitir dividir una página en áreas o regiones principales, por definir la relación en términos de tamaño, posición y capas entre partes de un control construido a partir de primitivas HTML.
+				</p>
+			<article>
+				<header>
+					<h3>Justify-Content</h3>
+				</header>
+				<p>
+					Una pista vertical es el espacio entre dos líneas de cuadrícula. Se pueden crear columnas en la cuadrícula implícita cuando los elementos se colocan fuera de las columnas de la cuadrícula explícita.
+				</p>
+				<div class="example">
+					<h4>Stretch</h4>
+					<div class="grid justify-stretch">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Flex-Start</h4>
+					<div class="grid justify-start">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Flex-End</h4>
+					<div class="grid justify-end">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Center</h4>
+					<div class="grid justify-center">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Space-Around</h4>
+					<div class="grid justify-around">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Space-Between</h4>
+					<div class="grid justify-between">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Space-Evenly</h4>
+					<div class="grid justify-evenly">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+				</div>
+			</article>
+			<article>
+				<header>
+					<h3>Align-Content</h3>
+				</header>
+				<p>	
+					Una pista horizontal es el espacio entre dos líneas de cuadrícula horizontales. Se pueden crear filas en la cuadrícula implícita cuando los elementos se colocan fuera de las filas en la cuadrícula explícita. 
+				</p>
+				<div class="example">
+					<h4>Stretch</h4>
+					<div class="grid align-stretch">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Flex-Start</h4>
+					<div class="grid align-start">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Flex-End</h4>
+					<div class="grid align-end">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Center</h4>
+					<div class="grid align-center">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Space-Around</h4>
+					<div class="grid align-around">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Space-Between</h4>
+					<div class="grid align-between">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+					<h4>Space-Evenly</h4>
+					<div class="grid align-evenly">
+						<div> celda 1</div>
+						<div> celda 2</div>
+						<div> celda 3</div>
+						<div> celda 4</div>
+						<div> celda 5</div>
+						<div> celda 6</div>
+					</div>
+				</div>
+			</article>
+			<article>
+				<header>
+					<h3>Grid</h3>
+				</header>
+				<p>
+					Una o mas Celdas que forman un área rectangular en la cuadrícula. Se crean cuando se coloca un ítem usando disposición basada en líneas o cuando se definen áreas usando grid areas con nombre.
+				</p>
+				<div class="example">
+					<h4>Grid-Template-Columns</h4>
+					<div class="grid template-column">
+						<div>celda 1</div>
+						<div>celda 2</div>
+						<div>celda 3</div>
+						<div>celda 4</div>
+						<div>celda 5</div>
+						<div>celda 6</div>
+					</div>
+					<h4>Grid-Template-Rows</h4>
+					<div class="grid template-row">
+						<div>celda 1</div>
+						<div>celda 2</div>
+						<div>celda 3</div>
+						<div>celda 4</div>
+						<div>celda 5</div>
+						<div>celda 6</div>
+					</div>
+					<h4>Grid-Template-Areas</h4>
+					<div class="grid template-area">
+						<div>celda 1</div>
+						<div>celda 2</div>
+						<div>celda 3</div>
+						<div>celda 4</div>
+						<div>celda 5</div>
+						<div>celda 6</div>
+					</div>
+
+				</div>
+			</article>
+		</section>
 	</main>
-	<section class="bg-content">
+	<section class="bg-content">	
 		<video loop>
 			<source src="assets/media/fortune-faded.mp4">
 			<p>
 				Lo sentimos pero tu navegador no es compatible con este elemento. Podes descargar el contenido desde el siguiente <a href="assets/media/fortune-faded.mp4">link</a>
 			</p>
 		</video>
-		<button class="btn">PLAY</button>
-		<p class="description">
-			<strong>Fortune Faded</strong> es un sencillo de los <em>Red Hot Chili Peppers</em>. Se lanzó en 2003, coincidiendo con el lanzamiento de <em>Greatest Hits</em>. La canción se empezó tocando en algunos conciertos de agosto de 2001 en Europa, pero sin embargo no se incluyó en <em>By the Way</em>, y fue regrabada exclusivamente para Greatest Hits.
-		</p>
+		<div class="container">
+			<button class="btn">PLAY</button>
+			<p class="description">
+				<strong>Fortune Faded</strong> es un sencillo de los <em>Red Hot Chili Peppers</em>. Se lanzó en 2003, coincidiendo con el lanzamiento de <em>Greatest Hits</em>. La canción se empezó tocando en algunos conciertos de agosto de 2001 en Europa, pero sin embargo no se incluyó en <em>By the Way</em>, y fue regrabada exclusivamente para Greatest Hits.
+			</p>
+		</div>
 	</section>
 	<!--Pie de Pagina-->
 	<footer id="footer">
