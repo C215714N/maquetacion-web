@@ -54,7 +54,7 @@
 					title="Escriba un texto para realizar una Busqueda" 
 					placeholder="Buscar..." 
 					required />
-				<button type="submit" class="btn icon-success"></button>
+				<button class="btn icon-success"></button>
 			</form>
 			<button class="icon-prev opacity"></button>
 			<button class="icon-next opacity"></button>
@@ -69,7 +69,7 @@
 	</header>
 	<!--Contenido Principal-->
 	<main>
-		<aside>
+		<aside class="sidebar">
 			<h2>Tabla de Contenidos</h2>
 			<form action="" id="sideSearch" class="searchbar">
 				<label>Realice una Busqueda</label>
@@ -82,10 +82,10 @@
 					title="Escriba un texto para realizar una Busqueda" 
 					placeholder="Buscar..." 
 					required />
-				<button type="submit" class="btn icon-success"></button>
+				<button class="btn icon-success"></button>
 			</form>
-			<ul class="sidebar">
-				<li>
+			<ul>
+				<li class="excluded">
 					<strong><a href="#flexbox">Flexbox</a></strong>
 					<ul>
 						<li><span>justify-content</span>
@@ -117,7 +117,7 @@
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="excluded">
 					<strong><a href="#css-grid">CSS Grid</a></strong>
 					<ul>
 						<li><span>justify-content</span>
@@ -142,10 +142,11 @@
 								<li>space-evenly</li>
 							</ul>
 						</li>
-						<li><span>grid-template-areas</span>
+						<li><span>grid</span>
 							<ul>
 								<li>grid-column</li>
 								<li>grid-row</li>
+								<li>grid-area</li>
 							</ul>
 						</li>
 					</ul>
