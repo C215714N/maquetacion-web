@@ -1,57 +1,96 @@
 /*Pantallas xs Mobile Firt*/
 	/*Reglas Generales*/
 		@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-		@import url('icomoon.css');
-	/*Formato General*/
-		*{ 
-			box-sizing: border-box;
-			scroll-behavior: smooth;
-			font-family: 'Raleway', 'century gothic', 'segoe ui', sans-serif;
-		}
-		body,
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		.menu,
-		.sidebar,
-		.slide,
-		.header * { margin: 0 }
-		.logo{ font:bolder 1.5rem 'Raleway','Century Gothic', sans-serif}
-		.btn{
-			margin: .5rem;
-			outline: none;
-			border-radius: .25rem;
-			border: .1rem solid #eee;
-			color: #eee;
-			background-color: transparent;
-			font-size: 1.2rem;
-			text-transform: uppercase;
-		}
-		.btn:hover{ 
-			color: #448;
-			background-color: #eee;
-		}
-		.slide li,
-		.bg-content video,
-		.bg-content .description,
-		.bg-content .container,
-		#footer iframe{
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: -1;
-			width: 100%;
-			height: 100%;
-		}
-		button{ cursor: pointer }
-		.opacity{ opacity: .3 }
-		.opacity:hover{ opacity: .7 }
-		.container{ 
-			position: relative;
-			margin:auto;
-		}
+		@import url('icomoon.css');	
+	/*Formato General*/	
+		/*Constantes*/
+			*{ 
+				box-sizing: border-box;
+				scroll-behavior: smooth;
+				font-family: var(--font);
+			}
+		/*Variables*/
+			:root{
+				--first:	#448;	--second: 	#224;
+				--dark: 	#333;	--light: 	#eee;
+				--danger: 	#c33;	--warning: 	#ec3;	
+				--success:	#3c6;	--info: 	#36c;
+				--letter: 	1rem;	--size: 	100%;
+				--font:		'Raleway', 'century gothic', 'segoe ui', sans-serif;
+			}
+		/*Margenes*/
+			body, 
+			header *, 
+			h4,	
+			.menu, 
+			.slide, 
+			.sidebar, 
+			.container, 
+			.example{ margin: 0 }
+			main, 
+			.example, 
+			.container{ margin: auto }
+		/*Tipografia*/
+			input, 
+			textarea{ font-size: var(--letter) }
+			.logo{ font:bolder calc(var(--size) * 1.5) var(--font) }
+			nav a,
+			.sidebar a,
+			.copy a{ text-decoration: none; }
+		/*Posicion Relativa*/
+			main .header, 
+			.bg-content, 
+			.container, 
+			.searchbar, 
+			.social,
+			.example h4, 
+			.copy a, 
+			#header, 
+			#footer{ position: relative; }
+		/*Posicion Absoluta*/
+			.slide li, 
+			.bg-content video, 
+			.bg-content .description, 
+			.bg-content .container,	
+			#footer iframe{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: var(--size);
+				height: var(--size);
+				z-index: -1;
+			}
+		/*Botones*/
+			.btn{
+				min-width: calc(var(--letter) /.5);
+				margin: calc(var(--letter) / 2);
+				outline: none;
+				border-radius: calc(var(--letter) / 4);
+				border: calc(var(--letter) / 10) solid var(--light);
+				color: var(--light);
+				background-color: transparent;
+				font-size: calc(var(--letter) * 1.2);
+				text-transform: uppercase;
+			}
+			.btn:hover{ 
+				color: var(--first);
+				background-color: var(--light);
+			}
+			button, 
+			.btn, 
+			.example h4,
+			.social::after{ cursor: pointer }
+		/*Opacidad*/
+			.opacity, 
+			.social a,
+			.social::after{ opacity: .3 }
+		/*Pseudoclase*/
+			.opacity:hover, 
+			.social a:hover,
+			.social:hover::after{ opacity: .7 }		
+		/*Listas*/
+			.menu, 
+			.sidebar ul{ list-style: none }
 	/*Barra de Navegacion*/
 		nav{
 			position: sticky;
@@ -60,44 +99,40 @@
 			justify-content: space-between;
 			align-items: center;
 			flex-wrap: wrap;
-			background: #448 linear-gradient(#448A, #224A);
+			background: var(--first) linear-gradient(var(--first), var(--second));
 			z-index: 2;
 		}
 		nav a{
 			display: block;
-			padding: .5rem;
-			color: #eee;
-			text-decoration: none;
+			padding: calc(var(--letter) / 2);
+			color: var(--light);
 		}
 		.menu{ 
-			width: 100%;
+			width: var(--size);
 			height: 0;
 			padding: 0;
 			overflow: hidden;
-			list-style: none;
 		}
 		.menu.active{ height: auto }
-		.menu span{ padding: .5rem }
+		.menu span{ padding: calc(var(--letter) / 2) }
 		.menu a:hover{ background-color: rgba(68,68,168,.5) }
 		.icon-back{
 			position: fixed;
-			right: .5rem;
-			bottom: .5rem;
-			border-radius: 50%;
-			background-color: #333;
-			font-size: 1.5rem;
+			right: calc(var(--letter) / 2);
+			bottom: calc(var(--letter) / 2);
+			border-radius: calc(var(--size) / 2);
+			background-color: var(--dark);
 		}
 	/*Cabecera*/
 		#header{
-			position: relative;
 			display: grid;
 			justify-content: center;
 			align-content: center;
 			height: min(100vh, 600px);
-			padding: .5rem;
-			color: #eee;
+			padding: calc(var(--letter) / 2);
+			color: var(--light);
 			text-align: center;
-			text-shadow: 0 0 .5rem #333;
+			text-shadow: 0 0 calc(var(--letter) / 2) var(--dark);
 			font-size: min(calc(2vw + .8rem), 4rem);
 		}
 		#header button.opacity{
@@ -107,7 +142,7 @@
 			outline: none;
 			border: none;
 			padding: min(2vw, 5rem);
-			color: #eee;
+			color: var(--light);
 			background-color: transparent;
 			font-size: min(calc(2vw + .8rem), 3rem);
 		}
@@ -116,117 +151,107 @@
 	/*Barra de Busqueda*/
 		.searchbar input,
 		.searchbar button{
-			padding: .5rem;
+			padding: calc(var(--letter) / 2);
 		}
 		.searchbar{ 
 			display: flex;
-			position: relative;
-			padding-top: .5rem;
-			font-size: 1rem;
+			padding-top: calc(var(--letter) / 2);
 		}
 		.searchbar label{ display: none }
 		.searchbar input{
-			width: 100%;
+			width: var(--size);
 			outline: none;
-			border-radius: .25rem;
-			border: .1rem solid #eee;
-			font-size: 1rem;
-			box-shadow: 0 0 .5rem #999;
+			border-radius: calc(var(--letter) / 4);
+			border: calc(var(--letter) / 10) solid var(--light);
+			box-shadow: 0 0 calc(var(--letter) / 2) #999;
 		}
 		.searchbar input,
 		.searchbar ::-webkit-search-cancel-button,
 		.searchbar ::-webkit-input-placeholder{ 
 			-webkit-appearance: none;
-			color: #eee;
+			color: var(--light);
 			background: transparent;
 		}
 		.searchbar button{
 			position: absolute;
 			right: 0;
 			margin: 0;
-			border-radius: 0 .25rem .25rem 0;
-			color: #448;
-			background-color: #eee;
+			border-radius: 0 calc(var(--letter) / 4) calc(var(--letter) / 4) 0;
+			color: var(--first);
+			background-color: var(--light);
 		}
 		.searchbar button:hover{
-			color: #eee;
-			background-color: #448;
+			color: var(--light);
+			background-color: var(--first);
 		}
 	/*Galeria de Imagenes*/
-		.slide li{
-			opacity: 0;
-			background-size: cover;
-			background-position: center;
-			background-attachment: fixed;
+		.slide li{ 
+			opacity: 0; 
+			background: linear-gradient(var(--light), var(--dark)), var(--bg) center/cover; 
+			background-blend-mode: multiply;
 		}
-		.slide li:nth-child(1){ background-image: linear-gradient(#124,#36c) }
-		.slide li:nth-child(2){ background-image: linear-gradient(#142,#3c6) }
-		.slide li:nth-child(3){ background-image: linear-gradient(#412,#c36) }
-		.slide li:nth-child(4){ background-image: linear-gradient(#421,#c63) }
+		.slide li:nth-child(1){ --dark: #124; --light: #36c; --bg: url('../assets/bg/osx-yosemite.jpg') }
+		.slide li:nth-child(2){ --dark: #142; --light: #3c6; --bg: url('../assets/bg/osx-mavericks.jpg') }
+		.slide li:nth-child(3){ --dark: #412; --light: #c36; --bg: url('../assets/bg/osx-sierra.jpg') }
+		.slide li:nth-child(4){ --dark: #421; --light: #c63; --bg: url('../assets/bg/osx-elcapitan.jpg') }
 		.slide .active{ opacity: 1 }
 	/*Contenido Principal*/
 		/*Secciones*/
-			main{ padding: .5rem }
+			main{ padding: calc(var(--letter) / 2) }
 			main section, 
 			main aside{
-				margin: 1rem auto;
-				border-radius: .25rem;
-				padding: 1rem;
-				box-shadow: 0 0 .5rem #333;
+				margin: var(--letter) auto;
+				border-radius: calc(var(--letter) / 4);
+				padding: var(--letter);
+				box-shadow: 0 0 calc(var(--letter) / 2) var(--dark);
 			}
 			main aside{ display: none }
 			main .header{ 
-				position: relative;
-				padding: .25rem 0;
+				padding: calc(var(--letter) / 4) 0;
 				text-align: center;
 				font-size: min(calc(2vw + .5rem), 3rem);
 			}
 			main .header::after{
 				content: '';
 				position: absolute;
-				left: 2.5%;
+				left: calc( var(--size) / 40 );
 				bottom: 0;
-				width: 95%;
+				width: calc(var(--size) * .95);
 				height: .5px;
 				background-color: #ccc;
-				box-shadow: 0 0 .25rem #333;
+				box-shadow: 0 0 calc(var(--letter) / 4) var(--dark);
 			}
 		/*Barra Lateral*/
 			/*Aspecto Visual*/
 				.sidebar{ 
 					max-height: calc(100vh - 3rem);
-					padding: 1rem;
-					padding-right: .5rem;
+					padding: var(--letter);
+					padding-right: calc(var(--letter) / 2);
 					overflow: auto;
 				}
 				.sidebar::-webkit-scrollbar,
 				.sidebar::-webkit-scrollbar-track,
 				.sidebar::-webkit-scrollbar-thumb{ 
 					-webkit-appearance: none;
-					width: .5rem;
-					border-radius: .25rem;
+					width: calc(var(--letter) / 2);
+					border-radius: calc(var(--letter) / 4);
 				}
-				.sidebar:hover::-webkit-scrollbar-thumb{ background: linear-gradient(#eee, #ccc)}
+				.sidebar .searchbar{ --light: #aaa; }
+				.sidebar:hover::-webkit-scrollbar-thumb{ background: linear-gradient(var(--light), #ccc) }
 				.sidebar h2{ font-size: min(calc(2vw + .5rem), 2rem) }
-				.sidebar a{
-					color: #eee;
-					text-decoration: none;
-				}
-				.sidebar ul{
-					list-style: none;
-					padding: 0;
-				}
+				.sidebar a{ color: var(--light) }
+				.sidebar ul{ padding: 0 }
 				.sidebar span{ font-weight: bold }
-				.sidebar ul li::before{ padding: .5rem }
+				.sidebar ul li::before{ padding: calc(var(--letter) / 2) }
 			/*Contadores*/
 				.sidebar{ counter-reset: first }
 				.sidebar ul{ counter-reset: second }
 				.sidebar ul ul{ counter-reset: third }
-			/*Incrementos*/
+			/*Incremento*/
 				.sidebar li { counter-increment: first }
 				.sidebar li li{ counter-increment: second }
 				.sidebar li li li{ counter-increment: third }
-			/*Implementacion*/
+			/*Aplicacion*/
 				.sidebar strong::before,
 				.sidebar ul li:not(.excluded)::before{
 					content: 
@@ -234,23 +259,21 @@
 						counter(second)	'.' 
 						counter(third)	' -';
 					font-weight: bold;
-					padding: .2rem;
+					padding: calc(var(--letter)/5);
 				}
 		/*Area de Ejemplos*/
 			.example{ counter-reset: item }
 			.example h4{
-				position: relative;
-				cursor: pointer;
-				border-bottom: .1rem solid #999;
+				border-bottom: calc(var(--letter) / 10) solid #999;
 				padding: .5rem;
-				color: #333;
+				color: var(--dark);
 			}
 			.example h4:before{
 				counter-increment: item;
 				content:  counter(item);
-				padding: .5rem;
-				line-height: 1rem;
-				font-size: 2.5rem;
+				line-height: var(--letter);
+				padding: calc(var(--letter) / 2);
+				font-size: calc(var(--letter) /.4);
 			}
 			.example > div{ 
 				height: 0; 
@@ -258,16 +281,16 @@
 			}
 			.example .active{ height: auto }
 			.example div{
-				margin: .5rem;
+				margin: calc(var(--letter) / 2);
 				background-color: #ccc;
 			}
-			.example div div{
-				margin: .25rem;
-				border-radius: .25rem;
-				border: .2rem solid #eee;
-				padding: 1rem;
-				color: #eee;
-				background: #448 linear-gradient(#36c, #448);
+			.example * div{
+				margin: calc(var(--letter) / 4);
+				border-radius: calc(var(--letter) / 4);
+				border: calc(var(--letter) / 5) solid var(--light);
+				padding: var(--letter);
+				color: var(--light);
+				background: var(--first) linear-gradient(var(--info), var(--first));
 			}
 			.flex{ display: flex }
 			.grid{ display: grid; grid-template-columns: auto auto auto }
@@ -280,7 +303,7 @@
 				.justify-between{ justify-content: space-between }
 				.justify-evenly	{ justify-content: space-evenly  }
 			/*Align-Items | Align-Content*/
-				.active[class*="align"]{ min-height: 15rem }
+				.active[class*="align"]{ min-height: calc(var(--letter) * 15) }
 				.align-stretch	{ align-items: stretch;    align-content: stretch    }
 				.align-start 	{ align-items: flex-start; align-content: flex-start }
 				.align-end	 	{ align-items: flex-end;   align-content: flex-end   }
@@ -291,33 +314,33 @@
 				.align-evenly	{ align-content: space-evenly  }
 			/*Flex-Direction*/
 				.active.row {
-					border-top: .2rem dashed limegreen;
-					border-left: .2rem dashed tomato;
+					border-top: calc(var(--letter) / 5) dashed var(--success);
+					border-left: calc(var(--letter) / 5) dashed var(--danger);
 				}
 				.active.column {
 					flex-direction: column;
-					border-top: .2rem dashed tomato;
-					border-left: .2rem dashed limegreen;
+					border-top: calc(var(--letter) / 5) dashed var(--danger);
+					border-left: calc(var(--letter) / 5) dashed var(--success);
 				} 
 				.active.row-reverse {
 					flex-direction: row-reverse;
-					border-top: .2rem dashed limegreen;
-					border-right: .2rem dashed tomato;
+					border-top: calc(var(--letter) / 5) dashed var(--success);
+					border-right: calc(var(--letter) / 5) dashed var(--danger);
 				}
 				.active.column-reverse {
 					flex-direction: column-reverse;
-					border-bottom: .2rem dashed tomato;
-					border-left: .2rem dashed limegreen;
+					border-bottom: calc(var(--letter) / 5) dashed var(--danger);
+					border-left: calc(var(--letter) / 5) dashed var(--success);
 				}
 			/*Grid-Column*/
 				.template-column :first-child,
-				.template-column :last-child { grid-column: 1 / 4 } 
+				.template-column :last-child{ grid-column: 1 / 4 } 
 				.template-column :nth-child(3n+2){ grid-column: span 2 }
 				.template-column :first-child::after,
-				.template-column :last-child::after { content: ' - column 1 / 4'; }
+				.template-column :last-child::after{ content: ' - column 1 / 4'; }
 				.template-column :nth-child(3n+2)::after{ content: ' - column span 2' }
 			/*Grid-Row*/
-				.template-row :first-child  { grid-row: 1 / 5 }
+				.template-row :first-child{ grid-row: 1 / 5 }
 				.template-row :nth-child(4n + 3){ grid-row: span 2 }
 				.template-row :first-child::after{ content: ' - row: 1 / 5'; }
 				.template-row :nth-child(4n + 3)::after{ content: ' - row: span 2'; }
@@ -329,23 +352,23 @@
 						'section 	main 		aside'
 						'footer 	footer 		footer'
 				}
-				.template-area :first-child  	 { grid-area: header  }
-				.template-area :nth-child(2) 	 { grid-area: article }
-				.template-area :nth-last-child(2){ grid-area: aside	  }
-				.template-area :last-child		 { grid-area: footer  }
-				.template-area :first-child::after 	 	{ content: ' - header'  }
-				.template-area :nth-child(2)::after 	{ content: ' - article' }
-				.template-area :nth-last-child(2)::after{ content: ' - aside'	}
-				.template-area :last-child::after	 	{ content: ' - footer'  }
+				.template-area :first-child  	  { grid-area: header  }
+				.template-area :nth-child(2) 	  { grid-area: article }
+				.template-area :nth-last-child(2) { grid-area: aside   }
+				.template-area :last-child		  { grid-area: footer  }
+				.template-area :first-child::after 	 	 { content: ' - header'  }
+				.template-area :nth-child(2)::after 	 { content: ' - article' }
+				.template-area :nth-last-child(2)::after { content: ' - aside'	 }
+				.template-area :last-child::after	 	 { content: ' - footer'  }
 			/*Tamaños de Fuente*/
-				.f1{ font-size: .5rem  }
-				.f2{ font-size: 1rem   }
-				.f3{ font-size: 1.5rem }
-				.f4{ font-size: 2rem   }
-				.f5{ font-size: 3rem   }
+				.f1{ font-size: calc(var(--letter)*.3 ) }
+				.f2{ font-size: calc(var(--letter)*.6 ) }
+				.f3{ font-size: calc(var(--letter)	) }
+				.f4{ font-size: calc(var(--letter)/.6 ) }
+				.f5{ font-size: calc(var(--letter)/.3 ) }
 		/*Video de Fondo*/
 			.bg-content{
-				position: relative;
+				--dark: #000;
 				display: grid;
 				justify-content: center;
 				padding-top: min(55%, 726px);
@@ -353,41 +376,39 @@
 			.bg-content .container{
 				right: 0;
 				bottom: 0;
-				margin: auto;
 			}
 			.bg-content .btn{
 				position: absolute;
-				padding: .5rem 1rem;
-				bottom: 1rem;
-				right: .5rem;
+				padding: calc(var(--letter) / 2) var(--letter);
+				bottom: var(--letter);
+				right: calc(var(--letter) / 2);
 			}
 			.bg-content .description{
 				max-width: 0;
 				margin: 0;
 				background-color: rgba(204,204,204,.5);
 				overflow: auto;
-				text-shadow: 0 0 .5rem #eee;
+				text-shadow: 0 0 calc(var(--letter) / 2) var(--light);
 			}
 			.bg-content:hover .description{
-				width: 50%;
-				max-width: 15rem;
-				padding: 1rem;
+				width: calc(var(--size) / 2);
+				max-width: calc(var(--letter) * 15);
+				padding: var(--letter);
 				z-index: 1;
 			}
-			.bg-content video{ background-color: black }
+			.bg-content video{ background-color: var(--dark) }
 	/*Pie de Pagina*/
 		#footer{
-			position: relative;
-			padding: 2.5rem 1rem 0;
-			color: #eee;
+			padding: calc(var(--letter) / 4) var(--letter) 0;
+			color: var(--light);
 		}
 		#footer .btn.opacity{
-			top: .5rem;
-			right: .5rem;
-			padding: .5rem;
-			color: #eee;
-			border-color: #333;
-			background-color: #333;
+			top: calc(var(--letter) / 2);
+			right: calc(var(--letter) / 2);
+			padding: calc(var(--letter) / 2);
+			color: var(--light);
+			border-color: var(--dark);
+			background-color: var(--dark);
 		}
 		#footer .icon-max{ position: absolute }
 		#footer .icon-min{ position: fixed; z-index: 3; }
@@ -405,103 +426,114 @@
 			flex-direction: row-reverse;
 			justify-content: space-around;
 			flex-wrap: wrap;
-			margin: 1rem -1rem 0;
-			padding: .5rem 1.5rem;
+			margin: var(--letter) calc(var(--letter) / -1) 0;
+			padding: calc(var(--letter) / 2) 1.5rem;
 			text-align: center;
 			line-height: 1.5rem;
-			color: #eee;
-			background: #448 linear-gradient(#448, #224);
+			color: var(--light);
+			background: var(--first) linear-gradient(var(--first), var(--second));
 		}
 		.copy a{
-			position: relative;
-			margin: .1rem;
-			border-radius: .25rem;
-			padding: .2rem .4rem;
-			text-decoration: none;
+			margin: calc(var(--letter) * .1);
+			border-radius: calc(var(--letter) / 4);
+			padding: calc(var(--letter) / 5) calc(var(--letter) / 2.5);
 			font-weight: bold;
-			color: #448;
-			background-color: #eee;
+			color: var(--first);
+			background-color: var(--light);
 		}
-		.copy a:hover{ bottom: .25rem }
+		.copy a:hover{ bottom: calc(var(--letter) / 4) }
 	/*Formulario de Contacto*/
 		#contact{ 
 			display: grid;
-			margin: 2rem auto;
-			border-radius: .25rem;
-			padding: 1.5rem;
-			color: #eee;
-			background: #448A linear-gradient(#224A, #448A);
+			margin: calc(var(--letter) / 5) auto;
+			border-radius: calc(var(--letter) / 4);
+			padding: calc(var(--letter) /.67);
+			color: var(--light);
+			background: var(--first) linear-gradient(var(--second), var(--first));
+			opacity: .9;
 		}
 		#contact label{
 			height: 0;
-			margin-top: .5rem;
-			padding-left: .5rem;
+			margin-top: calc(var(--letter) / 2);
+			padding-left: calc(var(--letter) / 2);
 			overflow: hidden;
 		}
 		#contact label::after{
 			content: ' *';
-			color: gold;
+			color: var(--warning);
 			font-family: sans-serif;
 		}
 		#contact input,
 		#contact textarea{
-			width: 100%;
+			width: var(--size);
 			outline: none;
-			border-radius: .25rem;
-			border: .1rem solid transparent;
-			padding: .5rem 1rem;
-			color-rendering: #333;
-			font-size: 1rem;
+			border-radius: calc(var(--letter) / 4);
+			border: calc(var(--letter) / 8) solid var(--light);
+			padding: calc(var(--letter) / 2) var(--letter);
 			resize: none;
 		}
-		#contact textarea{ min-height: 8rem }
+		#contact textarea{ min-height: calc(var(--letter) * 8) }
 		#contact .btn{
-			margin: .5rem 0 .2rem auto;
-			padding: .5rem 1rem;
+			margin: calc(var(--letter) / 2) 0 calc(var(--letter) / 5) auto;
+			padding: calc(var(--letter) / 2) var(--letter);
 		}
 		#contact .valid{
 			display: none;
-			margin: -.25rem 0;
-			padding: .5rem;
-			color: #eee;
-			background-color: #333;
+			margin: calc(var(--letter) / -4) 0;
+			padding: calc(var(--letter) / 2);
+			color: var(--light);
+			background-color: var(--dark);
 		}
-		/*Validacion de campos*/
-			#contact :focus{ border-color: #333 }
-			#contact input:focus{ border-radius: .25rem .25rem 0 0 }
+		/*Validacion*/
+			#contact :focus{ border-color: var(--dark) }
+			#contact input:focus{ border-radius: calc(var(--letter) / 4) calc(var(--letter) / 4) 0 0 }
 			#contact :focus + .valid{ 
 				display: block; 
-				border-radius: 0 0 .25rem .25rem; 
+				border-radius: 0 0 calc(var(--letter) / 4) calc(var(--letter) / 4); 
 			}
-			#contact :not(.btn):focus:valid{ border-color: #3c6 }
-			#contact :focus:valid + .valid{ background: #3c6 }
-			#contact :focus:not(:placeholder-shown):invalid{ border-color: #c33 }
-			#contact :focus:not(:placeholder-shown):invalid + .valid{ background: #c33 }
+			#contact :not(.btn):valid{ border-color: var(--success) }
+			#contact :focus:valid + .valid{ background-color: var(--success) }
+			#contact :focus:not(:placeholder-shown):invalid{ border-color: var(--danger) }
+			#contact :focus:not(:placeholder-shown):invalid + .valid{ background-color: var(--danger) }
 	/*Redes Sociales*/
 		.social{
+			max-width:  calc(var(--letter) / .5 * 5 + 1rem);
+			max-height: calc(var(--letter) / .5 + .5rem);
 			display: flex;
 			justify-content: center;
+			align-items: center;
 			flex-wrap: wrap;
+			padding: 0 calc(var(--letter));
+			overflow: hidden;
+		}
+		.social::after{
+			content: '\25B6';
+			position: absolute;
+			right: calc(var(--letter) / 6);
+		}
+		.social.active{ max-width: calc(var(--letter) / .5 * 12); }
+		.social.active::after{
+			content: '\25C0';
+			right: calc(var(--size) - .75rem);
 		}
 		.social a{
-			width: 2rem;
-			height: 2rem;
-			margin: .1rem;
-			border-radius: .5rem;
-			background-color: #eee;
-			background-size: 1.5rem;
-			background-position: center;
-			background-repeat: no-repeat;
-			opacity: .5;
+			width:  calc(var(--letter) /.5 );
+			height: calc(var(--letter) /.5 );
+			margin: calc(var(--letter) / 4) calc(var(--letter) / 10);
+			border-radius: calc(var(--letter) / 4);
+			background: var(--light) var(--bg) center/calc(var(--letter) * 1.5) no-repeat;
+			background-blend-mode: luminosity;
 		}
-		.social a:hover{ opacity: 1 }
-		.facebook	{ background-image: url('../assets/icon/facebook.svg' ) }
-		.github		{ background-image: url('../assets/icon/github.svg'	  ) }
-		.instagram	{ background-image: url('../assets/icon/instagram.svg') }
-		.linkedin	{ background-image: url('../assets/icon/linkedin.svg' ) }
-		.twitter	{ background-image: url('../assets/icon/twitter.svg'  ) }
-		.whatsapp	{ background-image: url('../assets/icon/whatsapp.svg' ) }
-		.youtube	{ background-image: url('../assets/icon/youtube.svg'  ) }
+		.social a:hover{ 
+			background-blend-mode: normal;
+		}
+		.facebook	{ --bg: url('../assets/icon/facebook.svg' ) }
+		.github		{ --bg: url('../assets/icon/github.svg'	  ) }
+		.instagram	{ --bg: url('../assets/icon/instagram.svg') }
+		.linkedin	{ --bg: url('../assets/icon/linkedin.svg' ) }
+		.twitter	{ --bg: url('../assets/icon/twitter.svg'  ) }
+		.whatsapp	{ --bg: url('../assets/icon/whatsapp.svg' ) }
+		.youtube	{ --bg: url('../assets/icon/youtube.svg'  ) }
 /*Pantallas sm Smartphones*/
 	@media screen and (min-width: 576px){
 	/*Formato General*/
@@ -514,6 +546,7 @@
 	@media screen and (min-width: 768px){
 	/*Formato General*/
 		main section,
+		.example,
 		#contact{ max-width: 720px }
 	/*Barra de Navegacion*/
 		nav .btn,
@@ -523,10 +556,10 @@
 			display: flex;
 			width: auto;
 			height: auto;
-			font-size: 1.5rem;
+			font-size: calc(var(--letter)/.67);
 		}
 	}
-/*Pantallas lg Desktop*/
+/*Pantallas lg Laptops*/
 	@media screen and (min-width: 992px){
 	/*Formato General*/
 		main section{ max-width: 960px }
@@ -534,15 +567,10 @@
 		.menu a{ align-items: center }
 		nav span{ 
 			display: block;
-			font-size: 1rem;
-		}
-	/*Contenido Principal*/
-		.example{
-			max-width: 720px;
-			margin: auto;
+			font-size: var(--letter);
 		}
 	}
-/*Pantallas xl HD Desktop*/	
+/*Pantallas xl Desktop*/	
 	@media screen and (min-width: 1200px){
 	/*Formato General*/
 		main{ max-width: 1140px }
@@ -567,7 +595,7 @@
 		#css-grid  { grid-area: css-grid  }
 		#bootstrap { grid-area: bootstrap }
 		main aside { grid-area: aside  	  }
-		main section{ padding: 3rem 2rem  }
+		main section{ padding: calc(var(--letter)/.33) calc(var(--letter)/.5)  }
 		/*Barra lateral*/
 			.sidebar{
 				position: sticky;
@@ -576,11 +604,11 @@
 			}
 			.sidebar strong{
 				display: block;
-				margin: .5rem 0 .25rem;
-				border-radius: .25rem;
-				padding: .25rem;
-				color: #eee;
-				background-color: #448;
+				margin: calc(var(--letter) / 2) 0 calc(var(--letter) / 4);
+				border-radius: calc(var(--letter) / 4);
+				padding: calc(var(--letter) / 4);
+				color: var(--light);
+				background-color: var(--first);
 			}
 	}
 /*Pantallas xxl HD Desktop*/
