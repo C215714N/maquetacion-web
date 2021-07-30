@@ -24,6 +24,10 @@
 						i > 0 ?	newItem = itemList[i - 1] : newItem = itemList[itemList.length -1]
 		}	}	} 	newItem.classList.add('active')	
 	}
+/*Redes Sociales*/
+	socialBar = document.querySelector('#footer .social')
+	
+	socialBar.onclick = () => socialBar.classList.toggle('active')
 /*Mapa de Contacto*/
 	map = document.querySelector('#footer iframe')
 	sizeBtn = document.querySelector('#footer .btn.opacity')
@@ -34,16 +38,8 @@
 	vid = document.querySelector('.bg-content video')
 	btn = document.querySelector('.bg-content .btn')
 
-	bgVid.onclick = () => vidState(vid.paused)
+	bgVid.onclick = () => vid.paused ? ( vid.play(), btn.innerHTML = 'PAUSE' ) : ( vid.pause(), btn.innerHTML = 'PLAY')
 
-	const vidState = (state) => {
-		if (state) {
-			vid.play()
-			btn.innerHTML = 'PAUSE'
-		} else {
-			vid.pause()
-			btn.innerHTML = 'PLAY'
-	}	}
 /*Mostrar Ejemplos*/
 	titles = document.querySelectorAll('.example h4')
 	example = document.querySelectorAll('.flex, .grid')
