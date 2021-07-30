@@ -12,26 +12,10 @@
 		<a class="logo" href="">css</a>
 		<button class="btn">&equiv;</button>
 		<ul class="menu">
-			<li>
-				<a class="icon-home" href="#" title="Inicio">
-					<span>inicio</span>
-				</a>
-			</li>
-			<li>
-				<a class="icon-about" href="about.html" title="Acerca">
-					<span>acerca</span>
-				</a>
-			</li>
-			<li>
-				<a class="icon-gallery" href="gallery.html" title="Galeria">
-					<span>galeria</span>
-				</a>
-			</li>
-			<li>
-				<a class="icon-contact" href="#contact" title="Contacto">
-					<span>contacto</span>
-				</a>
-			</li>
+			<li><a class="icon-home" href="#" title="Inicio"><span>inicio</span></a></li>
+			<li><a class="icon-about" href="about.html" title="Acerca"><span>acerca</span></a></li>
+			<li><a class="icon-gallery" href="gallery.html" title="Galeria"><span>galeria</span></a></li>
+			<li><a class="icon-contact" href="#contact" title="Contacto"><span>contacto</span></a></li>
 		</ul>
 		<a class="icon-back opacity" href="#"></a>
 	</nav>
@@ -39,10 +23,7 @@
 	<header id="header">
 		<div class="header">
 			<h1>Cristian Racedo</h1>
-			<p>
-				<strong>Presenta: </strong>
-				Maquetacion Web
-			</p>
+			<p><strong>Presenta: </strong> Maquetacion Web</p>
 			<form id="pageSearch" class="searchbar">
 				<label for="pageText">Realice una Busqueda</label>
 				<input 
@@ -70,21 +51,23 @@
 	<!--Contenido Principal-->
 	<main>
 		<aside class="sidebar">
-			<h2>Tabla de Contenidos</h2>
-			<form action="" id="sideSearch" class="searchbar">
-				<label>Realice una Busqueda</label>
-				<input 
-					id="sideText" 
-					name="sideText" 
-					type="search"
-					minlength="3" 
-					maxlength="50" 
-					title="Escriba un texto para realizar una Busqueda" 
-					placeholder="Buscar..." 
-					required />
-				<button class="btn icon-success"></button>
-			</form>
-			<ul>
+			<header>
+				<h2>Tabla de Contenidos</h2>
+				<form action="" id="sideSearch" class="searchbar">
+					<label>Realice una Busqueda</label>
+					<input 
+						id="sideText" 
+						name="sideText" 
+						type="search"
+						minlength="3" 
+						maxlength="50" 
+						title="Escriba un texto para realizar una Busqueda" 
+						placeholder="Buscar..." 
+						required />
+					<button class="btn icon-success"></button>
+				</form>
+			</header>
+			<ul class="list">
 				<li class="excluded">
 					<strong><a href="#flexbox">Flexbox</a></strong>
 					<ul>
@@ -487,7 +470,7 @@
 					Una o mas Celdas que forman un área rectangular en la cuadrícula. Se crean cuando se coloca un ítem usando disposición basada en líneas o cuando se definen áreas usando grid areas con nombre.
 				</p>
 				<div class="example">
-					<h4>Grid-Template-Columns</h4>
+					<h4>Grid-Column</h4>
 					<div class="grid template-column">
 						<div>celda 1</div>
 						<div>celda 2</div>
@@ -496,7 +479,7 @@
 						<div>celda 5</div>
 						<div>celda 6</div>
 					</div>
-					<h4>Grid-Template-Rows</h4>
+					<h4>Grid-Row</h4>
 					<div class="grid template-row">
 						<div>celda 1</div>
 						<div>celda 2</div>
@@ -505,7 +488,7 @@
 						<div>celda 5</div>
 						<div>celda 6</div>
 					</div>
-					<h4>Grid-Template-Areas</h4>
+					<h4>Grid-Area</h4>
 					<div class="grid template-area">
 						<div>celda 1</div>
 						<div>celda 2</div>
@@ -541,7 +524,7 @@
 		</iframe>
 		<!--Formulario de Contacto-->
 		<form id="contact" action="" method="POST">
-			<h2>Contacto</h2>
+			<h2>Datos de Contacto</h2>
 			<label for="contactName">Nombre</label>
 			<input 
 				id="contactName" 
@@ -574,7 +557,7 @@
 				id="contactPhone" 
 				name="contactPhone"
 				type="tel" 
-				pattern="[\(]\d{3,6}[\)]\d{3,6}[\-]\d{3,6}" 
+				pattern="[0-9]{6,18}|[\(]\d{2,6}[\)]\d{3,6}[\-]\d{3,6}" 
 				title="Ingrese su numero respetando el formato (5411)5659-1548" 
 				placeholder="Telefono(*): (5411)5659-1548" 
 				required/>
@@ -596,12 +579,12 @@
 		<!--Redes Sociales-->
 		<div class="copy">
 			<div class="social">
-				<a class="facebook" href="https://facebook.com" target="_blank"></a>
-				<a class="twitter" href="https://twitter.com" target="_blank"></a>
-				<a class="instagram" href="https://instagram.com" target="_blank"></a>
-				<a class="linkedin" href="https://linkedin.com" target="_blank"></a>
-				<a class="youtube" href="https://youtube.com" target="_blank"></a>
-				<a class="whatsapp" href="https://api.whatsapp.com/"></a>
+				<a class="facebook" href="https://www.facebook.com/RacedoCristian" target="_blank"></a>
+				<a class="instagram" href="https://www.instagram.com/racedo.cristiandamian/" target="_blank"></a>
+				<a class="twitter" href="https://twitter.com/Racedo_Cristian" target="_blank"></a>
+				<a class="whatsapp" href="https://api.whatsapp.com/send?phone=1156591548&text=%22Buenos%20dias,%20necesito%20un%20presupuesto%22"></a>
+				<a class="youtube" href="https://www.youtube.com/user/CR15T14ND4M14N/" target="_blank"></a>
+				<a class="linkedin" href="https://www.linkedin.com/in/racedocristian/" target="_blank"></a>
 				<a class="github" href="https://github.com/c215714n/EducacionIT/tree/maquetacion-WEB" target="_blank"></a>
 			</div>
 			<p>
