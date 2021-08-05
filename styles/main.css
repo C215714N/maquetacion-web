@@ -21,6 +21,7 @@
 		/*Margenes*/
 			body, 
 			header *, 
+			h2,
 			h4,	
 			.menu, 
 			.slide, 
@@ -445,7 +446,7 @@
 	/*Formulario de Contacto*/
 		#contact{ 
 			display: grid;
-			margin: calc(var(--letter) / 5) auto;
+			margin: calc(var(--letter) / .2) auto;
 			border-radius: calc(var(--letter) / 4);
 			padding: calc(var(--letter) /.67);
 			color: var(--light);
