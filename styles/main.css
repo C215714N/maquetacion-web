@@ -11,14 +11,30 @@
 			}
 		/*Variables*/
 			:root{
-				--first:	#448;	--second: 	#224;
-				--dark: 	#333;	--light: 	#eee;
-				--danger: 	#c33;	--warning: 	#ec3;	
-				--success:	#3c6;	--info: 	#36c;
-				--letter: 	1rem;	--size: 	100%;
-				--font:		'Raleway', 'century gothic', 'segoe ui', sans-serif;
+				--first:	#448;	
+				--second: 	#424;	
+				--dark: 	#333;	
+				--light: 	#eee;
+				--danger: 	#c33;	
+				--warning: 	#ec3;	
+				--success:	#3c6;	
+				--info: 	#36c;
+				--letter: 	1rem;
+				--r: 		.25rem;	
+				--size: 	100%;
+				--font:		'Raleway', 'segoe ui', sans-serif;
 			}
-		/*Margenes*/
+		/*Visualizacion*/
+			main aside,
+			.hidden,
+			.searchbar label,
+			#contact .valid{ display: none }
+			nav a,
+			.show,
+			.sidebar em,
+			.sidebar strong,
+			#contact :focus + .valid{ display: block }
+		/*Márgenes*/
 			body, 
 			header *, 
 			h2,
@@ -31,14 +47,44 @@
 			main, 
 			.example, 
 			.container{ margin: auto }
-		/*Tipografia*/
-			input, 
-			textarea{ font-size: var(--letter) }
-			.logo{ font:bolder calc(var(--size) * 1.5) var(--font) }
+		/*Bordes*/
+			main section,
+			main aside,
+			.btn,
+			.searchbar input,
+			.sidebar::-webkit-scrollbar-thumb,
+			.sidebar strong,
+			.example * div,
+			.copy a,
+			#contact,
+			#contact input,
+			#contact textarea,
+			.social a{ border-radius: var(--r); }
+			button,
+			input,
+			select,
+			textarea,
+			.btn{ outline: none }
+		/*Tipografía*/
 			nav a,
+			.menu a,
 			.sidebar a,
 			.copy a{ text-decoration: none; }
-		/*Posicion Relativa*/
+			input, 
+			textarea{ font-size: var(--letter) }
+			.logo{ font: bolder calc(var(--size) /.67) var(--font) }
+		/*Colores*/					
+			nav a,
+			.btn,
+			.searchbar :is(input, button:hover),
+			.searchbar ::-webkit-input-placeholder,
+			.sidebar :is(a, strong),
+			.example * div,
+			#header,
+			#header button.opacity,
+			#footer{ color: var(--light) }	
+			.filter{ background-color: var(--warning) }
+		/*Posición Relativa*/
 			main .header, 
 			.bg-content, 
 			.container, 
@@ -48,7 +94,8 @@
 			.copy a, 
 			#header, 
 			#footer{ position: relative; }
-		/*Posicion Absoluta*/
+		/*Posición Absoluta*/
+			.cover,
 			.slide li, 
 			.bg-content video, 
 			.bg-content .description, 
@@ -64,11 +111,9 @@
 		/*Botones*/
 			.btn{
 				min-width: calc(var(--letter) /.5);
+				min-height: calc(var(--letter) / .5);
 				margin: calc(var(--letter) / 2);
-				outline: none;
-				border-radius: calc(var(--letter) / 4);
-				border: calc(var(--letter) / 10) solid var(--light);
-				color: var(--light);
+				border: calc(var(--r) / 2.5) solid var(--light);
 				background-color: transparent;
 				font-size: calc(var(--letter) * 1.2);
 				text-transform: uppercase;
@@ -85,7 +130,6 @@
 			.opacity, 
 			.social a,
 			.social::after{ opacity: .3 }
-		/*Pseudoclase*/
 			.opacity:hover, 
 			.social a:hover,
 			.social:hover::after{ opacity: .7 }		
@@ -100,13 +144,11 @@
 			justify-content: space-between;
 			align-items: center;
 			flex-wrap: wrap;
-			background: var(--first) linear-gradient(var(--first), var(--second));
+			background: var(--first) linear-gradient( to right, var(--first), var(--second));
 			z-index: 2;
 		}
 		nav a{
-			display: block;
 			padding: calc(var(--letter) / 2);
-			color: var(--light);
 		}
 		.menu{ 
 			width: var(--size);
@@ -131,7 +173,6 @@
 			align-content: center;
 			height: min(100vh, 600px);
 			padding: calc(var(--letter) / 2);
-			color: var(--light);
 			text-align: center;
 			text-shadow: 0 0 calc(var(--letter) / 2) var(--dark);
 			font-size: min(calc(2vw + .8rem), 4rem);
@@ -140,52 +181,41 @@
 			position: absolute;
 			top: 0;
 			bottom: 0;
-			outline: none;
 			border: none;
 			padding: min(2vw, 5rem);
-			color: var(--light);
 			background-color: transparent;
 			font-size: min(calc(2vw + .8rem), 3rem);
 		}
 		#header .icon-prev{ left: 0 }
 		#header .icon-next{ right: 0 }
 	/*Barra de Busqueda*/
-		.searchbar input,
-		.searchbar button{
-			padding: calc(var(--letter) / 2);
-		}
 		.searchbar{ 
 			display: flex;
 			padding-top: calc(var(--letter) / 2);
 		}
-		.searchbar label{ display: none }
+		.searchbar input,
+		.searchbar button{ padding: calc(var(--letter) / 2) }
 		.searchbar input{
 			width: var(--size);
-			outline: none;
-			border-radius: calc(var(--letter) / 4);
-			border: calc(var(--letter) / 10) solid var(--light);
+			border: calc(var(--r) / 2.5) solid var(--light);
 			box-shadow: 0 0 calc(var(--letter) / 2) #999;
 		}
 		.searchbar input,
 		.searchbar ::-webkit-search-cancel-button,
 		.searchbar ::-webkit-input-placeholder{ 
 			-webkit-appearance: none;
-			color: var(--light);
 			background: transparent;
 		}
 		.searchbar button{
 			position: absolute;
 			right: 0;
 			margin: 0;
-			border-radius: 0 calc(var(--letter) / 4) calc(var(--letter) / 4) 0;
+			border-radius: 0 var(--r) var(--r) 0;
 			color: var(--first);
 			background-color: var(--light);
 		}
-		.searchbar button:hover{
-			color: var(--light);
-			background-color: var(--first);
-		}
-	/*Galeria de Imagenes*/
+		.searchbar button:hover{ background-color: var(--first) }
+	/*Galería de Imagenes*/
 		.slide li{ 
 			opacity: 0; 
 			background: linear-gradient(var(--light), var(--dark)), var(--bg) center/cover; 
@@ -202,13 +232,11 @@
 			main section, 
 			main aside{
 				margin: var(--letter) auto;
-				border-radius: calc(var(--letter) / 4);
 				padding: var(--letter);
 				box-shadow: 0 0 calc(var(--letter) / 2) var(--dark);
 			}
-			main aside{ display: none }
 			main .header{ 
-				padding: calc(var(--letter) / 4) 0;
+				padding: var(--r) 0;
 				text-align: center;
 				font-size: min(calc(2vw + .5rem), 3rem);
 			}
@@ -220,11 +248,12 @@
 				width: calc(var(--size) * .95);
 				height: .5px;
 				background-color: #ccc;
-				box-shadow: 0 0 calc(var(--letter) / 4) var(--dark);
+				box-shadow: 0 0 var(--r) var(--dark);
 			}
 		/*Barra Lateral*/
 			/*Aspecto Visual*/
 				.sidebar{ 
+					min-width: calc(var(--letter) * 10);
 					max-height: calc(100vh - 3rem);
 					padding: var(--letter);
 					padding-right: calc(var(--letter) / 2);
@@ -235,26 +264,31 @@
 				.sidebar::-webkit-scrollbar-thumb{ 
 					-webkit-appearance: none;
 					width: calc(var(--letter) / 2);
-					border-radius: calc(var(--letter) / 4);
+				}
+				.sidebar strong{
+					margin: calc(var(--letter)/2) 0 calc(var(--letter)/4);
+					padding: calc(var(--letter)/4);
+					background-color: var(--second);
 				}
 				.sidebar .searchbar{ --light: #aaa; }
-				.sidebar:hover::-webkit-scrollbar-thumb{ background: linear-gradient(var(--light), #ccc) }
+				.sidebar:hover::-webkit-scrollbar-thumb{ 
+					--dark: #ccc;
+					background: linear-gradient(var(--light), var(--dark)) }
 				.sidebar h2{ font-size: min(calc(2vw + .5rem), 2rem) }
-				.sidebar a{ color: var(--light) }
+				.sidebar a{ /*color: var(--light)*/ }
 				.sidebar ul{ padding: 0 }
-				.sidebar span{ font-weight: bold }
+				.sidebar em{ font-weight: bold }
 				.sidebar ul li::before{ padding: calc(var(--letter) / 2) }
 			/*Contadores*/
 				.sidebar{ counter-reset: first }
 				.sidebar ul{ counter-reset: second }
 				.sidebar ul ul{ counter-reset: third }
-			/*Incremento*/
+			/*Incrementos*/
 				.sidebar li { counter-increment: first }
 				.sidebar li li{ counter-increment: second }
 				.sidebar li li li{ counter-increment: third }
 			/*Aplicacion*/
-				.sidebar strong::before,
-				.sidebar ul li:not(.excluded)::before{
+				.sidebar :is(strong, em, li):not(.excluded)::before{
 					content: 
 						counter(first)	'.' 
 						counter(second)	'.' 
@@ -265,7 +299,7 @@
 		/*Area de Ejemplos*/
 			.example{ counter-reset: item }
 			.example h4{
-				border-bottom: calc(var(--letter) / 10) solid #999;
+				border-bottom: calc(var(--r) / 2.5) solid #999;
 				padding: .5rem;
 				color: var(--dark);
 			}
@@ -280,58 +314,60 @@
 				height: 0; 
 				overflow: hidden; 
 			}
-			.example .active{ height: auto }
-			.example div{
-				margin: calc(var(--letter) / 2);
-				background-color: #ccc;
+			.example .active{
+				--width: calc(var(--r)/1.5);
+				--style: dashed;
+				--color: var(--light); 
+				height: auto;
+				border:  var(--width) var(--style) var(--color);
 			}
+			.example div{ margin: calc(var(--letter) / 2) }
 			.example * div{
-				margin: calc(var(--letter) / 4);
-				border-radius: calc(var(--letter) / 4);
-				border: calc(var(--letter) / 5) solid var(--light);
+				margin: var(--r);
+				border: calc(var(--r) / 1.25) solid var(--light);
 				padding: var(--letter);
-				color: var(--light);
 				background: var(--first) linear-gradient(var(--info), var(--first));
 			}
 			.flex{ display: flex }
 			.grid{ display: grid; grid-template-columns: auto auto auto }
-			/*Justify-Content*/
-				.jutify-stretch { justify-content: stretch 		 }
-				.justify-start 	{ justify-content: flex-start 	 }
-				.justify-end	{ justify-content: flex-end 	 }
-				.justify-center	{ justify-content: center 		 }
+			/*Justify-Items | Justify-Content*/
+				.jutify-stretch { justify-items: stretch; 	 justify-content: stretch 	 }
+				.justify-start 	{ justify-items: flex-start; justify-content: flex-start }
+				.justify-end	{ justify-items: flex-end; 	 justify-content: flex-end   }
+				.justify-center	{ justify-items: center; 	 justify-content: center 	 }
+				.justify-items	{ justify-items: baseline }
 				.justify-around	{ justify-content: space-around  }
 				.justify-between{ justify-content: space-between }
 				.justify-evenly	{ justify-content: space-evenly  }
 			/*Align-Items | Align-Content*/
 				.active[class*="align"]{ min-height: calc(var(--letter) * 15) }
-				.align-stretch	{ align-items: stretch;    align-content: stretch    }
-				.align-start 	{ align-items: flex-start; align-content: flex-start }
-				.align-end	 	{ align-items: flex-end;   align-content: flex-end   }
-				.align-center	{ align-items: center; 	   align-content: center 	 }
+				.align-stretch	{ align-items: stretch;		 align-content: stretch    }
+				.align-start 	{ align-items: flex-start;	 align-content: flex-start }
+				.align-end	 	{ align-items: flex-end;	 align-content: flex-end   }
+				.align-center	{ align-items: center;		 align-content: center 	   }
 				.align-baseline	{ align-items: baseline }
 				.align-around	{ align-content: space-around  }
 				.align-between 	{ align-content: space-between }
 				.align-evenly	{ align-content: space-evenly  }
 			/*Flex-Direction*/
 				.active.row {
-					border-top: calc(var(--letter) / 5) dashed var(--success);
-					border-left: calc(var(--letter) / 5) dashed var(--danger);
+					border-top-color: var(--success);
+					border-left-color: var(--danger);
 				}
 				.active.column {
 					flex-direction: column;
-					border-top: calc(var(--letter) / 5) dashed var(--danger);
-					border-left: calc(var(--letter) / 5) dashed var(--success);
+					border-top-color: var(--danger);
+					border-left-color: var(--success);
 				} 
 				.active.row-reverse {
 					flex-direction: row-reverse;
-					border-top: calc(var(--letter) / 5) dashed var(--success);
-					border-right: calc(var(--letter) / 5) dashed var(--danger);
+					border-top-color: var(--success);
+					border-right-color: var(--danger);
 				}
 				.active.column-reverse {
 					flex-direction: column-reverse;
-					border-bottom: calc(var(--letter) / 5) dashed var(--danger);
-					border-left: calc(var(--letter) / 5) dashed var(--success);
+					border-bottom-color: var(--danger);
+					border-left-color: var(--success);
 				}
 			/*Grid-Column*/
 				.template-column :first-child,
@@ -400,14 +436,13 @@
 			.bg-content video{ background-color: var(--dark) }
 	/*Pie de Pagina*/
 		#footer{
-			padding: calc(var(--letter) / 4) var(--letter) 0;
-			color: var(--light);
+			padding: var(--r) var(--letter) 0;
+			
 		}
 		#footer .btn.opacity{
 			top: calc(var(--letter) / 2);
 			right: calc(var(--letter) / 2);
 			padding: calc(var(--letter) / 2);
-			color: var(--light);
 			border-color: var(--dark);
 			background-color: var(--dark);
 		}
@@ -431,26 +466,22 @@
 			padding: calc(var(--letter) / 2) 1.5rem;
 			text-align: center;
 			line-height: 1.5rem;
-			color: var(--light);
-			background: var(--first) linear-gradient(var(--first), var(--second));
+			background: var(--first) linear-gradient(to right, var(--first), var(--second));
 		}
 		.copy a{
 			margin: calc(var(--letter) * .1);
-			border-radius: calc(var(--letter) / 4);
 			padding: calc(var(--letter) / 5) calc(var(--letter) / 2.5);
 			font-weight: bold;
 			color: var(--first);
 			background-color: var(--light);
 		}
-		.copy a:hover{ bottom: calc(var(--letter) / 4) }
+		.copy a:hover{ bottom: var(--r) }
 	/*Formulario de Contacto*/
 		#contact{ 
 			display: grid;
 			margin: calc(var(--letter) / .2) auto;
-			border-radius: calc(var(--letter) / 4);
 			padding: calc(var(--letter) /.67);
-			color: var(--light);
-			background: var(--first) linear-gradient(var(--second), var(--first));
+			background: var(--first) radial-gradient(circle at top right, var(--second), var(--first));
 			opacity: .9;
 		}
 		#contact label{
@@ -468,7 +499,6 @@
 		#contact textarea{
 			width: var(--size);
 			outline: none;
-			border-radius: calc(var(--letter) / 4);
 			border: calc(var(--letter) / 8) solid var(--light);
 			padding: calc(var(--letter) / 2) var(--letter);
 			resize: none;
@@ -479,19 +509,14 @@
 			padding: calc(var(--letter) / 2) var(--letter);
 		}
 		#contact .valid{
-			display: none;
 			margin: calc(var(--letter) / -4) 0;
 			padding: calc(var(--letter) / 2);
-			color: var(--light);
 			background-color: var(--dark);
 		}
 		/*Validacion*/
 			#contact :focus{ border-color: var(--dark) }
-			#contact input:focus{ border-radius: calc(var(--letter) / 4) calc(var(--letter) / 4) 0 0 }
-			#contact :focus + .valid{ 
-				display: block; 
-				border-radius: 0 0 calc(var(--letter) / 4) calc(var(--letter) / 4); 
-			}
+			#contact input:focus{ border-radius: var(--r) var(--r) 0 0 }
+			#contact :focus + .valid{ border-radius: 0 0 var(--r) var(--r); }
 			#contact :not(.btn):valid{ border-color: var(--success) }
 			#contact :focus:valid + .valid{ background-color: var(--success) }
 			#contact :focus:not(:placeholder-shown):invalid{ border-color: var(--danger) }
@@ -507,27 +532,28 @@
 			padding: 0 calc(var(--letter));
 			overflow: hidden;
 		}
-		.social::after{
+		.social span::after{
 			content: '\25B6';
 			position: absolute;
+			top: calc(var(--letter) / 2);
 			right: calc(var(--letter) / 6);
 		}
-		.social.active{ max-width: calc(var(--letter) / .5 * 12); }
-		.social.active::after{
+		.social.active{ 
+			max-width: calc(var(--letter) / .5 * 12);
+			max-height: calc(var(--letter)/ .5 * 12);
+		}
+		.social.active span::after{
 			content: '\25C0';
 			right: calc(var(--size) - .75rem);
 		}
 		.social a{
 			width:  calc(var(--letter) /.5 );
 			height: calc(var(--letter) /.5 );
-			margin: calc(var(--letter) / 4) calc(var(--letter) / 10);
-			border-radius: calc(var(--letter) / 4);
+			margin: var(--r) calc(var(--r) / 2.5);
 			background: var(--light) var(--bg) center/calc(var(--letter) * 1.5) no-repeat;
 			background-blend-mode: luminosity;
 		}
-		.social a:hover{ 
-			background-blend-mode: normal;
-		}
+		.social a:hover{ background-blend-mode: normal; }
 		.facebook	{ --bg: url('../assets/icon/facebook.svg' ) }
 		.github		{ --bg: url('../assets/icon/github.svg'	  ) }
 		.instagram	{ --bg: url('../assets/icon/instagram.svg') }
@@ -540,15 +566,6 @@
 	/*Formato General*/
 		main section,
 		#contact{ max-width: 540px }
-	/*Formulario de Contacto*/
-		#contact label{ height: auto }
-	}
-/*Pantallas md Tablets*/
-	@media screen and (min-width: 768px){
-	/*Formato General*/
-		main section,
-		.example,
-		#contact{ max-width: 720px }
 	/*Barra de Navegacion*/
 		nav .btn,
 		nav span{ display: none }
@@ -559,58 +576,59 @@
 			height: auto;
 			font-size: calc(var(--letter)/.67);
 		}
+	/*Formulario de Contacto*/
+		#contact label{ height: auto }
+	}
+/*Pantallas md Tablets*/
+	@media screen and (min-width: 768px){
+	/*Formato General*/
+		main section,
+		.example,
+		#contact{ max-width: 720px }
 	}
 /*Pantallas lg Laptops*/
 	@media screen and (min-width: 992px){
 	/*Formato General*/
 		main section{ max-width: 960px }
+		main aside,
+		main section,
+		section{ margin: 0 auto}
+		main aside{ display: block }
 	/*Barra de Navegacion*/
 		.menu a{ align-items: center }
 		nav span{ 
 			display: block;
 			font-size: var(--letter);
 		}
-	}
-/*Pantallas xl Desktop*/	
-	@media screen and (min-width: 1200px){
-	/*Formato General*/
-		main{ max-width: 1140px }
-		main aside,
-		main section,
-		section{ margin: 0 auto}
-		main aside{ display: block }
-	/*Barra de Navegacion*/
-		nav{ justify-content: space-around }
 	/*Contenido Principal*/
 		main { 
 			display: grid;
-			margin: .5rem auto;
+			margin: calc(var(--letter)/4) auto;
 			justify-content: center;
 			grid-template-columns: auto auto;
 			grid-template-areas: 
 				'flexbox	aside'
 				'css-grid	aside';
-			gap: 1.25rem;
+			gap: var(--letter);
 		}
-		#flexbox   { grid-area: flexbox   }
-		#css-grid  { grid-area: css-grid  }
-		#bootstrap { grid-area: bootstrap }
-		main aside { grid-area: aside  	  }
+		#flexbox	{ grid-area: flexbox   	}
+		#css-grid	{ grid-area: css-grid  	}
+		#bootstrap	{ grid-area: bootstrap 	}
+		main aside	{ grid-area: aside		}
 		main section{ padding: calc(var(--letter)/.33) calc(var(--letter)/.5)  }
-		/*Barra lateral*/
-			.sidebar{
-				position: sticky;
-				top: 3rem;
-				bottom: 0;
-			}
-			.sidebar strong{
-				display: block;
-				margin: calc(var(--letter) / 2) 0 calc(var(--letter) / 4);
-				border-radius: calc(var(--letter) / 4);
-				padding: calc(var(--letter) / 4);
-				color: var(--light);
-				background-color: var(--first);
-			}
+	/*Barra lateral*/
+		.sidebar{
+			position: sticky;
+			top: calc(var(--letter)/.33);
+			bottom: 0;
+		}
+	}
+/*Pantallas xl Desktop*/	
+	@media screen and (min-width: 1200px){
+	/*Formato General*/
+		main{ max-width: 1140px }
+	/*Barra de Navegacion*/
+		nav{ justify-content: space-around }
 	}
 /*Pantallas xxl HD Desktop*/
 	@media screen and (min-width: 1400px){
@@ -618,5 +636,7 @@
 		main, 
 		main section,
 		.container,
-		.header	{ max-width: 1320px }
+		.header{ max-width: 1320px }
+	/*Barra de Navegacion*/
+		nav{ padding: 0 calc(50vw - 960px) }
 	}
