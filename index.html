@@ -53,25 +53,27 @@
 		<aside class="sidebar">
 			<header>
 				<h2>Tabla de Contenidos</h2>
-				<form action="" id="sideSearch" class="searchbar">
+				<form id="sideSearch" list="sideList" class="searchbar">
 					<label>Realice una Busqueda</label>
 					<input 
 						id="sideText" 
 						name="sideText" 
 						type="search"
 						minlength="3" 
-						maxlength="50" 
+						maxlength="50"
+						list="sideList" 
 						title="Escriba un texto para realizar una Busqueda" 
 						placeholder="Buscar..." 
 						required />
-					<button class="btn icon-success"></button>
+					<datalist id="sideList">
+					</datalist>
 				</form>
 			</header>
 			<ul class="list">
 				<li class="excluded">
 					<strong><a href="#flexbox">Flexbox</a></strong>
 					<ul>
-						<li><span>justify-content</span>
+						<li class="excluded"><em>justify-content</em>
 							<ul>
 								<li>flex-start</li>
 								<li>flex-end</li>
@@ -81,7 +83,7 @@
 								<li>space-evenly</li>
 							</ul>
 						</li>
-						<li><span>align-items</span>
+						<li class="excluded"><em>align-items</em>
 							<ul>
 								<li>stretch</li>
 								<li>flex-start</li>
@@ -90,7 +92,7 @@
 								<li>baseline</li>
 							</ul>
 						</li>
-						<li><span>flex-direction</span>
+						<li class="excluded"><em>flex-direction</em>
 							<ul>
 								<li>row</li>
 								<li>column</li>
@@ -103,7 +105,7 @@
 				<li class="excluded">
 					<strong><a href="#css-grid">CSS Grid</a></strong>
 					<ul>
-						<li><span>justify-content</span>
+						<li class="excluded"><em>justify-content</em>
 							<ul>
 								<li>stretch</li>
 								<li>flex-start</li>
@@ -114,7 +116,7 @@
 								<li>space-evenly</li>
 							</ul>
 						</li>
-						<li><span>align-content</span>
+						<li class="excluded"><em>align-content</em>
 							<ul>
 								<li>stretch</li>
 								<li>flex-start</li>
@@ -125,7 +127,7 @@
 								<li>space-evenly</li>
 							</ul>
 						</li>
-						<li><span>grid</span>
+						<li class="excluded"><em>grid</em>
 							<ul>
 								<li>grid-column</li>
 								<li>grid-row</li>
@@ -152,7 +154,7 @@
 				</p>
 				<div class="example">
 					<h4>Flex-Start</h4>
-					<div class="flex justify-start">
+					<div class="flex row justify-start">
 						<div> item 1</div>
 						<div> item 2</div>
 						<div> item 3</div>
@@ -161,7 +163,7 @@
 						<div> item 6</div>
 					</div>
 					<h4>Flex-End</h4>
-					<div class="flex justify-end">
+					<div class="flex row justify-end">
 						<div> item 1</div>
 						<div> item 2</div>
 						<div> item 3</div>
@@ -170,7 +172,7 @@
 						<div> item 6</div>
 					</div>
 					<h4>Center</h4>
-					<div class="flex justify-center">
+					<div class="flex row justify-center">
 						<div> item 1</div>
 						<div> item 2</div>
 						<div> item 3</div>
@@ -179,7 +181,7 @@
 						<div> item 6</div>
 					</div>
 					<h4>Space-Around</h4>
-					<div class="flex justify-around">
+					<div class="flex row justify-around">
 						<div> item 1</div>
 						<div> item 2</div>
 						<div> item 3</div>
@@ -188,7 +190,7 @@
 						<div> item 6</div>
 					</div>
 					<h4>Space-Between</h4>
-					<div class="flex justify-between">
+					<div class="flex row justify-between">
 						<div> item 1</div>
 						<div> item 2</div>
 						<div> item 3</div>
@@ -197,7 +199,7 @@
 						<div> item 6</div>
 					</div>
 					<h4>Space-Evenly</h4>
-					<div class="flex justify-evenly">
+					<div class="flex row justify-evenly">
 						<div> item 1</div>
 						<div> item 2</div>
 						<div> item 3</div>
@@ -216,7 +218,7 @@
 				</p>
 				<div class="example">
 					<h4>Stretch</h4>
-					<div class="flex align-stretch">
+					<div class="flex row align-stretch">
 						<div> item 1</div>
 						<div> item 2</div>
 						<div> item 3</div>
@@ -225,7 +227,7 @@
 						<div> item 6</div>
 					</div>
 					<h4>Flex-Start</h4>
-					<div class="flex align-start">
+					<div class="flex row align-start">
 						<div> item 1</div>
 						<div> item 2</div>
 						<div> item 3</div>
@@ -234,7 +236,7 @@
 						<div> item 6</div>
 					</div>
 					<h4>Flex-End</h4>
-					<div class="flex align-end">
+					<div class="flex row align-end">
 						<div> item 1</div>
 						<div> item 2</div>
 						<div> item 3</div>
@@ -243,7 +245,7 @@
 						<div> item 6</div>
 					</div>
 					<h4>Center</h4>
-					<div class="flex align-center">
+					<div class="flex row align-center">
 						<div> item 1</div>
 						<div> item 2</div>
 						<div> item 3</div>
@@ -252,7 +254,7 @@
 						<div> item 6</div>
 					</div>
 					<h4>Baseline</h4>
-					<div class="flex align-baseline">
+					<div class="flex row align-baseline">
 						<div class="f1"> item 1</div>
 						<div class="f2"> item 2</div>
 						<div class="f3"> item 3</div>
@@ -520,10 +522,10 @@
 	<footer id="footer">
 		<button class="btn opacity icon-max"></button>
 		<iframe 
-			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.9925584527174!2d-58.37620362245415!3d-34.60243211740226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacc473596c3%3A0x568d6d5f7f1f535d!2sEducaci%C3%B3n%20IT!5e0!3m2!1ses!2sar!4v1596181391934!5m2!1ses!2sar" aria-hidden="false">
+			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.9925584527174!2d-58.37620362245415!3d-34.60243211740226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacc473596c3%3A0x568d6d5f7f1f535d!2sEducaci%C3%B3n%20IT!5e0!3m2!1ses!2sar!4v1596181391934!5m2!1ses!2sar">
 		</iframe>
 		<!--Formulario de Contacto-->
-		<form id="contact" action="" method="POST">
+		<form id="contact" method="POST">
 			<h2>Datos de Contacto</h2>
 			<label for="contactName">Nombre</label>
 			<input 
@@ -557,7 +559,7 @@
 				id="contactPhone" 
 				name="contactPhone"
 				type="tel" 
-				pattern="[0-9]{6,18}|[\(]\d{2,6}[\)]\d{3,6}[\-]\d{3,6}" 
+				pattern="\d{6,18}|[\(]\d{2,6}[\)]\d{3,6}[\-]\d{3,6}" 
 				title="Ingrese su numero respetando el formato (5411)5659-1548" 
 				placeholder="Telefono(*): (5411)5659-1548" 
 				required/>
@@ -579,17 +581,18 @@
 		<!--Redes Sociales-->
 		<div class="copy">
 			<div class="social">
-				<a class="facebook" href="https://www.facebook.com/RacedoCristian" target="_blank"></a>
-				<a class="instagram" href="https://www.instagram.com/racedo.cristiandamian/" target="_blank"></a>
-				<a class="twitter" href="https://twitter.com/Racedo_Cristian" target="_blank"></a>
-				<a class="whatsapp" href="https://api.whatsapp.com/send?phone=1156591548&text=%22Buenos%20dias,%20necesito%20un%20presupuesto%22"></a>
-				<a class="youtube" href="https://www.youtube.com/user/CR15T14ND4M14N/" target="_blank"></a>
-				<a class="linkedin" href="https://www.linkedin.com/in/racedocristian/" target="_blank"></a>
-				<a class="github" href="https://github.com/c215714n/EducacionIT/tree/maquetacion-WEB" target="_blank"></a>
+				<span></span>
+				<a class="facebook" href="https://www.facebook.com/RacedoCristian" title="Seguinos en facebook" target="_blank"></a>
+				<a class="instagram" href="https://www.instagram.com/racedo.cristiandamian/" title="Seguinos en Instagram" target="_blank"></a>
+				<a class="twitter" href="https://twitter.com/Racedo_Cristian" title="Seguinos en Twitter" target="_blank"></a>
+				<a class="whatsapp" href="https://api.whatsapp.com/send?phone=1156591548&text=%22Buenos%20dias,%20necesito%20un%20presupuesto%22" title="contactanos por Whatsapp" target="_blank"></a>
+				<a class="youtube" href="https://www.youtube.com/user/CR15T14ND4M14N/" title="Suscribete a nuestro canal de Youtube" target="_blank"></a>
+				<a class="linkedin" href="https://www.linkedin.com/in/racedocristian/" title="Seguinos en Linkedin" target="_blank"></a>
+				<a class="github" href="https://github.com/c215714n/EducacionIT/tree/maquetacion-WEB" title="Revisa nuestros proyectos en GitHub" target="_blank"></a>
 			</div>
 			<p>
 				Todos los derechos reservados | 
-				<a href="#">Cristian Racedo</a>
+				<a href="mailto:cristiandracedo@hotmail.com?subject=buenas,necesito un presupuesto">Cristian Racedo</a>
 				&amp; Compañia
 			</p>
 		</div>
