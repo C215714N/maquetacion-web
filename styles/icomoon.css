@@ -70,6 +70,12 @@
 .icon-config:before {
   content: "\e994";
 }
+.icon-add:before {
+  content: "\ea0a";
+}
+.icon-rem:before {
+  content: "\ea0b";
+}
 .icon-cancel:before {
   content: "\ea0f";
 }
