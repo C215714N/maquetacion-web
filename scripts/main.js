@@ -27,10 +27,10 @@
 			default: newItem = ( i > 0 ? array[i - 1] : array[array.length -1] )
 	}	}
 /*Redes Sociales*/
-	socialBtn = document.querySelector('#footer .social span')
+	socialBtn = document.querySelector('#footer .social .btn')
 	socialBar = document.querySelector('#footer .social')
 	
-	socialBtn.onclick = () => socialBar.classList.toggle('active')
+	socialBtn.onclick = () => socialBar.classList.toggle('active') ? socialBtn.classList.replace('icon-add','icon-rem') : socialBtn.classList.replace('icon-rem','icon-add') 
 /*Mapa de Contacto*/
 	map = document.querySelector('#footer iframe')
 	sizeBtn = document.querySelector('#footer .btn.opacity')
