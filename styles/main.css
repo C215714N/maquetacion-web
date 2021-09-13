@@ -43,8 +43,10 @@
 			.slide, 
 			.sidebar, 
 			.container, 
+			.description,
 			.example,
-			.social .btn{ margin: 0 }
+			.social .btn,
+			.searchbar .btn{ margin: 0 }
 			main, 
 			.example, 
 			.container{ margin: auto }
@@ -58,17 +60,18 @@
 			.example * div,
 			.copy a,
 			#contact,
-			#contact input,
-			#contact textarea,
+			#contact :is(input, textarea),
 			.social a{ border-radius: var(--r); }
+			a,
 			button,
 			input,
 			select,
-			textarea,
-			.btn{ outline: none }
+			textarea{ outline: none }
 		/*Tipografía*/
+			#header,
+			main .header,
+			.copy{ text-align: center; }
 			nav a,
-			.menu a,
 			.sidebar a,
 			.copy a{ text-decoration: none; }
 			input, 
@@ -98,9 +101,7 @@
 		/*Posición Absoluta*/
 			.cover,
 			.slide li, 
-			.bg-content video, 
-			.bg-content .description, 
-			.bg-content .container,	
+			.bg-content :is(video, .description, .container),	
 			#footer iframe{
 				position: absolute;
 				top: 0;
@@ -111,7 +112,7 @@
 			}
 		/*Botones*/
 			.btn{
-				min-width: calc(var(--letter) /.5);
+				min-width: calc(var(--letter) / .5);
 				min-height: calc(var(--letter) / .5);
 				margin: calc(var(--letter) / 2);
 				border: calc(var(--r) / 2.5) solid var(--light);
@@ -125,8 +126,8 @@
 			}
 			button, 
 			.btn, 
-			.example h4,
-			.social::after{ cursor: pointer }
+			.sidebar li,
+			.example h4{ cursor: pointer }
 		/*Opacidad*/
 			.opacity, 
 			.social a,
@@ -172,7 +173,6 @@
 			align-content: center;
 			height: min(100vh, 600px);
 			padding: calc(var(--letter) / 2);
-			text-align: center;
 			text-shadow: 0 0 calc(var(--letter) / 2) var(--dark);
 			font-size: min(calc(2vw + .8rem), 4rem);
 		}
@@ -208,7 +208,6 @@
 		.searchbar button{
 			position: absolute;
 			right: 0;
-			margin: 0;
 			border-radius: 0 var(--r) var(--r) 0;
 			color: var(--first);
 			background-color: var(--light);
@@ -236,7 +235,6 @@
 			}
 			main .header{ 
 				padding: var(--r) 0;
-				text-align: center;
 				font-size: min(calc(2vw + .5rem), 3rem);
 			}
 			main .header::after{
@@ -252,7 +250,7 @@
 		/*Barra Lateral*/
 			/*Aspecto Visual*/
 				.sidebar{ 
-					min-width: calc(var(--letter) * 10);
+					min-width: calc(var(--letter) * 5);
 					max-height: calc(100vh - 3rem);
 					padding: var(--letter);
 					padding-right: calc(var(--letter) / 2);
@@ -421,7 +419,6 @@
 			}
 			.bg-content .description{
 				max-width: 0;
-				margin: 0;
 				background-color: rgba(204,204,204,.5);
 				overflow: auto;
 				text-shadow: 0 0 calc(var(--letter) / 2) var(--light);
@@ -463,12 +460,10 @@
 			flex-wrap: wrap;
 			margin: var(--letter) calc(var(--letter) / -1) 0;
 			padding: calc(var(--letter) / 2) 1.5rem;
-			text-align: center;
 			line-height: 1.5rem;
 			background: var(--first) linear-gradient(to right, var(--first), var(--second));
 		}
 		.copy a{
-			margin: calc(var(--letter) * .1);
 			padding: calc(var(--letter) / 5) calc(var(--letter) / 2.5);
 			font-weight: bold;
 			color: var(--first);
@@ -497,7 +492,6 @@
 		#contact input,
 		#contact textarea{
 			width: var(--size);
-			outline: none;
 			border: calc(var(--letter) / 8) solid var(--light);
 			padding: calc(var(--letter) / 2) var(--letter);
 			resize: none;
@@ -513,20 +507,21 @@
 			background-color: var(--dark);
 		}
 		/*Validacion*/
-			#contact :focus{ border-color: var(--dark) }
+			#contact :focus:not(.btn){ border-color: var(--dark) }
 			#contact input:focus{ border-radius: var(--r) var(--r) 0 0 }
 			#contact :focus + .valid{ border-radius: 0 0 var(--r) var(--r); }
-			#contact :not(.btn):valid{ border-color: var(--success) }
-			#contact :focus:valid + .valid{ background-color: var(--success) }
-			#contact :focus:not(:placeholder-shown):invalid{ border-color: var(--danger) }
-			#contact :focus:not(:placeholder-shown):invalid + .valid{ background-color: var(--danger) }
+			#contact :valid:not(.btn){ border-color: var(--success) }
+			#contact :valid + .valid{ background-color: var(--success) }
+			#contact :not(:placeholder-shown):invalid{ border-color: var(--danger) }
+			#contact :not(:placeholder-shown):invalid + .valid{ background-color: var(--danger) }
 	/*Redes Sociales*/
 		.social{
 			--item: calc(var(--letter) / .4);
+			min-width: min(var(--size), calc(var(--item) * 4));
+			max-height: calc(var(--item) + calc(var(--letter) / 1.5));
 			display: grid;
 			grid-template-columns: repeat(auto-fill, var(--item));
-			min-width: min(var(--size), calc(var(--item) * 5));
-			max-height: calc(var(--item) + var(--letter));
+			justify-content: center;
 			gap: var(--r);
 			padding: calc(var(--letter) / 2);
 			overflow: hidden;
@@ -538,7 +533,7 @@
 		.social :is(a, button){
 			width:  var(--item);
 			height: var(--item);
-			background: var(--light) var(--bg) center/calc(var(--size) / 1.33) no-repeat;
+			background: var(--light) var(--bg) center/calc(var(--item) / 1.33) no-repeat;
 			background-blend-mode: luminosity;
 		}
 		.social a:hover{ background-blend-mode: normal; }
@@ -581,19 +576,17 @@
 		main aside,
 		main section,
 		section{ margin: 0 auto}
-		main aside{ display: block }
+		main aside,
+		nav span{ display: block }
 	/*Barra de Navegacion*/
 		.menu a{ align-items: center }
-		nav span{ 
-			display: block;
-			font-size: var(--letter);
-		}
+		nav span{ font-size: var(--letter) }
 	/*Contenido Principal*/
 		main { 
 			display: grid;
 			margin: calc(var(--letter)/4) auto;
 			justify-content: center;
-			grid-template-columns: auto auto;
+			grid-template-columns: 3fr 1fr;
 			grid-template-areas: 
 				'flexbox	aside'
 				'css-grid	aside';
@@ -611,7 +604,7 @@
 			bottom: 0;
 		}
 	}
-/*Pantallas xl Desktop*/	
+/*Pantallas xl Desktop*/
 	@media screen and (min-width: 1200px){
 	/*Formato General*/
 		main{ max-width: 1140px }
