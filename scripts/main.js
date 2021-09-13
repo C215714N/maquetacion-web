@@ -47,6 +47,25 @@
 	example = document.querySelectorAll('.flex, .grid')
 
 	titles.forEach((t,i) => t.onclick = () => example[i].classList.toggle('active'))
+/*Prevencion de Comportamientos*/
+	forms = document.querySelectorAll('form')
+
+	forms.forEach(f => f.addEventListener('submit', (e) => {
+		e.preventDefault()
+  		formData = new FormData(e.target)
+  		formProps = Object.fromEntries(formData)
+	}	)	)
+	const getData = (obj, title) => {
+		let message = `${title} \n`
+		props = Object.keys(obj)
+		props.forEach( p => message+= `<strong>${p.slice(7)}:</strong> ${obj[p]} \n`)
+		console.log(message)
+	}
+	const sendData = (title) => {
+  		confirm('¿Seguro que Deseas enviar el formulario?') ? 
+  			getData(formProps, title) : 
+  			alert('El envio ha sido cancelado, puedes enviar el formulario cuando quieras')
+	}
 /*Buscador de Contenido*/
 	sideTxt = document.querySelector('#sideText')
 	sideBar = document.querySelector('#sideList')
@@ -62,14 +81,10 @@
 	const searchList = (className) => {
 		sideBar.innerHTML = ''
 		results = document.querySelectorAll(className)
-		results.forEach(r => sideBar.innerHTML += `<option value=${r.innerText}>${r.innerText}<option>`)
+		results.forEach(r => sideBar.innerHTML += `<option value=${r.innerText}><option>`)
 	}
 /*Formulario de Contacto*/
 	contact = document.querySelector('#contact')
 	fields  = contact.querySelectorAll('input', 'textarea')
 
-	contact.onsubmit = (e) => fields.forEach(f => console.log(`${f.name}: ${f.value}`))
-/*Prevenciones de Comportamientos*/
-	forms = document.querySelectorAll('form')
-
-	forms.forEach(f => f.addEventListener('submit', (e) => e.preventDefault()))
+	contact.addEventListener('submit', () => sendData('DATOS DE CONTACTO'))
