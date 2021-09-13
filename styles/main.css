@@ -11,13 +11,13 @@
 			}
 		/*Variables*/
 			:root{
-				--first:	#448;	
-				--second: 	#424;	
+				--first:	#448c;	
+				--second: 	#424c;	
 				--dark: 	#333;	
 				--light: 	#eee;
 				--danger: 	#c33;	
 				--warning: 	#ec3;	
-				--success:	#3c6;	
+				--success:	#2a5;	
 				--info: 	#36c;
 				--letter: 	1rem;
 				--r: 		.25rem;	
@@ -43,7 +43,8 @@
 			.slide, 
 			.sidebar, 
 			.container, 
-			.example{ margin: 0 }
+			.example,
+			.social .btn{ margin: 0 }
 			main, 
 			.example, 
 			.container{ margin: auto }
@@ -72,8 +73,8 @@
 			.copy a{ text-decoration: none; }
 			input, 
 			textarea{ font-size: var(--letter) }
-			.logo{ font: bolder calc(var(--size) /.67) var(--font) }
-		/*Colores*/					
+			.logo{ font: bolder calc(var(--letter)/.8) var(--font) }
+		/*Colores*/
 			nav a,
 			.btn,
 			.searchbar :is(input, button:hover),
@@ -147,9 +148,7 @@
 			background: var(--first) linear-gradient( to right, var(--first), var(--second));
 			z-index: 2;
 		}
-		nav a{
-			padding: calc(var(--letter) / 2);
-		}
+		nav a{ padding: calc(var(--letter) / 2) }
 		.menu{ 
 			width: var(--size);
 			height: 0;
@@ -166,7 +165,7 @@
 			border-radius: calc(var(--size) / 2);
 			background-color: var(--dark);
 		}
-	/*Cabecera*/
+	/*Cabecera de Pagina*/
 		#header{
 			display: grid;
 			justify-content: center;
@@ -266,7 +265,7 @@
 					width: calc(var(--letter) / 2);
 				}
 				.sidebar strong{
-					margin: calc(var(--letter)/2) 0 calc(var(--letter)/4);
+					margin: calc(var(--letter)/2) 0 0;
 					padding: calc(var(--letter)/4);
 					background-color: var(--second);
 				}
@@ -293,8 +292,8 @@
 						counter(first)	'.' 
 						counter(second)	'.' 
 						counter(third)	' -';
-					font-weight: bold;
 					padding: calc(var(--letter)/5);
+					font: normal bold var(--letter) var(--font);
 				}
 		/*Area de Ejemplos*/
 			.example{ counter-reset: item }
@@ -523,34 +522,23 @@
 			#contact :focus:not(:placeholder-shown):invalid + .valid{ background-color: var(--danger) }
 	/*Redes Sociales*/
 		.social{
-			max-width:  calc(var(--letter) / .5 * 5 + 1rem);
-			max-height: calc(var(--letter) / .5 + .5rem);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-wrap: wrap;
-			padding: 0 calc(var(--letter));
+			--item: calc(var(--letter) / .4);
+			display: grid;
+			grid-template-columns: repeat(auto-fill, var(--item));
+			min-width: min(var(--size), calc(var(--item) * 5));
+			max-height: calc(var(--item) + var(--letter));
+			gap: var(--r);
+			padding: calc(var(--letter) / 2);
 			overflow: hidden;
 		}
-		.social span::after{
-			content: '\25B6';
-			position: absolute;
-			top: calc(var(--letter) / 2);
-			right: calc(var(--letter) / 6);
-		}
 		.social.active{ 
-			max-width: calc(var(--letter) / .5 * 12);
-			max-height: calc(var(--letter)/ .5 * 12);
+			max-width:  calc(var(--item) * 10);
+			max-height: calc(var(--item) * 10);
 		}
-		.social.active span::after{
-			content: '\25C0';
-			right: calc(var(--size) - .75rem);
-		}
-		.social a{
-			width:  calc(var(--letter) /.5 );
-			height: calc(var(--letter) /.5 );
-			margin: var(--r) calc(var(--r) / 2.5);
-			background: var(--light) var(--bg) center/calc(var(--letter) * 1.5) no-repeat;
+		.social :is(a, button){
+			width:  var(--item);
+			height: var(--item);
+			background: var(--light) var(--bg) center/calc(var(--size) / 1.33) no-repeat;
 			background-blend-mode: luminosity;
 		}
 		.social a:hover{ background-blend-mode: normal; }
@@ -637,6 +625,9 @@
 		main section,
 		.container,
 		.header{ max-width: 1320px }
-	/*Barra de Navegacion*/
-		nav{ padding: 0 calc(50vw - 960px) }
+		nav,
+		.copy{ padding: 0 calc(50vw - 960px) }
+	/*Cabecera de Pagina*/
+		#header .icon-prev{ left: calc(50vw - 720px) }
+		#header .icon-next{ right: calc(50vw - 720px) }
 	}
