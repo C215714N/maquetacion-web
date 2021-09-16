@@ -73,17 +73,15 @@
 	sideTxt.oninput = (e) => {
 		term = e.target.value.toLowerCase()
 		searchFilter(sideLst, '', 'hidden')
-		term.length >= 2 ? 
-			searchFilter(sideLst, term) : 
-			sideLst.forEach(s => s.classList.remove('hidden','filter'))
-		searchList(sideBar)
+		term.length >= 2 ? searchFilter(sideLst, term) : sideLst.forEach(s => s.classList.remove('hidden','filter'))
+		searchList(sideBar, 'option')
 	}
 	const searchFilter = (array, data, className = 'filter') => array.forEach( el => el.innerText.toLowerCase().includes(data) ? el.classList.add(className) : el.classList.remove(className))
 	
-	const searchList = (el, tag, className = 'filter') => {
+	const searchList = (el, tag, className = '.filter') => {
 		el.innerHTML = ''
 		results = document.querySelectorAll(className)
-		results.forEach(r => el.innerHTML += `<option value=${r.innerText}></option>`)
+		results.forEach( r => el.innerHTML += `<${tag} value=${r.innerText}></${tag}>`)
 	}
 /*Formulario de Contacto*/
 	contact = document.querySelector('#contact')
