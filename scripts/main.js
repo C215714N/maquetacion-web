@@ -19,7 +19,6 @@
 				getDirection(array, type, i)
 		}	} 	newItem.classList.add(className)	
 	}
-
 	const getDirection = (array, type, i) => { 
 		switch(type){
 			case true: newItem = ( i < array.length - 1 ? array[i + 1] : array[0] )
@@ -62,26 +61,29 @@
 		console.log(message)
 	}
 	const sendData = (title) => {
-  		confirm('¿Seguro que Deseas enviar el formulario?') ? 
+  		confirm('¿Seguro deseas enviar el formulario?') ? 
   			getData(formProps, title) : 
   			alert('El envio ha sido cancelado, puedes enviar el formulario cuando quieras')
 	}
 /*Buscador de Contenido*/
 	sideTxt = document.querySelector('#sideText')
 	sideBar = document.querySelector('#sideList')
-	sideLst = document.querySelectorAll('.sidebar :is(strong, em, li):not(.excluded)')
+	sideLst = document.querySelectorAll('.sidebar li:not(.excluded)')
 	
 	sideTxt.oninput = (e) => {
 		term = e.target.value.toLowerCase()
-		searchFilter(sideLst, term, 'filter')
-		searchList('.filter')
+		searchFilter(sideLst, '', 'hidden')
+		term.length >= 2 ? 
+			searchFilter(sideLst, term) : 
+			sideLst.forEach(s => s.classList.remove('hidden','filter'))
+		searchList(sideBar)
 	}
 	const searchFilter = (array, data, className = 'filter') => array.forEach( el => el.innerText.toLowerCase().includes(data) ? el.classList.add(className) : el.classList.remove(className))
 	
-	const searchList = (className) => {
-		sideBar.innerHTML = ''
+	const searchList = (el, tag, className = 'filter') => {
+		el.innerHTML = ''
 		results = document.querySelectorAll(className)
-		results.forEach(r => sideBar.innerHTML += `<option value=${r.innerText}><option>`)
+		results.forEach(r => el.innerHTML += `<option value=${r.innerText}></option>`)
 	}
 /*Formulario de Contacto*/
 	contact = document.querySelector('#contact')

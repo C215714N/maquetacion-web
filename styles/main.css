@@ -26,14 +26,19 @@
 			}
 		/*Visualizacion*/
 			main aside,
-			.hidden,
 			.searchbar label,
 			#contact .valid{ display: none }
-			nav a,
-			.show,
-			.sidebar em,
-			.sidebar strong,
+			.menu a,
+			.sidebar :is(em, strong),
 			#contact :focus + .valid{ display: block }
+			.hidden.filter{ height: auto }
+			.menu,
+			.hidden,
+			.example > div,
+			#contact label{ 
+				height: 0; 
+				overflow: hidden;
+			}
 		/*Márgenes*/
 			body, 
 			header *, 
@@ -76,7 +81,8 @@
 			.copy a{ text-decoration: none; }
 			input, 
 			textarea{ font-size: var(--letter) }
-			.logo{ font: bolder calc(var(--letter)/.8) var(--font) }
+			.logo,
+			.icon-back{ font: bolder calc(var(--letter)/.8) var(--font) }
 		/*Colores*/
 			nav a,
 			.btn,
@@ -100,9 +106,9 @@
 			#footer{ position: relative; }
 		/*Posición Absoluta*/
 			.cover,
-			.slide li, 
-			.bg-content :is(video, .description, .container),	
-			#footer iframe{
+			.slide li, 	
+			.map iframe,
+			.bg-content :is(video, .description, .container){
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -152,9 +158,7 @@
 		nav a{ padding: calc(var(--letter) / 2) }
 		.menu{ 
 			width: var(--size);
-			height: 0;
 			padding: 0;
-			overflow: hidden;
 		}
 		.menu.active{ height: auto }
 		.menu span{ padding: calc(var(--letter) / 2) }
@@ -307,10 +311,6 @@
 				padding: calc(var(--letter) / 2);
 				font-size: calc(var(--letter) /.4);
 			}
-			.example > div{ 
-				height: 0; 
-				overflow: hidden; 
-			}
 			.example .active{
 				--width: calc(var(--r)/1.5);
 				--style: dashed;
@@ -431,24 +431,21 @@
 			}
 			.bg-content video{ background-color: var(--dark) }
 	/*Pie de Pagina*/
-		#footer{
-			padding: var(--r) var(--letter) 0;
-			
-		}
-		#footer .btn.opacity{
+		#footer{ padding: var(--r) var(--letter) 0 }
+		.map .btn{
 			top: calc(var(--letter) / 2);
 			right: calc(var(--letter) / 2);
 			padding: calc(var(--letter) / 2);
 			border-color: var(--dark);
 			background-color: var(--dark);
 		}
-		#footer .icon-max{ position: absolute }
-		#footer .icon-min{ position: fixed; z-index: 3; }
-		#footer iframe{
+		.map .icon-max{ position: absolute }
+		.map .icon-min{ position: fixed; z-index: 3; }
+		.map iframe{
 			border: 0;
 			opacity: .5;
 		}
-		#footer iframe.active{
+		.map iframe.active{
 			position: fixed;
 			opacity: .9;
 			z-index: 2;
@@ -457,6 +454,7 @@
 			display: flex;
 			flex-direction: row-reverse;
 			justify-content: space-around;
+			align-items: center;
 			flex-wrap: wrap;
 			margin: var(--letter) calc(var(--letter) / -1) 0;
 			padding: calc(var(--letter) / 2) 1.5rem;
@@ -479,10 +477,8 @@
 			opacity: .9;
 		}
 		#contact label{
-			height: 0;
 			margin-top: calc(var(--letter) / 2);
 			padding-left: calc(var(--letter) / 2);
-			overflow: hidden;
 		}
 		#contact label::after{
 			content: ' *';
@@ -527,8 +523,8 @@
 			overflow: hidden;
 		}
 		.social.active{ 
-			max-width:  calc(var(--item) * 10);
-			max-height: calc(var(--item) * 10);
+			max-width:  calc(var(--item) * 5);
+			max-height: calc(var(--item) * 5);
 		}
 		.social :is(a, button){
 			width:  var(--item);
@@ -584,7 +580,7 @@
 	/*Contenido Principal*/
 		main { 
 			display: grid;
-			margin: calc(var(--letter)/4) auto;
+			margin: calc(var(--letter) / 4) auto;
 			justify-content: center;
 			grid-template-columns: 3fr 1fr;
 			grid-template-areas: 
@@ -624,3 +620,4 @@
 		#header .icon-prev{ left: calc(50vw - 720px) }
 		#header .icon-next{ right: calc(50vw - 720px) }
 	}
+/*Autor: Cristian Racedo*/
