@@ -1,7 +1,7 @@
 /*Pantallas xs Mobile Firt*/
 	/*Reglas Generales*/
 		@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-		@import url('icomoon.css');	
+		@import url('icomoon.css');
 	/*Formato General*/	
 		/*Constantes*/
 			*{ 
@@ -27,11 +27,19 @@
 		/*Visualizacion*/
 			main aside,
 			.searchbar label,
-			#contact .valid{ display: none }
+			#contact .valid{ 
+				display: none;
+			}
 			.menu a,
 			.sidebar :is(em, strong),
-			#contact :focus + .valid{ display: block }
-			.hidden.filter{ height: auto }
+			#contact :focus + .valid{ 
+				display: block;
+			}
+			.menu.active,
+			.hidden.filter,
+			.example .active{ 
+				height: auto;
+			}
 			.menu,
 			.hidden,
 			.example > div,
@@ -51,10 +59,14 @@
 			.description,
 			.example,
 			.social .btn,
-			.searchbar .btn{ margin: 0 }
+			.searchbar .btn{ 
+				margin: 0;
+			}
 			main, 
 			.example, 
-			.container{ margin: auto }
+			.container{ 
+				margin: auto;
+			}
 		/*Bordes*/
 			main section,
 			main aside,
@@ -66,23 +78,40 @@
 			.copy a,
 			#contact,
 			#contact :is(input, textarea),
-			.social a{ border-radius: var(--r); }
+			.social a{ 
+				border-radius: var(--r); 
+			}
 			a,
 			button,
 			input,
 			select,
-			textarea{ outline: none }
+			textarea{ 
+				outline: none 
+			}
+		/*Rellenos*/
+			.menu,
+			.sidebar ul{
+				padding: 0;
+			}
 		/*Tipografía*/
 			#header,
 			main .header,
-			.copy{ text-align: center; }
+			.copy{ 
+				text-align: center; 
+			}
 			nav a,
 			.sidebar a,
-			.copy a{ text-decoration: none; }
+			.copy a{ 
+				text-decoration: none; 
+			}
 			input, 
-			textarea{ font-size: var(--letter) }
+			textarea{ 
+				font-size: var(--letter);
+			}
 			.logo,
-			.icon-back{ font: bolder calc(var(--letter)/.8) var(--font) }
+			.icon-back{ 
+				font: bolder calc(var(--letter)/.8) var(--font);
+			}
 		/*Colores*/
 			nav a,
 			.btn,
@@ -92,24 +121,45 @@
 			.example * div,
 			#header,
 			#header button.opacity,
-			#footer{ color: var(--light) }	
-			.filter{ background-color: var(--warning) }
-		/*Posición Relativa*/
+			#footer{ 
+				color: var(--light);
+			}	
+			.filter{ 
+				background-color: var(--warning);
+			}
+		/*Posición*/
 			main .header, 
-			.bg-content, 
-			.container, 
-			.searchbar, 
+			.searchbar,
+			.bg-content,
 			.social,
 			.example h4, 
 			.copy a, 
 			#header, 
-			#footer{ position: relative; }
-		/*Posición Absoluta*/
+			#footer{ 
+				position: relative; 
+			}
+			main .header::after,
 			.cover,
 			.slide li, 	
-			.map iframe,
-			.bg-content :is(video, .description, .container){
-				position: absolute;
+			.searchbar button,
+			.bg-content :is(video, .btn, .container, .description),
+			.map :is(iframe, .icon-max),
+			#header button.opacity{ 
+				position: absolute; 
+			}
+			.icon-back,
+			.map :is(iframe.active, .icon-min){ 
+				position: fixed; 
+			}
+			nav,
+			.sidebar{ 
+				position: sticky;
+			}
+		/*Distribucion*/
+			.cover,
+			.slide li,	
+			.bg-content :is(video, .description, .container),
+			.map iframe{
 				top: 0;
 				left: 0;
 				width: var(--size);
@@ -133,20 +183,25 @@
 			button, 
 			.btn, 
 			.sidebar li,
-			.example h4{ cursor: pointer }
+			.example h4{ 
+				cursor: pointer;
+			}
 		/*Opacidad*/
 			.opacity, 
-			.social a,
-			.social::after{ opacity: .3 }
+			.social a{ 
+				opacity: .3;
+			}
 			.opacity:hover, 
-			.social a:hover,
-			.social:hover::after{ opacity: .7 }		
+			.social a:hover{ 
+				opacity: .7;
+			}
 		/*Listas*/
 			.menu, 
-			.sidebar ul{ list-style: none }
+			.sidebar ul{ 
+				list-style: none 
+			}
 	/*Barra de Navegacion*/
 		nav{
-			position: sticky;
 			top: 0;
 			display: flex;
 			justify-content: space-between;
@@ -155,16 +210,19 @@
 			background: var(--first) linear-gradient( to right, var(--first), var(--second));
 			z-index: 2;
 		}
-		nav a{ padding: calc(var(--letter) / 2) }
+		nav a{ 
+			padding: calc(var(--letter) / 2);
+		}
 		.menu{ 
 			width: var(--size);
-			padding: 0;
 		}
-		.menu.active{ height: auto }
-		.menu span{ padding: calc(var(--letter) / 2) }
-		.menu a:hover{ background-color: rgba(68,68,168,.5) }
+		.menu span{ 
+			padding: calc(var(--letter) / 2);
+		}
+		.menu a:hover{ 
+			background-color: var(--first);
+		}
 		.icon-back{
-			position: fixed;
 			right: calc(var(--letter) / 2);
 			bottom: calc(var(--letter) / 2);
 			border-radius: calc(var(--size) / 2);
@@ -181,7 +239,6 @@
 			font-size: min(calc(2vw + .8rem), 4rem);
 		}
 		#header button.opacity{
-			position: absolute;
 			top: 0;
 			bottom: 0;
 			border: none;
@@ -189,48 +246,75 @@
 			background-color: transparent;
 			font-size: min(calc(2vw + .8rem), 3rem);
 		}
-		#header .icon-prev{ left: 0 }
-		#header .icon-next{ right: 0 }
-	/*Barra de Busqueda*/
-		.searchbar{ 
-			display: flex;
-			padding-top: calc(var(--letter) / 2);
+		#header .icon-prev{ 
+			left: 0;
 		}
-		.searchbar input,
-		.searchbar button{ padding: calc(var(--letter) / 2) }
-		.searchbar input{
-			width: var(--size);
-			border: calc(var(--r) / 2.5) solid var(--light);
-			box-shadow: 0 0 calc(var(--letter) / 2) #999;
-		}
-		.searchbar input,
-		.searchbar ::-webkit-search-cancel-button,
-		.searchbar ::-webkit-input-placeholder{ 
-			-webkit-appearance: none;
-			background: transparent;
-		}
-		.searchbar button{
-			position: absolute;
+		#header .icon-next{ 
 			right: 0;
-			border-radius: 0 var(--r) var(--r) 0;
-			color: var(--first);
-			background-color: var(--light);
 		}
-		.searchbar button:hover{ background-color: var(--first) }
-	/*Galería de Imagenes*/
-		.slide li{ 
-			opacity: 0; 
-			background: linear-gradient(var(--light), var(--dark)), var(--bg) center/cover; 
-			background-blend-mode: multiply;
-		}
-		.slide li:nth-child(1){ --dark: #124; --light: #36c; --bg: url('../assets/bg/osx-yosemite.jpg') }
-		.slide li:nth-child(2){ --dark: #142; --light: #3c6; --bg: url('../assets/bg/osx-mavericks.jpg') }
-		.slide li:nth-child(3){ --dark: #412; --light: #c36; --bg: url('../assets/bg/osx-sierra.jpg') }
-		.slide li:nth-child(4){ --dark: #421; --light: #c63; --bg: url('../assets/bg/osx-elcapitan.jpg') }
-		.slide .active{ opacity: 1 }
+		/*Barra de Busqueda*/
+			.searchbar{ 
+				display: flex;
+				padding-top: calc(var(--letter) / 2);
+			}
+			.searchbar input,
+			.searchbar button{ 
+				padding: calc(var(--letter) / 2);
+			}
+			.searchbar input{
+				width: var(--size);
+				border: calc(var(--r) / 2.5) solid var(--light);
+				box-shadow: 0 0 calc(var(--letter) / 2) #999;
+			}
+			.searchbar input,
+			.searchbar ::-webkit-search-cancel-button,
+			.searchbar ::-webkit-input-placeholder{ 
+				-webkit-appearance: none;
+				background: transparent;
+			}
+			.searchbar button{
+				right: 0;
+				border-radius: 0 var(--r) var(--r) 0;
+				color: var(--first);
+				background-color: var(--light);
+			}
+			.searchbar button:hover{ 
+				background-color: var(--first);
+			}
+		/*Galería de Imagenes*/
+			.slide li{ 
+				opacity: 0; 
+				background: linear-gradient(var(--light), var(--dark)), var(--bg) center/cover; 
+				background-blend-mode: multiply;
+			}
+			.slide li:nth-child(1n){ 
+				--dark: #124; 
+				--light: #36c; 
+				--bg: url('../assets/bg/osx-yosemite.jpg');
+			}
+			.slide li:nth-child(2n){ 
+				--dark: #142; 
+				--light: #3c6; 
+				--bg: url('../assets/bg/osx-mavericks.jpg');
+			}
+			.slide li:nth-child(3n){ 
+				--dark: #412; 
+				--light: #c36; 
+				--bg: url('../assets/bg/osx-sierra.jpg');
+			}
+			.slide li:nth-child(4n){ 
+				--dark: #421; 
+				--light: #c63; 
+				--bg: url('../assets/bg/osx-elcapitan.jpg');
+			}
+			.slide .active{ 
+				opacity: 1;
+			}
 	/*Contenido Principal*/
 		/*Secciones*/
-			main{ padding: calc(var(--letter) / 2) }
+			main{ 
+				padding: calc(var(--letter) / 2);
+			}
 			main section, 
 			main aside{
 				margin: var(--letter) auto;
@@ -243,7 +327,6 @@
 			}
 			main .header::after{
 				content: '';
-				position: absolute;
 				left: calc( var(--size) / 40 );
 				bottom: 0;
 				width: calc(var(--size) * .95);
@@ -271,24 +354,43 @@
 					padding: calc(var(--letter)/4);
 					background-color: var(--second);
 				}
-				.sidebar .searchbar{ --light: #aaa; }
+				.sidebar .searchbar{ 
+					--light: #aaa; 
+				}
 				.sidebar:hover::-webkit-scrollbar-thumb{ 
 					--dark: #ccc;
-					background: linear-gradient(var(--light), var(--dark)) }
-				.sidebar h2{ font-size: min(calc(2vw + .5rem), 2rem) }
-				.sidebar a{ /*color: var(--light)*/ }
-				.sidebar ul{ padding: 0 }
-				.sidebar em{ font-weight: bold }
-				.sidebar ul li::before{ padding: calc(var(--letter) / 2) }
+					background: linear-gradient(var(--light), var(--dark));
+				}
+				.sidebar h2{ 
+					font-size: min(calc(2vw + .5rem), 2rem);
+				}
+				.sidebar em{ 
+					font-weight: bold;
+				}
+				.sidebar ul li::before{ 
+					padding: calc(var(--letter) / 2);
+				}
 			/*Contadores*/
-				.sidebar{ counter-reset: first }
-				.sidebar ul{ counter-reset: second }
-				.sidebar ul ul{ counter-reset: third }
+				.sidebar{ 
+					counter-reset: first;
+				}
+				.sidebar ul{ 
+					counter-reset: second;
+				}
+				.sidebar ul ul{ 
+					counter-reset: third;
+				}
 			/*Incrementos*/
-				.sidebar li { counter-increment: first }
-				.sidebar li li{ counter-increment: second }
-				.sidebar li li li{ counter-increment: third }
-			/*Aplicacion*/
+				.sidebar li { 
+					counter-increment: first;
+				}
+				.sidebar li li{ 
+					counter-increment: second;
+				}
+				.sidebar li li li{ 
+					counter-increment: third;
+				}
+			/*Implementacion*/
 				.sidebar :is(strong, em, li):not(.excluded)::before{
 					content: 
 						counter(first)	'.' 
@@ -298,54 +400,107 @@
 					font: normal bold var(--letter) var(--font);
 				}
 		/*Area de Ejemplos*/
-			.example{ counter-reset: item }
-			.example h4{
-				border-bottom: calc(var(--r) / 2.5) solid #999;
-				padding: .5rem;
-				color: var(--dark);
-			}
-			.example h4:before{
-				counter-increment: item;
-				content:  counter(item);
-				line-height: var(--letter);
-				padding: calc(var(--letter) / 2);
-				font-size: calc(var(--letter) /.4);
-			}
-			.example .active{
-				--width: calc(var(--r)/1.5);
-				--style: dashed;
-				--color: var(--light); 
-				height: auto;
-				border:  var(--width) var(--style) var(--color);
-			}
-			.example div{ margin: calc(var(--letter) / 2) }
-			.example * div{
-				margin: var(--r);
-				border: calc(var(--r) / 1.25) solid var(--light);
-				padding: var(--letter);
-				background: var(--first) linear-gradient(var(--info), var(--first));
-			}
-			.flex{ display: flex }
-			.grid{ display: grid; grid-template-columns: auto auto auto }
+			/*Temario*/
+				.example{ 
+					counter-reset: item;
+				}
+				.example h4{
+					border-bottom: calc(var(--r) / 2.5) solid #999;
+					padding: .5rem;
+					color: var(--dark);
+				}
+				.example h4:before{
+					counter-increment: item;
+					content:  counter(item);
+					line-height: var(--letter);
+					padding: calc(var(--letter) / 2);
+					font-size: calc(var(--letter) /.4);
+				}
+			/*Ejemplificación*/
+				.example .active{
+					--width: calc(var(--r)/1.5);
+					--style: dashed;
+					--color: var(--light);
+					border:  var(--width) var(--style) var(--color);
+				}
+				.example div{ 
+					margin: calc(var(--letter) / 2);
+				}
+				.example * div{
+					margin: var(--r);
+					border: calc(var(--r) / 1.25) solid var(--light);
+					padding: var(--letter);
+					background: var(--first) linear-gradient(var(--info), var(--first));
+				}
+				.flex{ 
+					display: flex;
+					flex-wrap: wrap;
+				}
+				.grid{ 
+					display: grid; 
+					grid-template-columns: auto auto auto;
+				}
 			/*Justify-Items | Justify-Content*/
-				.jutify-stretch { justify-items: stretch; 	 justify-content: stretch 	 }
-				.justify-start 	{ justify-items: flex-start; justify-content: flex-start }
-				.justify-end	{ justify-items: flex-end; 	 justify-content: flex-end   }
-				.justify-center	{ justify-items: center; 	 justify-content: center 	 }
-				.justify-items	{ justify-items: baseline }
-				.justify-around	{ justify-content: space-around  }
-				.justify-between{ justify-content: space-between }
-				.justify-evenly	{ justify-content: space-evenly  }
+				.jutify-stretch { 
+					justify-items: stretch; 	 
+					justify-content: stretch;	 
+				}
+				.justify-start {
+					justify-items: flex-start; 
+					justify-content: flex-start;
+				}
+				.justify-end{
+					justify-items: flex-end; 	 
+					justify-content: flex-end;
+				}
+				.justify-center{
+					justify-items: center; 	 
+					justify-content: center;
+				}
+				.justify-items{
+					justify-items: baseline;
+				}
+				.justify-around{
+					justify-content: space-around;
+				}
+				.justify-between{
+					justify-content: space-between;
+				}
+				.justify-evenly{
+					justify-content: space-evenly;
+				}
 			/*Align-Items | Align-Content*/
-				.active[class*="align"]{ min-height: calc(var(--letter) * 15) }
-				.align-stretch	{ align-items: stretch;		 align-content: stretch    }
-				.align-start 	{ align-items: flex-start;	 align-content: flex-start }
-				.align-end	 	{ align-items: flex-end;	 align-content: flex-end   }
-				.align-center	{ align-items: center;		 align-content: center 	   }
-				.align-baseline	{ align-items: baseline }
-				.align-around	{ align-content: space-around  }
-				.align-between 	{ align-content: space-between }
-				.align-evenly	{ align-content: space-evenly  }
+				.active[class*="align"]{ 
+					min-height: calc(var(--letter) * 15);
+				}
+				.align-stretch{ 
+					align-items: stretch;		 
+					align-content: stretch;    
+					}
+				.align-start{ 
+					align-items: flex-start;	 
+					align-content: flex-start; 
+					}
+				.align-end{ 
+					align-items: flex-end;	 
+					align-content: flex-end;   
+				}
+				.align-center{ 
+					align-items: center;		 
+					align-content: center;     
+				}
+				.align-baseline{ 
+					align-items: baseline; 		
+				}
+				.align-around{ 
+					align-content: space-around;  
+				}
+				.align-between{ 
+					align-content: space-between; 
+				}
+				.align-evenly{ 
+					align-content: space-evenly;  
+				}
 			/*Flex-Direction*/
 				.active.row {
 					border-top-color: var(--success);
@@ -368,16 +523,32 @@
 				}
 			/*Grid-Column*/
 				.template-column :first-child,
-				.template-column :last-child{ grid-column: 1 / 4 } 
-				.template-column :nth-child(3n+2){ grid-column: span 2 }
+				.template-column :last-child{ 
+					grid-column: 1 / 4;
+				} 
+				.template-column :nth-child(3n+2){ 
+					grid-column: span 2;
+				}
 				.template-column :first-child::after,
-				.template-column :last-child::after{ content: ' - column 1 / 4'; }
-				.template-column :nth-child(3n+2)::after{ content: ' - column span 2' }
+				.template-column :last-child::after{ 
+					content: ' - column 1 / 4';
+				}
+				.template-column :nth-child(3n+2)::after{ 
+					content: ' - column span 2';
+				}
 			/*Grid-Row*/
-				.template-row :first-child{ grid-row: 1 / 5 }
-				.template-row :nth-child(4n + 3){ grid-row: span 2 }
-				.template-row :first-child::after{ content: ' - row: 1 / 5'; }
-				.template-row :nth-child(4n + 3)::after{ content: ' - row: span 2'; }
+				.template-row :first-child{ 
+					grid-row: 1 / 5;
+				}
+				.template-row :nth-child(4n + 3){ 
+					grid-row: span 2;
+				}
+				.template-row :first-child::after{ 
+					content: ' - row: 1 / 5';
+				}
+				.template-row :nth-child(4n + 3)::after{ 
+					content: ' - row: span 2';
+				}
 			/*Grid-Area*/
 				.template-area{
 					grid-template-areas: 
@@ -386,33 +557,58 @@
 						'section 	main 		aside'
 						'footer 	footer 		footer'
 				}
-				.template-area :first-child  	  { grid-area: header  }
-				.template-area :nth-child(2) 	  { grid-area: article }
-				.template-area :nth-last-child(2) { grid-area: aside   }
-				.template-area :last-child		  { grid-area: footer  }
-				.template-area :first-child::after 	 	 { content: ' - header'  }
-				.template-area :nth-child(2)::after 	 { content: ' - article' }
-				.template-area :nth-last-child(2)::after { content: ' - aside'	 }
-				.template-area :last-child::after	 	 { content: ' - footer'  }
+				.template-area :first-child{ 
+					grid-area: header;
+				}
+				.template-area :nth-child(2){ 
+					grid-area: article
+				}
+				.template-area :nth-last-child(2){ 
+					grid-area: aside;
+				}
+				.template-area :last-child{ 
+					grid-area: footer;
+				}
+				.template-area :first-child::after{ 
+					content: ' - header';
+				}
+				.template-area :nth-child(2)::after{ 
+					content: ' - article';
+				}
+				.template-area :nth-last-child(2)::after { 
+					content: ' - aside';
+				}
+				.template-area :last-child::after{ 
+					content: ' - footer';
+				}
 			/*Tamaños de Fuente*/
-				.f1{ font-size: calc(var(--letter)*.3 ) }
-				.f2{ font-size: calc(var(--letter)*.6 ) }
-				.f3{ font-size: calc(var(--letter)	) }
-				.f4{ font-size: calc(var(--letter)/.6 ) }
-				.f5{ font-size: calc(var(--letter)/.3 ) }
+				.f1{ 
+					font-size: calc(var(--letter)*.3 );
+				}
+				.f2{ 
+					font-size: calc(var(--letter)*.6 );
+				}
+				.f3{ 
+					font-size: calc(var(--letter) );
+				}
+				.f4{ 
+					font-size: calc(var(--letter)/.6 );
+				}
+				.f5{ 
+					font-size: calc(var(--letter)/.3 );
+				}
 		/*Video de Fondo*/
 			.bg-content{
 				--dark: #000;
 				display: grid;
 				justify-content: center;
-				padding-top: min(55%, 726px);
+				padding-top: min(calc(var(--size) / 1.818), 726px);
 			}
 			.bg-content .container{
 				right: 0;
 				bottom: 0;
 			}
 			.bg-content .btn{
-				position: absolute;
 				padding: calc(var(--letter) / 2) var(--letter);
 				bottom: var(--letter);
 				right: calc(var(--letter) / 2);
@@ -427,156 +623,205 @@
 				width: calc(var(--size) / 2);
 				max-width: calc(var(--letter) * 15);
 				padding: var(--letter);
-				z-index: 1;
 			}
-			.bg-content video{ background-color: var(--dark) }
+			.bg-content video{ 
+				background-color: var(--dark); 
+			}
 	/*Pie de Pagina*/
-		#footer{ padding: var(--r) var(--letter) 0 }
-		.map .btn{
-			top: calc(var(--letter) / 2);
-			right: calc(var(--letter) / 2);
-			padding: calc(var(--letter) / 2);
-			border-color: var(--dark);
-			background-color: var(--dark);
+		#footer{ 
+			padding: var(--r) var(--letter) 0;
 		}
-		.map .icon-max{ position: absolute }
-		.map .icon-min{ position: fixed; z-index: 3; }
-		.map iframe{
-			border: 0;
-			opacity: .5;
-		}
-		.map iframe.active{
-			position: fixed;
-			opacity: .9;
-			z-index: 2;
-		}
-		.copy{
-			display: flex;
-			flex-direction: row-reverse;
-			justify-content: space-around;
-			align-items: center;
-			flex-wrap: wrap;
-			margin: var(--letter) calc(var(--letter) / -1) 0;
-			padding: calc(var(--letter) / 2) 1.5rem;
-			line-height: 1.5rem;
-			background: var(--first) linear-gradient(to right, var(--first), var(--second));
-		}
-		.copy a{
-			padding: calc(var(--letter) / 5) calc(var(--letter) / 2.5);
-			font-weight: bold;
-			color: var(--first);
-			background-color: var(--light);
-		}
-		.copy a:hover{ bottom: var(--r) }
-	/*Formulario de Contacto*/
-		#contact{ 
-			display: grid;
-			margin: calc(var(--letter) / .2) auto;
-			padding: calc(var(--letter) /.67);
-			background: var(--first) radial-gradient(circle at top right, var(--second), var(--first));
-			opacity: .9;
-		}
-		#contact label{
-			margin-top: calc(var(--letter) / 2);
-			padding-left: calc(var(--letter) / 2);
-		}
-		#contact label::after{
-			content: ' *';
-			color: var(--warning);
-			font-family: sans-serif;
-		}
-		#contact input,
-		#contact textarea{
-			width: var(--size);
-			border: calc(var(--letter) / 8) solid var(--light);
-			padding: calc(var(--letter) / 2) var(--letter);
-			resize: none;
-		}
-		#contact textarea{ min-height: calc(var(--letter) * 8) }
-		#contact .btn{
-			margin: calc(var(--letter) / 2) 0 calc(var(--letter) / 5) auto;
-			padding: calc(var(--letter) / 2) var(--letter);
-		}
-		#contact .valid{
-			margin: calc(var(--letter) / -4) 0;
-			padding: calc(var(--letter) / 2);
-			background-color: var(--dark);
-		}
-		/*Validacion*/
-			#contact :focus:not(.btn){ border-color: var(--dark) }
-			#contact input:focus{ border-radius: var(--r) var(--r) 0 0 }
-			#contact :focus + .valid{ border-radius: 0 0 var(--r) var(--r); }
-			#contact :valid:not(.btn){ border-color: var(--success) }
-			#contact :valid + .valid{ background-color: var(--success) }
-			#contact :not(:placeholder-shown):invalid{ border-color: var(--danger) }
-			#contact :not(:placeholder-shown):invalid + .valid{ background-color: var(--danger) }
-	/*Redes Sociales*/
-		.social{
-			--item: calc(var(--letter) / .4);
-			min-width: min(var(--size), calc(var(--item) * 4));
-			max-height: calc(var(--item) + calc(var(--letter) / 1.5));
-			display: grid;
-			grid-template-columns: repeat(auto-fill, var(--item));
-			justify-content: center;
-			gap: var(--r);
-			padding: calc(var(--letter) / 2);
-			overflow: hidden;
-		}
-		.social.active{ 
-			max-width:  calc(var(--item) * 5);
-			max-height: calc(var(--item) * 5);
-		}
-		.social :is(a, button){
-			width:  var(--item);
-			height: var(--item);
-			background: var(--light) var(--bg) center/calc(var(--item) / 1.33) no-repeat;
-			background-blend-mode: luminosity;
-		}
-		.social a:hover{ background-blend-mode: normal; }
-		.facebook	{ --bg: url('../assets/icon/facebook.svg' ) }
-		.github		{ --bg: url('../assets/icon/github.svg'	  ) }
-		.instagram	{ --bg: url('../assets/icon/instagram.svg') }
-		.linkedin	{ --bg: url('../assets/icon/linkedin.svg' ) }
-		.twitter	{ --bg: url('../assets/icon/twitter.svg'  ) }
-		.whatsapp	{ --bg: url('../assets/icon/whatsapp.svg' ) }
-		.youtube	{ --bg: url('../assets/icon/youtube.svg'  ) }
+		/*Mapa de Contacto*/
+			.map .btn{
+				top: calc(var(--letter) / 2);
+				right: calc(var(--letter) / 2);
+				padding: calc(var(--letter) / 2);
+				border-color: var(--dark);
+				background-color: var(--dark);
+			}
+			.map iframe{
+				border: 0;
+				opacity: .5;
+			}
+			.map iframe.active,
+			.map .icon-min{
+				opacity: .9;
+				z-index: 2;
+			}
+		/*Formulario de Contacto*/
+			#contact{ 
+				display: grid;
+				margin: calc(var(--letter) / .2) auto;
+				padding: calc(var(--letter) /.67);
+				background: var(--first) radial-gradient(circle at top right, var(--second), var(--first));
+				opacity: .9;
+			}
+			#contact label{
+				margin-top: calc(var(--letter) / 2);
+				padding-left: calc(var(--letter) / 4);
+			}
+			#contact label::after{
+				content: ' *';
+				color: var(--warning);
+				font-family: sans-serif;
+			}
+			#contact input,
+			#contact textarea{
+				width: var(--size);
+				border: calc(var(--letter) / 8) solid var(--light);
+				padding: calc(var(--letter) / 2) var(--letter);
+				resize: none;
+			}
+			#contact textarea{ min-height: calc(var(--letter) * 8) }
+			#contact .btn{
+				margin: calc(var(--letter) / 2) 0 calc(var(--letter) / 5) auto;
+				padding: calc(var(--letter) / 2) var(--letter);
+			}
+			#contact .valid{
+				margin: calc(var(--letter) / -4) 0;
+				padding: calc(var(--letter) / 2);
+				background-color: var(--dark);
+			}
+			/*Validacion*/
+				#contact :focus:not(.btn){ 
+					border-color: var(--dark);
+				}
+				#contact input:focus{ 
+					border-radius: var(--r) var(--r) 0 0;
+				}
+				#contact :focus + .valid{ 
+					border-radius: 0 0 var(--r) var(--r);
+				}
+				#contact :valid:not(.btn){ 
+					border-color: var(--success);
+				}
+				#contact :valid + .valid{ 
+					background-color: var(--success);
+				}
+				#contact :not(:placeholder-shown):invalid{ 
+					border-color: var(--danger);
+				}
+				#contact :not(:placeholder-shown):invalid + .valid{ 
+					background-color: var(--danger);
+				}
+		/*Redes Sociales*/
+			.social{
+				--item: calc(var(--letter) / .4);
+				min-width: min(var(--size), calc(var(--item) * 4));
+				max-height: calc(var(--item) + calc(var(--letter) / 1.5));
+				display: grid;
+				grid-template-columns: repeat(auto-fill, var(--item));
+				justify-content: center;
+				gap: var(--r);
+				padding: calc(var(--letter) / 2);
+				overflow: hidden;
+			}
+			.social.active{ 
+				max-width:  calc(var(--item) * 5);
+				max-height: calc(var(--item) * 5);
+			}
+			.social :is(a, button){
+				width:  var(--item);
+				height: var(--item);
+				background: var(--light) var(--bg) center/calc(var(--item) / 1.33) no-repeat;
+				background-blend-mode: luminosity;
+			}
+			.social a:hover{ background-blend-mode: normal; }
+			/*Iconos*/
+				.facebook{ 
+					--bg: url('../assets/icon/facebook.svg');
+				}
+				.github{ 
+					--bg: url('../assets/icon/github.svg');
+				}
+				.instagram{ 
+					--bg: url('../assets/icon/instagram.svg');
+				}
+				.linkedin{ 
+					--bg: url('../assets/icon/linkedin.svg');
+				}
+				.twitter{ 
+					--bg: url('../assets/icon/twitter.svg');
+				}
+				.whatsapp{ 
+					--bg: url('../assets/icon/whatsapp.svg');
+				}
+				.youtube{ 
+					--bg: url('../assets/icon/youtube.svg');
+				}
+		/*Derechos de autor*/
+			.copy{
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: space-around;
+				align-items: center;
+				flex-wrap: wrap;
+				margin: var(--letter) calc(var(--letter) / -1) 0;
+				padding: calc(var(--letter) / 2) calc(var(--letter) / .67);
+				background: var(--first) linear-gradient(to right, var(--first), var(--second));
+			}
+			.copy a{
+				padding: calc(var(--letter) / 5) calc(var(--letter) / 2.5);
+				font-weight: bold;
+				color: var(--first);
+				background-color: var(--light);
+			}
+			.copy a:hover{ 
+				bottom: var(--r);
+			}
 /*Pantallas sm Smartphones*/
 	@media screen and (min-width: 576px){
 	/*Formato General*/
 		main section,
-		#contact{ max-width: 540px }
+		#contact{ 
+			max-width: 540px;
+		}
+		.menu,
+		#contact label{
+			height: auto;
+		}
 	/*Barra de Navegacion*/
 		nav .btn,
-		nav span{ display: none }
+		nav span{ 
+			display: none;
+		}
 		.menu,
 		.menu a{
 			display: flex;
 			width: auto;
-			height: auto;
 			font-size: calc(var(--letter)/.67);
 		}
-	/*Formulario de Contacto*/
-		#contact label{ height: auto }
 	}
 /*Pantallas md Tablets*/
 	@media screen and (min-width: 768px){
 	/*Formato General*/
 		main section,
 		.example,
-		#contact{ max-width: 720px }
+		#contact{ 
+			max-width: 720px;
+		}
 	}
 /*Pantallas lg Laptops*/
 	@media screen and (min-width: 992px){
 	/*Formato General*/
-		main section{ max-width: 960px }
+		main section{ 
+			max-width: 960px;
+		}
 		main aside,
-		main section,
-		section{ margin: 0 auto}
+		main section{ 
+			margin: 0 auto;
+		}
 		main aside,
-		nav span{ display: block }
+		nav span{ 
+			display: block;
+		}
 	/*Barra de Navegacion*/
-		.menu a{ align-items: center }
-		nav span{ font-size: var(--letter) }
+		.menu a{ 
+			align-items: center;
+		}
+		nav span{ 
+			font-size: var(--letter);
+		}
 	/*Contenido Principal*/
 		main { 
 			display: grid;
@@ -584,18 +829,18 @@
 			justify-content: center;
 			grid-template-columns: 3fr 1fr;
 			grid-template-areas: 
-				'flexbox	aside'
-				'css-grid	aside';
+				'.	aside'
+				'.	aside';
 			gap: var(--letter);
 		}
-		#flexbox	{ grid-area: flexbox   	}
-		#css-grid	{ grid-area: css-grid  	}
-		#bootstrap	{ grid-area: bootstrap 	}
-		main aside	{ grid-area: aside		}
-		main section{ padding: calc(var(--letter)/.33) calc(var(--letter)/.5)  }
+		main aside	{ 
+			grid-area: aside;
+		}
+		main section{ 
+			padding: calc(var(--letter)/.33) calc(var(--letter)/.5);
+		}
 	/*Barra lateral*/
 		.sidebar{
-			position: sticky;
 			top: calc(var(--letter)/.33);
 			bottom: 0;
 		}
@@ -603,9 +848,13 @@
 /*Pantallas xl Desktop*/
 	@media screen and (min-width: 1200px){
 	/*Formato General*/
-		main{ max-width: 1140px }
+		main{ 
+			max-width: 1140px;
+		}
 	/*Barra de Navegacion*/
-		nav{ justify-content: space-around }
+		nav{ 
+			justify-content: space-around;
+		}
 	}
 /*Pantallas xxl HD Desktop*/
 	@media screen and (min-width: 1400px){
@@ -613,11 +862,19 @@
 		main, 
 		main section,
 		.container,
-		.header{ max-width: 1320px }
+		.header{ 
+			max-width: 1320px;
+		}
 		nav,
-		.copy{ padding: 0 calc(50vw - 960px) }
+		.copy{ 
+			padding: 0 calc(50vw - 960px); 
+		}
 	/*Cabecera de Pagina*/
-		#header .icon-prev{ left: calc(50vw - 720px) }
-		#header .icon-next{ right: calc(50vw - 720px) }
+		#header .icon-prev{ 
+			left: calc(50vw - 720px);
+		}
+		#header .icon-next{ 
+			right: calc(50vw - 720px);
+		}
 	}
 /*Autor: Cristian Racedo*/
