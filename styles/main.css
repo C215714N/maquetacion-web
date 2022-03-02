@@ -90,7 +90,8 @@
 			}
 		/*Rellenos*/
 			.menu,
-			.sidebar ul{
+			.sidebar :is(ul,ol),
+			.list{
 				padding: 0;
 			}
 		/*Tipografía*/
@@ -197,7 +198,8 @@
 			}
 		/*Listas*/
 			.menu, 
-			.sidebar ul{ 
+			.sidebar :is(ol,ul),
+			.list{ 
 				list-style: none 
 			}
 	/*Barra de Navegacion*/

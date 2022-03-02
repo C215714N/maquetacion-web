@@ -1,12 +1,18 @@
+// Declaraciones
+	const d = document
 /*Barra de Navegacion*/	
-	menuBtn = document.querySelector('nav .btn')
-	menuLst = document.querySelector('nav .menu')
+	menuBtn = d.querySelector('nav .btn')
+	menuLst = d.querySelector('nav .menu')
 	
-	menuBtn.onclick = () => menuLst.classList.toggle('active') ? menuBtn.innerHTML = '&times;' : menuBtn.innerHTML = '&equiv;'
+	menuBtn.onclick = () => {
+		menuLst.classList.toggle('active') ? 
+		menuBtn.innerHTML = '&times;' : 
+		menuBtn.innerHTML = '&equiv;'
+	}
 /*Galeria de Imagenes*/
-	slide = document.querySelectorAll('#header .slide li')
-	prev  = document.querySelector('#header .icon-prev')
-	next  = document.querySelector('#header .icon-next')
+	slide = d.querySelectorAll('#header .slide li')
+	prev  = d.querySelector('#header .icon-prev')
+	next  = d.querySelector('#header .icon-next')
 
 	window.setInterval(() => next.click(), 5000)
 	prev.onclick = () => changeItem(slide, false)
@@ -14,40 +20,60 @@
 
 	const changeItem = (array, type, className = 'active') => {
 		for(i = 0; i < array.length; i++){
-			if(array[i].classList.contains(className)){
-				array[i].classList.remove(className)
+			let item = array[i].classList
+			if( item.contains(className) ){
+				item.remove(className)
 				getDirection(array, type, i)
-		}	} 	newItem.classList.add(className)	
+		}	}	item.classList.add(className)	
 	}
 	const getDirection = (array, type, i) => { 
 		switch(type){
-			case true: newItem = ( i < array.length - 1 ? array[i + 1] : array[0] )
+		case true: 
+			item = ( i < array.length - 1 ? array[i + 1] : array[0] ) 
 		break;
-			default: newItem = ( i > 0 ? array[i - 1] : array[array.length -1] )
+		case false: 
+			item = ( i > 0 ? array[i - 1] : array[array.length -1] ) 
+		break;
+		default: 
+			item = array[i]
 	}	}
 /*Redes Sociales*/
-	socialBtn = document.querySelector('#footer .social .btn')
-	socialBar = document.querySelector('#footer .social')
+	socialBtn = d.querySelector('.social .btn')
+	socialBar = d.querySelector('.social')
 	
-	socialBtn.onclick = () => socialBar.classList.toggle('active') ? socialBtn.classList.replace('icon-add','icon-rem') : socialBtn.classList.replace('icon-rem','icon-add') 
+	socialBtn.onclick = () => {
+		socialBar.classList.toggle('active') ? 
+		socialBtn.classList.replace('icon-add','icon-rem') : 
+		socialBtn.classList.replace('icon-rem','icon-add')
+	}
 /*Mapa de Contacto*/
-	map = document.querySelector('#footer iframe')
-	sizeBtn = document.querySelector('#footer .btn.opacity')
+	map = d.querySelector('.map iframe')
+	mapBtn = d.querySelector('.map .btn')
 
-	sizeBtn.onclick = () => map.classList.toggle('active') ? sizeBtn.classList.replace('icon-max', 'icon-min') : sizeBtn.classList.replace('icon-min', 'icon-max')
+	mapBtn.onclick = () => {
+		map.classList.toggle('active') ? 
+		mapBtn.classList.replace('icon-max', 'icon-min') : 
+		mapBtn.classList.replace('icon-min', 'icon-max')
+	}
 /*Background Video*/
-	bgVid = document.querySelector('.bg-content')
-	vid = document.querySelector('.bg-content video')
-	btn = document.querySelector('.bg-content .btn')
+	mediaBox = d.querySelector('.bg-content')
+	mediaPlayer = d.querySelector('.bg-content video')
+	mediaBtn = d.querySelector('.bg-content .btn')
 
-	bgVid.onclick = () => vid.paused ? ( vid.play(), btn.innerHTML = 'PAUSE' ) : ( vid.pause(), btn.innerHTML = 'PLAY')
+	mediaBox.onclick = () => {
+		mediaPlayer.paused ? 
+		( mediaPlayer.play(), mediaBtn.innerHTML = 'PAUSE' ) : 
+		( mediaPlayer.pause(), mediaBtn.innerHTML = 'PLAY' )
+	}
 /*Mostrar Ejemplos*/
-	titles = document.querySelectorAll('.example h4')
-	example = document.querySelectorAll('.flex, .grid')
+	titles = d.querySelectorAll('.example h4')
+	example = d.querySelectorAll('.flex, .grid')
 
-	titles.forEach((t,i) => t.onclick = () => example[i].classList.toggle('active'))
+	titles.forEach((t,i) => {
+		t.onclick = () => example[i].classList.toggle('active')
+	}	)
 /*Prevencion de Comportamientos*/
-	forms = document.querySelectorAll('form')
+	forms = d.querySelectorAll('form')
 
 	forms.forEach(f => f.addEventListener('submit', (e) => {
 		e.preventDefault()
@@ -57,34 +83,44 @@
 	const getData = (obj, title) => {
 		let message = `${title} \n`
 		props = Object.keys(obj)
-		props.forEach( p => message+= `<strong>${p.slice(7)}:</strong> ${obj[p]} \n`)
-		console.log(message)
+		props.forEach( p => message+= `<strong>${p}:</strong> ${obj[p]} \n`)
 	}
 	const sendData = (title) => {
   		confirm('¿Seguro deseas enviar el formulario?') ? 
-  			getData(formProps, title) : 
-  			alert('El envio ha sido cancelado, puedes enviar el formulario cuando quieras')
+  		getData(formProps, title) : 
+  		alert('El envio ha sido cancelado, puedes enviar el formulario cuando quieras')
 	}
 /*Buscador de Contenido*/
-	sideTxt = document.querySelector('#sideText')
-	sideBar = document.querySelector('#sideList')
-	sideLst = document.querySelectorAll('.sidebar li:not(.excluded)')
+	sideTxt = d.querySelector('#sideText')
+	sideBar = d.querySelector('#sideList')
+	sideLst = d.querySelectorAll('.sidebar li:not(.excluded)')
 	
-	sideTxt.oninput = (e) => {
+	sideTxt.addEventListener( 'input', (e) => {
 		term = e.target.value.toLowerCase()
 		searchFilter(sideLst, '', 'hidden')
-		term.length >= 2 ? searchFilter(sideLst, term) : sideLst.forEach(s => s.classList.remove('hidden','filter'))
+			
+		term.length >= 2 ? 
+		searchFilter(sideLst, term) : 
+		sideLst.forEach(s => s.classList.remove('hidden','filter'))
+			
 		searchList(sideBar, 'option')
-	}
-	const searchFilter = (array, data, className = 'filter') => array.forEach( el => el.innerText.toLowerCase().includes(data) ? el.classList.add(className) : el.classList.remove(className))
-	
-	const searchList = (el, tag, className = '.filter') => {
+	}	)
+	const searchFilter = (array, data, className = 'filter') => { array.forEach( el => {
+		el.innerText.toLowerCase().includes(data) ? 
+		el.classList.add(className) : 
+		el.classList.remove(className)
+	}	)	}
+	const searchList = (el, tag, array = d.querySelectorAll('.filter')) => {
+		let results = []
 		el.innerHTML = ''
-		results = document.querySelectorAll(className)
-		results.forEach( r => el.innerHTML += `<${tag} value=${r.innerText}></${tag}>`)
+		
+		array.forEach( item => results.push(item.innerText))
+		results = [...new Set(results)]
+		
+		results.forEach( r => el.innerHTML += `<${tag} value=${r}></${tag}>`)
 	}
 /*Formulario de Contacto*/
-	contact = document.querySelector('#contact')
+	contact = d.querySelector('#contact')
 	fields  = contact.querySelectorAll('input', 'textarea')
 
 	contact.addEventListener('submit', () => sendData('DATOS DE CONTACTO'))
