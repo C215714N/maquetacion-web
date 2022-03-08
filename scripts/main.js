@@ -67,7 +67,7 @@
 	}
 /*Mostrar Ejemplos*/
 	titles = d.querySelectorAll('.example h4')
-	example = d.querySelectorAll('.flex, .grid')
+	example = d.querySelectorAll('.show')
 
 	titles.forEach((t,i) => {
 		t.onclick = () => example[i].classList.toggle('active')
