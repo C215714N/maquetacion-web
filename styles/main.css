@@ -25,7 +25,6 @@
 				--font:		'Raleway', 'segoe ui', sans-serif;
 			}
 		/*Visualizacion*/
-			main aside,
 			.searchbar label,
 			#contact .valid{ 
 				display: none;
@@ -63,6 +62,7 @@
 				margin: 0;
 			}
 			main, 
+			.sidebar,
 			.example, 
 			.container{ 
 				margin: auto;
@@ -128,8 +128,8 @@
 			.filter{ 
 				background-color: var(--warning);
 			}
-		/*Posición*/
-			main .header, 
+		/*Posición*/ 
+			main .header,
 			.searchbar,
 			.bg-content,
 			.social,
@@ -153,7 +153,8 @@
 				position: fixed; 
 			}
 			nav,
-			.sidebar{ 
+			.sidebar,
+			.sidebar header{ 
 				position: sticky;
 			}
 		/*Distribucion*/
@@ -198,7 +199,7 @@
 			}
 		/*Listas*/
 			.menu, 
-			.sidebar :is(ol,ul),
+			.sidebar li,
 			.list{ 
 				list-style: none 
 			}
@@ -259,8 +260,7 @@
 				display: flex;
 				padding-top: calc(var(--letter) / 2);
 			}
-			.searchbar input,
-			.searchbar button{ 
+			.searchbar :is(input, button){ 
 				padding: calc(var(--letter) / 2);
 			}
 			.searchbar input{
@@ -340,10 +340,10 @@
 			/*Aspecto Visual*/
 				.sidebar{ 
 					min-width: calc(var(--letter) * 5);
-					max-height: calc(100vh - 3rem);
+					max-height: calc(100vh / 2 - 3rem);
 					padding: var(--letter);
 					padding-right: calc(var(--letter) / 2);
-					overflow: auto;
+					overflow-y: scroll;
 				}
 				.sidebar::-webkit-scrollbar,
 				.sidebar::-webkit-scrollbar-track,
@@ -368,9 +368,6 @@
 				}
 				.sidebar em{ 
 					font-weight: bold;
-				}
-				.sidebar ul li::before{ 
-					padding: calc(var(--letter) / 2);
 				}
 			/*Contadores*/
 				.sidebar{ 
@@ -408,7 +405,7 @@
 				}
 				.example h4{
 					border-bottom: calc(var(--r) / 2.5) solid #999;
-					padding: .5rem;
+					padding: calc(var(--letter) / 2);
 					color: var(--dark);
 				}
 				.example h4:before{
@@ -775,6 +772,7 @@
 	@media screen and (min-width: 576px){
 	/*Formato General*/
 		main section,
+		.sidebar,
 		#contact{ 
 			max-width: 540px;
 		}
@@ -798,6 +796,7 @@
 	@media screen and (min-width: 768px){
 	/*Formato General*/
 		main section,
+		.sidebar,
 		.example,
 		#contact{ 
 			max-width: 720px;
@@ -809,11 +808,10 @@
 		main section{ 
 			max-width: 960px;
 		}
-		main aside,
-		main section{ 
+		main section,
+		.sidebar{ 
 			margin: 0 auto;
 		}
-		main aside,
 		nav span{ 
 			display: block;
 		}
@@ -830,21 +828,18 @@
 			margin: calc(var(--letter) / 4) auto;
 			justify-content: center;
 			grid-template-columns: 3fr 1fr;
-			grid-template-areas: 
-				'.	aside'
+			grid-template-areas:
 				'.	aside';
 			gap: var(--letter);
-		}
-		main aside	{ 
-			grid-area: aside;
 		}
 		main section{ 
 			padding: calc(var(--letter)/.33) calc(var(--letter)/.5);
 		}
 	/*Barra lateral*/
 		.sidebar{
-			top: calc(var(--letter)/.33);
-			bottom: 0;
+			grid-area: aside;
+			max-height: calc(100vh - 3rem);
+			top: calc( var(--letter)/.33);
 		}
 	}
 /*Pantallas xl Desktop*/
