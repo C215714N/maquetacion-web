@@ -30,9 +30,24 @@
 				display: none;
 			}
 			.menu a,
-			.sidebar :is(em, strong),
+			.sidebar :is(
+				em, 
+				strong),
 			#contact :focus + .valid{ 
 				display: block;
+			}
+			nav,
+			.searchbar,
+			.copy,
+			.flex{
+				display: flex;
+			}
+			.grid,
+			.bg-content,
+			.social,
+			#header,
+			#contact{
+				display: grid;
 			}
 			.menu.active,
 			.hidden.filter,
@@ -77,7 +92,9 @@
 			.example * div,
 			.copy a,
 			#contact,
-			#contact :is(input, textarea),
+			#contact :is(
+				input, 
+				textarea),
 			.social a{ 
 				border-radius: var(--r); 
 			}
@@ -90,7 +107,9 @@
 			}
 		/*Rellenos*/
 			.menu,
-			.sidebar :is(ul,ol),
+			.sidebar :is(
+				ul,
+				ol),
 			.list{
 				padding: 0;
 			}
@@ -116,15 +135,24 @@
 		/*Colores*/
 			nav a,
 			.btn,
-			.searchbar :is(input, button:hover),
+			.searchbar :is(
+				input, 
+				button:hover),
 			.searchbar ::-webkit-input-placeholder,
-			.sidebar :is(a, strong),
+			.sidebar :is(
+				a, 
+				strong),
 			.example * div,
 			#header,
 			#header button.opacity,
 			#footer{ 
 				color: var(--light);
-			}	
+			}
+			.btn:hover,
+			.searchbar button,
+			.copy a{
+				background-color: var(--light)
+			}
 			.filter{ 
 				background-color: var(--warning);
 			}
@@ -135,7 +163,8 @@
 			.social,
 			.example h4, 
 			.copy a, 
-			#header, 
+			#header,
+			#contact, 
 			#footer{ 
 				position: relative; 
 			}
@@ -143,13 +172,21 @@
 			.cover,
 			.slide li, 	
 			.searchbar button,
-			.bg-content :is(video, .btn, .container, .description),
-			.map :is(iframe, .icon-max),
+			.bg-content :is(
+				video, 
+				.btn, 
+				.container, 
+				.description),
+			.map :is(
+				iframe, 
+				.icon-max),
 			#header button.opacity{ 
 				position: absolute; 
 			}
 			.icon-back,
-			.map :is(iframe.active, .icon-min){ 
+			.map :is(
+				iframe.active, 
+				.icon-min){ 
 				position: fixed; 
 			}
 			nav,
@@ -160,7 +197,10 @@
 		/*Distribucion*/
 			.cover,
 			.slide li,	
-			.bg-content :is(video, .description, .container),
+			.bg-content :is(
+				video, 
+				.description, 
+				.container),
 			.map iframe{
 				top: 0;
 				left: 0;
@@ -180,7 +220,6 @@
 			}
 			.btn:hover{ 
 				color: var(--first);
-				background-color: var(--light);
 			}
 			button, 
 			.btn, 
@@ -206,7 +245,6 @@
 	/*Barra de Navegacion*/
 		nav{
 			top: 0;
-			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			flex-wrap: wrap;
@@ -233,7 +271,6 @@
 		}
 	/*Cabecera de Pagina*/
 		#header{
-			display: grid;
 			justify-content: center;
 			align-content: center;
 			height: min(100vh, 600px);
@@ -257,10 +294,11 @@
 		}
 		/*Barra de Busqueda*/
 			.searchbar{ 
-				display: flex;
 				padding-top: calc(var(--letter) / 2);
 			}
-			.searchbar :is(input, button){ 
+			.searchbar :is(
+				input, 
+				button){ 
 				padding: calc(var(--letter) / 2);
 			}
 			.searchbar input{
@@ -278,7 +316,6 @@
 				right: 0;
 				border-radius: 0 var(--r) var(--r) 0;
 				color: var(--first);
-				background-color: var(--light);
 			}
 			.searchbar button:hover{ 
 				background-color: var(--first);
@@ -390,7 +427,10 @@
 					counter-increment: third;
 				}
 			/*Implementacion*/
-				.sidebar :is(strong, em, li):not(.excluded)::before{
+				.sidebar :is(
+					strong, 
+					em, 
+					li):not(.excluded)::before{
 					content: 
 						counter(first)	'.' 
 						counter(second)	'.' 
@@ -431,12 +471,10 @@
 					padding: var(--letter);
 					background: var(--first) linear-gradient(var(--info), var(--first));
 				}
-				.flex{ 
-					display: flex;
+				.flex{
 					flex-wrap: wrap;
 				}
-				.grid{ 
-					display: grid; 
+				.grid{
 					grid-template-columns: auto auto auto;
 				}
 			/*Justify-Items | Justify-Content*/
@@ -599,7 +637,6 @@
 		/*Video de Fondo*/
 			.bg-content{
 				--dark: #000;
-				display: grid;
 				justify-content: center;
 				padding-top: min(calc(var(--size) / 1.818), 726px);
 			}
@@ -639,7 +676,6 @@
 				background-color: var(--dark);
 			}
 			.map iframe{
-				border: 0;
 				opacity: .5;
 			}
 			.map iframe.active,
@@ -648,15 +684,15 @@
 				z-index: 2;
 			}
 		/*Formulario de Contacto*/
-			#contact{ 
-				display: grid;
+			#contact{
+				gap: calc(var(--letter) / 5);
 				margin: calc(var(--letter) / .2) auto;
-				padding: calc(var(--letter) /.67);
+				padding: calc(var(--letter) /.67) var(--letter);
 				background: var(--first) radial-gradient(circle at top right, var(--second), var(--first));
 				opacity: .9;
 			}
 			#contact label{
-				margin-top: calc(var(--letter) / 2);
+				margin-top: calc(var(--letter) / 4);
 				padding-left: calc(var(--letter) / 4);
 			}
 			#contact label::after{
@@ -666,12 +702,13 @@
 			}
 			#contact input,
 			#contact textarea{
-				width: var(--size);
 				border: calc(var(--letter) / 8) solid var(--light);
-				padding: calc(var(--letter) / 2) var(--letter);
+				padding: calc(var(--letter) / 2);
 				resize: none;
 			}
-			#contact textarea{ min-height: calc(var(--letter) * 8) }
+			#contact textarea{ 
+				min-height: calc(var(--letter) * 8) 
+			}
 			#contact .btn{
 				margin: calc(var(--letter) / 2) 0 calc(var(--letter) / 5) auto;
 				padding: calc(var(--letter) / 2) var(--letter);
@@ -706,9 +743,8 @@
 		/*Redes Sociales*/
 			.social{
 				--item: calc(var(--letter) / .4);
-				min-width: min(var(--size), calc(var(--item) * 4));
+				width: min(var(--size), calc(var(--item) * 5));
 				max-height: calc(var(--item) + calc(var(--letter) / 1.5));
-				display: grid;
 				grid-template-columns: repeat(auto-fill, var(--item));
 				justify-content: center;
 				gap: var(--r);
@@ -719,13 +755,17 @@
 				max-width:  calc(var(--item) * 5);
 				max-height: calc(var(--item) * 5);
 			}
-			.social :is(a, button){
+			.social :is(
+				a, 
+				button){
 				width:  var(--item);
 				height: var(--item);
 				background: var(--light) var(--bg) center/calc(var(--item) / 1.33) no-repeat;
 				background-blend-mode: luminosity;
 			}
-			.social a:hover{ background-blend-mode: normal; }
+			.social a:hover{ 
+				background-blend-mode: normal; 
+			}
 			/*Iconos*/
 				.facebook{ 
 					--bg: url('../assets/icon/facebook.svg');
@@ -750,12 +790,11 @@
 				}
 		/*Derechos de autor*/
 			.copy{
-				display: flex;
 				flex-direction: row-reverse;
 				justify-content: space-around;
 				align-items: center;
 				flex-wrap: wrap;
-				margin: var(--letter) calc(var(--letter) / -1) 0;
+				margin: calc(var(--letter) / 1.8) calc(var(--letter) / -1) 0;
 				padding: calc(var(--letter) / 2) calc(var(--letter) / .67);
 				background: var(--first) linear-gradient(to right, var(--first), var(--second));
 			}
@@ -763,7 +802,6 @@
 				padding: calc(var(--letter) / 5) calc(var(--letter) / 2.5);
 				font-weight: bold;
 				color: var(--first);
-				background-color: var(--light);
 			}
 			.copy a:hover{ 
 				bottom: var(--r);
