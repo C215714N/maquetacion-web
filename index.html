@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
@@ -39,7 +39,7 @@
 					maxlength="50" 
 					title="Escriba un texto para realizar una Busqueda" 
 					placeholder="Buscar..." 
-					required />
+					required>
 				<button class="btn icon-success"></button>
 			</form>
 			<button class="icon-prev opacity"></button>
@@ -58,7 +58,7 @@
 		<aside class="sidebar">
 			<header>
 				<h2>Tabla de Contenidos</h2>
-				<form id="sideSearch" list="sideList" class="searchbar">
+				<form id="sideSearch" class="searchbar">
 					<label>Realice una Busqueda</label>
 					<input 
 						id="sideText" 
@@ -69,7 +69,7 @@
 						list="sideList" 
 						title="Escriba un texto para realizar una Busqueda" 
 						placeholder="Buscar..." 
-						required />
+						required>
 					<datalist id="sideList">
 						<option value="flex"></option>
 						<option value="css-grid"></option>
@@ -510,19 +510,22 @@
 			</article>
 		</section>
 	</main>
-	<section class="bg-content">	
+	<section class="bg-content">
+		<div class="container">
+			<button class="btn">PLAY</button>
+			<header class="description">
+				<h2>Fortune Faded</h2>
+				<p>
+					Es un sencillo de los <em>Red Hot Chili Peppers</em>. Se lanzó en 2003, coincidiendo con el lanzamiento de <em>Greatest Hits</em>. La canción se empezó tocando en algunos conciertos de agosto de 2001 en Europa, pero sin embargo no se incluyó en <em>By the Way</em>, y fue regrabada exclusivamente para Greatest Hits.
+				</p>
+			</div>
+		</header>
 		<video loop>
 			<source src="assets/media/fortune-faded.mp4">
 			<p>
 				Lo sentimos pero tu navegador no es compatible con este elemento. Podes descargar el contenido desde el siguiente <a href="assets/media/fortune-faded.mp4">link</a>
 			</p>
 		</video>
-		<div class="container">
-			<button class="btn">PLAY</button>
-			<p class="description">
-				<strong>Fortune Faded</strong> es un sencillo de los <em>Red Hot Chili Peppers</em>. Se lanzó en 2003, coincidiendo con el lanzamiento de <em>Greatest Hits</em>. La canción se empezó tocando en algunos conciertos de agosto de 2001 en Europa, pero sin embargo no se incluyó en <em>By the Way</em>, y fue regrabada exclusivamente para Greatest Hits.
-			</p>
-		</div>
 	</section>
 	<!--Pie de Pagina-->
 	<footer id="footer">
@@ -544,7 +547,7 @@
 				pattern="[A-Z a-z]{3,50}"
 				title="Ingrese su nombre completo, sin numeros ni simbolos" 
 				placeholder="Nombre(*): Cristian Racedo" 
-				required />
+				required>
 			<div class="valid">
 				Ingrese su nombre completo utilizando solamente letras,
 				el mismo debera contar con al menos 3 caracteres y 50 como maximo.
@@ -557,7 +560,7 @@
 				minlength="8" 
 				title="Ingrese su correo respetando el formato usuario@servidor" 
 				placeholder="Correo(*):cristiandracedo@hotmail.com" 
-				required />
+				required>
 			<div class="valid">
 				Utilice una direccion de correo valida que se corresponda con 
 				la siguiente estructura "usuario@servidor".
@@ -570,7 +573,7 @@
 				pattern="\d{6,18}|[\(]\d{2,6}[\)]\d{3,6}[\-]\d{3,6}" 
 				title="Ingrese su numero respetando el formato (5411)5659-1548" 
 				placeholder="Telefono(*): (5411)5659-1548" 
-				required/>
+				required>
 			<div class="valid">
 				Coloque un numero telefonico colocando la caracteristica
 				entre parentesis respetando el ejemplo "(5411)5659-1548".
@@ -600,7 +603,7 @@
 			</div>
 			<p>
 				&copy;Todos los derechos reservados | 
-				<a href="mailto:cristiandracedo@hotmail.com?subject=buenas,necesito un presupuesto" title="Envianos tu consulta por correo">Cristian Racedo</a>
+				<a href="mailto:cristiandracedo@hotmail.com?subject=buenas,necesito%20un%20presupuesto" title="Envianos tu consulta por correo">Cristian Racedo</a>
 				&amp; Compañia
 			</p>
 		</div>
