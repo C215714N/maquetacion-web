@@ -156,6 +156,12 @@
 			.filter{ 
 				background-color: var(--warning);
 			}
+			.icon-back,
+			.bg-content video,
+			.map .btn,
+			#contact .valid{
+				background-color: var(--dark);
+			}
 		/*Posición*/ 
 			main .header,
 			.searchbar,
@@ -267,7 +273,6 @@
 			right: calc(var(--letter) / 2);
 			bottom: calc(var(--letter) / 2);
 			border-radius: calc(var(--size) / 2);
-			background-color: var(--dark);
 		}
 	/*Cabecera de Pagina*/
 		#header{
@@ -451,7 +456,6 @@
 				.example h4:before{
 					counter-increment: item;
 					content:  counter(item);
-					line-height: var(--letter);
 					padding: calc(var(--letter) / 2);
 					font-size: calc(var(--letter) /.4);
 				}
@@ -660,9 +664,6 @@
 				max-width: calc(var(--letter) * 15);
 				padding: var(--letter);
 			}
-			.bg-content video{ 
-				background-color: var(--dark); 
-			}
 	/*Pie de Pagina*/
 		#footer{ 
 			padding: var(--r) var(--letter) 0;
@@ -673,7 +674,6 @@
 				right: calc(var(--letter) / 2);
 				padding: calc(var(--letter) / 2);
 				border-color: var(--dark);
-				background-color: var(--dark);
 			}
 			.map iframe{
 				opacity: .5;
@@ -716,7 +716,6 @@
 			#contact .valid{
 				margin: calc(var(--letter) / -4) 0;
 				padding: calc(var(--letter) / 2);
-				background-color: var(--dark);
 			}
 			/*Validacion*/
 				#contact :focus:not(.btn){ 
