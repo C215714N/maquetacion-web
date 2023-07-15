@@ -30,9 +30,7 @@
 				display: none;
 			}
 			.menu a,
-			.sidebar :is(
-				em, 
-				strong),
+			.sidebar :is(em, strong),
 			#contact :focus + .valid{ 
 				display: block;
 			}
@@ -68,8 +66,7 @@
 			h4,	
 			.menu, 
 			.slide, 
-			.sidebar, 
-			.container, 
+			.sidebar,
 			.description,
 			.example,
 			.social .btn,
@@ -92,13 +89,10 @@
 			.example * div,
 			.copy a,
 			#contact,
-			#contact :is(
-				input, 
-				textarea),
+			#contact :is(input, textarea),
 			.social a{ 
 				border-radius: var(--r); 
 			}
-			a,
 			button,
 			input,
 			select,
@@ -107,9 +101,7 @@
 			}
 		/*Rellenos*/
 			.menu,
-			.sidebar :is(
-				ul,
-				ol),
+			.sidebar :is(ul, ol),
 			.list{
 				padding: 0;
 			}
@@ -119,9 +111,7 @@
 			.copy{ 
 				text-align: center; 
 			}
-			nav a,
-			.sidebar a,
-			.copy a{ 
+			:is(nav, .sidebar, .copy) a{ 
 				text-decoration: none; 
 			}
 			input, 
@@ -135,13 +125,9 @@
 		/*Colores*/
 			nav a,
 			.btn,
-			.searchbar :is(
-				input, 
-				button:hover),
+			.searchbar :is(input, button:hover),
 			.searchbar ::-webkit-input-placeholder,
-			.sidebar :is(
-				a, 
-				strong),
+			.sidebar :is(a, strong),
 			.example * div,
 			#header,
 			#header button.opacity,
@@ -168,6 +154,7 @@
 			.bg-content,
 			.social,
 			.example h4, 
+			.copy,
 			.copy a, 
 			#header,
 			#contact, 
@@ -178,21 +165,13 @@
 			.cover,
 			.slide li, 	
 			.searchbar button,
-			.bg-content :is(
-				video, 
-				.btn, 
-				.container, 
-				.description),
-			.map :is(
-				iframe, 
-				.icon-max),
+			.bg-content :is(video, .btn, .container, .description),
+			.map :is(iframe, .icon-max),
 			#header button.opacity{ 
 				position: absolute; 
 			}
 			.icon-back,
-			.map :is(
-				iframe.active, 
-				.icon-min){ 
+			.map :is(iframe.active, .icon-min){ 
 				position: fixed; 
 			}
 			nav,
@@ -200,16 +179,36 @@
 			.sidebar header{ 
 				position: sticky;
 			}
+		/*Distancias*/
+			nav,
+			.map iframe,
+			.slide li,
+			.description,
+			#header button.opacity {
+				top: 0;
+			}
+			.icon-prev,
+			.slide li,
+			.container,
+			.description,
+			.map iframe {
+				left: 0;
+			}
+			.icon-next,
+			.searchbar button,
+			.bg-content .container {
+				right: 0;
+			}
+			main .header::after,
+			.bg-content :is(.container, .description),
+			#header button.opacity{
+				bottom: 0;
+			}
 		/*Distribucion*/
 			.cover,
 			.slide li,	
-			.bg-content :is(
-				video, 
-				.description, 
-				.container),
+			.bg-content :is(video, .container),
 			.map iframe{
-				top: 0;
-				left: 0;
 				width: var(--size);
 				height: var(--size);
 				z-index: -1;
@@ -250,7 +249,6 @@
 			}
 	/*Barra de Navegacion*/
 		nav{
-			top: 0;
 			justify-content: space-between;
 			align-items: center;
 			flex-wrap: wrap;
@@ -284,26 +282,16 @@
 			font-size: min(calc(2vw + .8rem), 4rem);
 		}
 		#header button.opacity{
-			top: 0;
-			bottom: 0;
 			border: none;
 			padding: min(2vw, 5rem);
 			background-color: transparent;
 			font-size: min(calc(2vw + .8rem), 3rem);
 		}
-		#header .icon-prev{ 
-			left: 0;
-		}
-		#header .icon-next{ 
-			right: 0;
-		}
 		/*Barra de Busqueda*/
 			.searchbar{ 
 				padding-top: calc(var(--letter) / 2);
 			}
-			.searchbar :is(
-				input, 
-				button){ 
+			.searchbar :is(input, button){ 
 				padding: calc(var(--letter) / 2);
 			}
 			.searchbar input{
@@ -318,7 +306,6 @@
 				background: transparent;
 			}
 			.searchbar button{
-				right: 0;
 				border-radius: 0 var(--r) var(--r) 0;
 				color: var(--first);
 			}
@@ -372,7 +359,6 @@
 			main .header::after{
 				content: '';
 				left: calc( var(--size) / 40 );
-				bottom: 0;
 				width: calc(var(--size) * .95);
 				height: .5px;
 				background-color: #ccc;
@@ -432,10 +418,7 @@
 					counter-increment: third;
 				}
 			/*Implementacion*/
-				.sidebar :is(
-					strong, 
-					em, 
-					li):not(.excluded)::before{
+				.sidebar :is(strong, em, li):not(.excluded)::before{
 					content: 
 						counter(first)	'.' 
 						counter(second)	'.' 
@@ -641,17 +624,12 @@
 		/*Video de Fondo*/
 			.bg-content{
 				--dark: #000;
-				justify-content: center;
 				padding-top: min(calc(var(--size) / 1.818), 726px);
-			}
-			.bg-content .container{
-				right: 0;
-				bottom: 0;
 			}
 			.bg-content .btn{
 				padding: calc(var(--letter) / 2) var(--letter);
 				bottom: var(--letter);
-				right: calc(var(--letter) / 2);
+				right: min(calc(var(--letter) / 2));
 			}
 			.bg-content .description{
 				max-width: 0;
@@ -678,8 +656,7 @@
 			.map iframe{
 				opacity: .5;
 			}
-			.map iframe.active,
-			.map .icon-min{
+			.map :is(iframe.active, .icon-min){
 				opacity: .9;
 				z-index: 2;
 			}
@@ -704,10 +681,10 @@
 			#contact textarea{
 				border: calc(var(--letter) / 8) solid var(--light);
 				padding: calc(var(--letter) / 2);
-				resize: none;
 			}
 			#contact textarea{ 
-				min-height: calc(var(--letter) * 8) 
+				min-height: calc(var(--letter) * 8);
+				resize: vertical;
 			}
 			#contact .btn{
 				margin: calc(var(--letter) / 2) 0 calc(var(--letter) / 5) auto;
@@ -754,9 +731,7 @@
 				max-width:  calc(var(--item) * 5);
 				max-height: calc(var(--item) * 5);
 			}
-			.social :is(
-				a, 
-				button){
+			.social :is(a, button){
 				width:  var(--item);
 				height: var(--item);
 				background: var(--light) var(--bg) center/calc(var(--item) / 1.33) no-repeat;
