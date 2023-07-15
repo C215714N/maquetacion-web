@@ -148,13 +148,17 @@
 			#contact .valid{
 				background-color: var(--dark);
 			}
+			.btn,
+			.searchbar input,
+			#header button.opacity{
+				background-color: transparent;
+			}
 		/*Posición*/ 
 			main .header,
 			.searchbar,
 			.bg-content,
 			.social,
-			.example h4, 
-			.copy,
+			.example h4,
 			.copy a, 
 			#header,
 			#contact, 
@@ -184,19 +188,19 @@
 			.map iframe,
 			.slide li,
 			.description,
-			#header button.opacity {
+			#header button.opacity{
 				top: 0;
 			}
 			.icon-prev,
 			.slide li,
 			.container,
 			.description,
-			.map iframe {
+			.map iframe{
 				left: 0;
 			}
 			.icon-next,
 			.searchbar button,
-			.bg-content .container {
+			.bg-content .container{
 				right: 0;
 			}
 			main .header::after,
@@ -219,7 +223,6 @@
 				min-height: calc(var(--letter) / .5);
 				margin: calc(var(--letter) / 2);
 				border: calc(var(--r) / 2.5) solid var(--light);
-				background-color: transparent;
 				font-size: calc(var(--letter) * 1.2);
 				text-transform: uppercase;
 			}
@@ -233,13 +236,17 @@
 				cursor: pointer;
 			}
 		/*Opacidad*/
-			.opacity, 
+			.opacity,
 			.social a{ 
 				opacity: .3;
 			}
-			.opacity:hover, 
-			.social a:hover{ 
-				opacity: .7;
+			.map iframe,
+			:is(.opacity, .social a):hover{ 
+				opacity: .6;
+			}
+			.map :is(iframe.active, .icon-min),
+			#contact{
+				opacity: .9;
 			}
 		/*Listas*/
 			.menu, 
@@ -284,7 +291,6 @@
 		#header button.opacity{
 			border: none;
 			padding: min(2vw, 5rem);
-			background-color: transparent;
 			font-size: min(calc(2vw + .8rem), 3rem);
 		}
 		/*Barra de Busqueda*/
@@ -303,7 +309,6 @@
 			.searchbar ::-webkit-search-cancel-button,
 			.searchbar ::-webkit-input-placeholder{ 
 				-webkit-appearance: none;
-				background: transparent;
 			}
 			.searchbar button{
 				border-radius: 0 var(--r) var(--r) 0;
@@ -408,7 +413,7 @@
 					counter-reset: third;
 				}
 			/*Incrementos*/
-				.sidebar li { 
+				.sidebar li{ 
 					counter-increment: first;
 				}
 				.sidebar li li{ 
@@ -465,11 +470,11 @@
 					grid-template-columns: auto auto auto;
 				}
 			/*Justify-Items | Justify-Content*/
-				.jutify-stretch { 
+				.jutify-stretch{ 
 					justify-items: stretch; 	 
 					justify-content: stretch;	 
 				}
-				.justify-start {
+				.justify-start{
 					justify-items: flex-start; 
 					justify-content: flex-start;
 				}
@@ -526,21 +531,21 @@
 					align-content: space-evenly;  
 				}
 			/*Flex-Direction*/
-				.active.row {
+				.active.row{
 					border-top-color: var(--success);
 					border-left-color: var(--danger);
 				}
-				.active.column {
+				.active.column{
 					flex-direction: column;
 					border-top-color: var(--danger);
 					border-left-color: var(--success);
 				} 
-				.active.row-reverse {
+				.active.row-reverse{
 					flex-direction: row-reverse;
 					border-top-color: var(--success);
 					border-right-color: var(--danger);
 				}
-				.active.column-reverse {
+				.active.column-reverse{
 					flex-direction: column-reverse;
 					border-bottom-color: var(--danger);
 					border-left-color: var(--success);
@@ -599,7 +604,7 @@
 				.template-area :nth-child(2)::after{ 
 					content: ' - article';
 				}
-				.template-area :nth-last-child(2)::after { 
+				.template-area :nth-last-child(2)::after{ 
 					content: ' - aside';
 				}
 				.template-area :last-child::after{ 
@@ -653,11 +658,7 @@
 				padding: calc(var(--letter) / 2);
 				border-color: var(--dark);
 			}
-			.map iframe{
-				opacity: .5;
-			}
 			.map :is(iframe.active, .icon-min){
-				opacity: .9;
 				z-index: 2;
 			}
 		/*Formulario de Contacto*/
@@ -666,7 +667,6 @@
 				margin: calc(var(--letter) / .2) auto;
 				padding: calc(var(--letter) /.67) var(--letter);
 				background: var(--first) radial-gradient(circle at top right, var(--second), var(--first));
-				opacity: .9;
 			}
 			#contact label{
 				margin-top: calc(var(--letter) / 4);
@@ -771,6 +771,7 @@
 				margin: calc(var(--letter) / 1.8) calc(var(--letter) / -1) 0;
 				padding: calc(var(--letter) / 2) calc(var(--letter) / .67);
 				background: var(--first) linear-gradient(to right, var(--first), var(--second));
+				line-height: 1.5;
 			}
 			.copy a{
 				padding: calc(var(--letter) / 5) calc(var(--letter) / 2.5);
@@ -835,7 +836,7 @@
 			font-size: var(--letter);
 		}
 	/*Contenido Principal*/
-		main { 
+		main{ 
 			display: grid;
 			margin: calc(var(--letter) / 4) auto;
 			justify-content: center;
